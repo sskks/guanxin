@@ -24,5 +24,9 @@ venv/
 Thumbs.db
 desktop.ini
 
+# Logs
+*.log
+.codex-server*
+
 # QoderWork
 .qoderwork*/

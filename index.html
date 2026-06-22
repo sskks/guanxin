@@ -359,6 +359,19 @@ body::after{
   pointer-events:none;z-index:10;
 }
 .result-inner{width:100%;max-width:560px;padding:var(--space-xl) var(--space-md);text-align:center}
+.entry-hero-note{
+  margin:var(--space-lg) auto 0;
+  max-width:360px;
+  padding:var(--space-sm) var(--space-md);
+  border:1px solid rgba(216,206,188,0.7);
+  border-radius:var(--radius-lg);
+  background:rgba(242,235,217,0.72);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.8;
+}
+.entry-hero-note strong{color:var(--ink-deep);font-weight:500}
 .result-title{
   font-family:var(--font-serif);font-size:var(--text-xl);color:var(--ink-deep);
   font-weight:500;letter-spacing:0.15em;margin-bottom:var(--space-lg);
@@ -409,6 +422,104 @@ body::after{
 .tag:hover{transform:translateY(-1px)}
 .desc-text{font-size:var(--text-base);color:var(--ink-light);line-height:1.9;text-align:justify;margin-bottom:var(--space-xl);white-space:pre-line}
 .result-inner .btn-primary{width:100%;max-width:280px;margin:0 auto}
+.birth-intro-card{
+  margin:0 auto var(--space-lg);
+  width:100%;
+  max-width:420px;
+  padding:var(--space-md);
+  border:1px solid rgba(216,206,188,0.8);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(180deg,rgba(248,243,230,0.96),rgba(242,235,217,0.88));
+  box-shadow:var(--shadow-sm);
+}
+.birth-intro-card h3{
+  font-family:var(--font-serif);
+  font-size:var(--text-base);
+  color:var(--ink-deep);
+  font-weight:500;
+  letter-spacing:0.08em;
+  margin-bottom:var(--space-xs);
+}
+.birth-intro-card p{
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.85;
+}
+.disclaimer-card{
+  margin-top:var(--space-lg);
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  border:1px solid rgba(168,60,50,0.12);
+  background:rgba(168,60,50,0.05);
+  text-align:left;
+}
+.disclaimer-card h4{
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--cinnabar);
+  letter-spacing:0.08em;
+  margin-bottom:var(--space-xs);
+}
+.disclaimer-card p{
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.85;
+}
+.next-steps-card{
+  margin-top:var(--space-lg);
+  padding:var(--space-md);
+  border:1px solid rgba(106,142,110,0.18);
+  border-radius:var(--radius-lg);
+  background:rgba(106,142,110,0.05);
+  text-align:left;
+}
+.next-steps-card h4{
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--jade);
+  letter-spacing:0.08em;
+  margin-bottom:var(--space-sm);
+}
+.next-steps-list{
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-sm);
+}
+.next-step-btn{
+  width:100%;
+  text-align:left;
+  border:1px solid rgba(106,142,110,0.16);
+  border-radius:var(--radius-md);
+  background:rgba(248,243,230,0.92);
+  color:var(--ink);
+  padding:var(--space-sm) var(--space-md);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  cursor:pointer;
+  transition:all 0.25s var(--ease-ink);
+}
+.next-step-btn strong{
+  display:block;
+  color:var(--ink-deep);
+  font-weight:500;
+  margin-bottom:2px;
+}
+.next-step-btn span{
+  display:block;
+  color:var(--ink-light);
+  font-size:var(--text-xs);
+  line-height:1.7;
+}
+.next-step-btn:hover{
+  border-color:rgba(106,142,110,0.32);
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+}
+.next-step-btn.is-done{
+  border-color:rgba(106,142,110,0.3);
+  background:rgba(106,142,110,0.08);
+}
+.next-step-btn.is-done strong{color:var(--jade)}
 
 /* ===== 首页 · 水墨风增强 ===== */
 #home-screen{background:var(--paper);justify-content:flex-start}
@@ -427,6 +538,58 @@ body::after{
 .home-subtitle{
   font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light);
   letter-spacing:0.18em;font-weight:300;
+}
+.home-review-card{
+  display:none;
+  margin:0 auto var(--space-lg);
+  padding:var(--space-lg);
+  border:1px solid rgba(143,175,141,0.25);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(135deg,rgba(248,243,230,0.96),rgba(237,230,211,0.88));
+  box-shadow:var(--shadow-sm);
+  text-align:left;
+}
+.home-review-eyebrow{
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  color:var(--jade);
+  letter-spacing:0.1em;
+  margin-bottom:var(--space-xs);
+}
+.home-review-card h3{
+  font-family:var(--font-serif);
+  font-size:var(--text-base);
+  color:var(--ink-deep);
+  font-weight:500;
+  margin-bottom:var(--space-sm);
+}
+.home-review-meta{
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+  margin-bottom:var(--space-sm);
+}
+.home-review-question{
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink);
+  line-height:1.9;
+  margin-bottom:var(--space-sm);
+}
+.home-review-insight{
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.85;
+}
+.home-review-actions{
+  display:flex;
+  gap:var(--space-sm);
+  flex-wrap:wrap;
+  margin-top:var(--space-md);
+}
+.home-review-actions .btn{
+  min-height:40px;
+  padding:var(--space-xs) var(--space-md);
+  font-size:var(--text-sm);
 }
 /* 水墨分隔线 · 朱砂点缀 */
 .home-title-block::after{
@@ -633,9 +796,10 @@ body::after{
   position:fixed;bottom:20%;left:50%;transform:translateX(-50%);
   background:rgba(44,36,24,0.75);color:var(--paper-light);padding:var(--space-sm) var(--space-lg);
   border-radius:var(--radius-md);font-size:var(--text-sm);
-  opacity:0;transition:opacity 0.3s;pointer-events:none;
+  opacity:0;transition:opacity 0.3s, transform 0.3s;pointer-events:none;
+  z-index:10020;box-shadow:var(--shadow-md);
 }
-.sc-toast.show{opacity:1}
+.sc-toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
 
 /* ===== 自定义确认弹窗 · 古朴风 ===== */
 .confirm-assy-overlay{
@@ -1264,6 +1428,30 @@ body::after{
 .ai-result{margin-top:var(--space-md)}
 .ai-result h4{font-family:var(--font-serif);font-size:var(--text-base);color:var(--celadon);font-weight:500;letter-spacing:0.1em;margin-bottom:var(--space-sm)}
 .ai-result p{font-size:var(--text-sm);color:var(--ink);line-height:2}
+.ai-action-card h4{color:var(--jade)}
+.ai-action-grid{display:grid;gap:var(--space-sm)}
+.ai-action-item{
+  padding:var(--space-sm) var(--space-md);
+  border-radius:var(--radius-sm);
+  background:rgba(143,175,141,0.07);
+  border:1px solid rgba(143,175,141,0.14);
+}
+.ai-action-label{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  color:var(--jade);
+  letter-spacing:0.08em;
+  margin-bottom:4px;
+}
+.ai-action-value{
+  display:block;
+  font-size:var(--text-sm);
+  color:var(--ink);
+  line-height:1.85;
+}
+.ai-error h4{color:var(--cinnabar)}
+.ai-error p{color:var(--ink-light)}
 
 /* ===== 中式装饰元素 ===== */
 .deco-divider{
@@ -1329,6 +1517,44 @@ body::after{
 }
 .history-search:focus{outline:none;border-color:var(--cinnabar)}
 .history-search::placeholder{color:var(--ink-faint)}
+.history-theme-bar{
+  display:flex;
+  gap:var(--space-sm);
+  flex-wrap:wrap;
+  margin-bottom:var(--space-md);
+}
+.history-theme-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:5px 12px;
+  border-radius:var(--radius-full);
+  border:1px solid rgba(143,175,141,0.18);
+  background:rgba(248,243,230,0.9);
+  color:var(--ink-light);
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  cursor:pointer;
+  transition:all 0.2s;
+}
+.history-theme-chip:hover{border-color:var(--jade);color:var(--jade)}
+.history-theme-chip.active{
+  background:rgba(143,175,141,0.12);
+  border-color:var(--jade);
+  color:var(--jade);
+}
+.history-theme-badge{
+  display:inline-flex;
+  align-items:center;
+  padding:2px 10px;
+  border-radius:var(--radius-full);
+  background:rgba(143,175,141,0.08);
+  border:1px solid rgba(143,175,141,0.16);
+  color:var(--jade);
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  margin-top:6px;
+}
 /* 月报卡片 */
 .monthly-report{
   background:linear-gradient(135deg,var(--paper-light) 0%,var(--silk) 100%);
@@ -1502,10 +1728,12 @@ body::after{
 .bz-wx-tag.ke{background:var(--cinnabar-bg);color:var(--cinnabar);border:1px solid rgba(168,60,50,0.2)}
 .bz-wx-tag.bi{background:var(--gold-light);color:var(--gold);border:1px solid rgba(139,115,85,0.2)}
 /* ===== 卦象图鉴 ===== */
-.enc-header{padding:var(--space-lg) var(--space-md) var(--space-sm);text-align:center;border-bottom:1px solid var(--ink-ghost);margin-bottom:var(--space-md);position:relative}
+.enc-header{padding:var(--space-lg) var(--space-md) var(--space-sm);text-align:center;border-bottom:1px solid var(--ink-ghost);margin-bottom:var(--space-md)}
+.enc-header-top{display:flex;align-items:center;justify-content:flex-start;margin-bottom:var(--space-md)}
+.enc-header-title{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%}
 .enc-header h2{font-family:var(--font-display);font-size:1.5rem;color:var(--ink-deep);margin:0 0 var(--space-xs);letter-spacing:0.15em}
 .enc-header p{font-family:var(--font-serif);font-size:var(--text-xs);color:var(--ink-faint);margin:0;letter-spacing:0.08em}
-.enc-back-btn{position:absolute;left:var(--space-md);top:var(--space-lg);background:none;border:1px solid var(--ink-ghost);border-radius:var(--radius-sm);padding:var(--space-xs) var(--space-sm);font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light);cursor:pointer;transition:all 0.2s;-webkit-tap-highlight-color:transparent}
+.enc-back-btn{flex-shrink:0;background:none;border:1px solid var(--ink-ghost);border-radius:var(--radius-sm);padding:var(--space-xs) var(--space-sm);font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light);cursor:pointer;transition:all 0.2s;-webkit-tap-highlight-color:transparent}
 .enc-back-btn:hover{border-color:var(--ink-light);color:var(--ink-deep)}
 .enc-search{position:relative;padding:0 var(--space-md);margin-bottom:var(--space-md)}
 .enc-search input{width:100%;box-sizing:border-box;font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink);background:var(--silk);border:1px solid var(--ink-ghost);border-radius:var(--radius-md);padding:10px 12px 10px 36px;outline:none;transition:border-color 0.25s;-webkit-appearance:none}
@@ -1527,6 +1755,11 @@ body::after{
 .enc-card-name{font-family:var(--font-display);font-size:1.1rem;color:var(--ink-deep);text-align:center;margin-bottom:2px;letter-spacing:0.08em}
 .enc-card-trigram{font-family:var(--font-serif);font-size:var(--text-xs);color:var(--ink-light);text-align:center;margin-bottom:var(--space-sm)}
 .enc-card-tags{display:flex;gap:var(--space-xs);flex-wrap:wrap;justify-content:center}
+@media(max-width:520px){
+  .enc-header{padding-top:var(--space-md)}
+  .enc-header-top{margin-bottom:var(--space-sm)}
+  .enc-back-btn{font-size:var(--text-xs);padding:4px 10px}
+}
 .enc-card-tag{font-family:var(--font-serif);font-size:0.65rem;color:var(--ink-faint);background:var(--gold-light);border-radius:999px;padding:1px 8px;line-height:1.7;white-space:nowrap}
 .enc-detail-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(44,36,24,0.65);align-items:flex-start;justify-content:center;padding:var(--space-lg) var(--space-md);overflow-y:auto;-webkit-overflow-scrolling:touch;opacity:0;transition:opacity 0.25s ease}
 .enc-detail-overlay.active{display:flex;opacity:1}
@@ -1590,7 +1823,10 @@ body::after{
     </div>
     <p class="splash-subtitle">以易观心 · 明悟自性</p>
     <p class="splash-verse"><span>天行健</span><span>君子以自强不息</span></p>
-    <button class="btn-ink" onclick="goTo('home');localStorage.setItem('guanxin_onboarded','1')">开始探索</button>
+    <button class="btn-ink" onclick="startPrimaryJourney()">开始探索</button>
+    <div class="entry-hero-note">
+      <strong>从填写生辰信息开始。</strong> 先建立个人命理档案，再进入每日一卦、命宫解读与问卦体验。
+    </div>
   </div>
   <div class="splash-hint">心诚则灵 · 一事一占</div>
 </div>
@@ -1599,7 +1835,11 @@ body::after{
 <div id="birthday-screen" class="screen scrollable">
   <div class="birthday-header">
     <h2>完善个人信息</h2>
-    <p>输入您的生辰信息，计算本命卦</p>
+    <p>从这里开始，建立你的个人命理档案</p>
+  </div>
+  <div class="birth-intro-card">
+    <h3>为什么先填写生辰信息</h3>
+    <p>录入后可生成本命卦、命宫与流年参考，也能让后续浏览与解读更贴近你的个人视角。</p>
   </div>
   <form class="birthday-form" onsubmit="return handleSubmit(event)">
     <div class="form-field">
@@ -1651,6 +1891,12 @@ body::after{
     </div>
     <button type="submit" class="btn btn-primary">确认并计算</button>
   </form>
+  <div class="birthday-form">
+    <div class="disclaimer-card">
+      <h4>使用前说明</h4>
+      <p>生辰信息仅保存在当前浏览器本地，用于生成个人卦象参考。内容仅供传统文化体验与自我观察，不构成医疗、法律、投资或心理治疗建议。</p>
+    </div>
+  </div>
 </div>
 
 <!-- ===== 加载页 ===== -->
@@ -1683,7 +1929,11 @@ body::after{
     </div>
     <div class="tags-row" id="tags-row"></div>
     <p class="desc-text" id="desc-text"></p>
-    <button class="btn btn-primary" onclick="goTo('home')">进入观心</button>
+    <div class="disclaimer-card" style="text-align:left">
+      <h4>结果说明</h4>
+      <p>以下内容用于帮助你从传统文化视角理解个人特质与节奏变化，请把它当作启发式参考，而不是绝对判断依据。</p>
+    </div>
+    <button class="btn btn-primary" onclick="goTo('home')">查看完整功能</button>
   </div>
 </div>
 
@@ -1693,9 +1943,27 @@ body::after{
     <button class="home-settings-btn" onclick="openSettings()" title="设置">&#9881;</button>
     <div class="home-title-block">
       <h1 class="home-title">观 心</h1>
-      <p class="home-subtitle">以易观心 · 明悟自性</p>
+      <p class="home-subtitle">先看自己的命理档案，再延展到每日学习与问卦</p>
+    </div>
+    <div class="home-review-card" id="home-review-card">
+      <div class="home-review-eyebrow">七日回看</div>
+      <h3 id="home-review-title">回看一周前的这次提问</h3>
+      <div class="home-review-meta" id="home-review-meta"></div>
+      <p class="home-review-question" id="home-review-question"></p>
+      <p class="home-review-insight" id="home-review-insight"></p>
+      <div class="home-review-actions">
+        <button class="btn btn-primary" onclick="openSevenDayReview()">回看这次卦象</button>
+        <button class="btn btn-outline" onclick="showHistory()">去历史记录</button>
+      </div>
     </div>
     <div class="home-grid">
+      <div class="feature-card" onclick="showBaZhai()">
+        <div class="card-icon">&#129504;</div>
+        <div>
+          <h3 class="card-title">命宫解读</h3>
+          <p class="card-desc">从你的生辰信息出发，查看本命卦与流年参考</p>
+        </div>
+      </div>
       <div class="feature-card" onclick="showDailyHex()">
         <div class="card-icon">&#9775;</div>
         <div>
@@ -1708,13 +1976,6 @@ body::after{
         <div>
           <h3 class="card-title">以事问卦</h3>
           <p class="card-desc">心中所惑，诚心问卦以求指引</p>
-        </div>
-      </div>
-      <div class="feature-card" onclick="showBaZhai()">
-        <div class="card-icon">&#129504;</div>
-        <div>
-          <h3 class="card-title">命宫解读</h3>
-          <p class="card-desc">个人卦象特质与流年五行参考</p>
         </div>
       </div>
     </div>
@@ -1887,13 +2148,48 @@ body::after{
     </div>
     <!-- AI白话解读 -->
     <div class="ai-btn-wrap">
+      <div class="disclaimer-card" style="margin-bottom:var(--space-md)">
+        <h4>AI 解读说明</h4>
+        <p>AI 会将卦辞转换成更易理解的现代语言，但结果仍属于文化体验与启发式建议，请不要作为医疗、法律、投资或心理治疗依据。</p>
+      </div>
       <button class="btn btn-outline" id="ai-btn" onclick="requestAIInterpret()" style="border-color:var(--celadon);color:var(--celadon);font-size:var(--text-sm)">
         &#10024; AI白话解读
       </button>
       <div id="ai-loading" class="ai-loading">AI正在解读卦象...</div>
+      <div id="ai-action-card" class="div-interpret ai-action-card" style="display:none">
+        <h4>&#10024; 行动卡</h4>
+        <div class="ai-action-grid">
+          <div class="ai-action-item"><span class="ai-action-label">整体寓意</span><span class="ai-action-value" id="ai-overall"></span></div>
+          <div class="ai-action-item"><span class="ai-action-label">当前形势</span><span class="ai-action-value" id="ai-current"></span></div>
+          <div class="ai-action-item"><span class="ai-action-label">建议行动</span><span class="ai-action-value" id="ai-action"></span></div>
+          <div class="ai-action-item"><span class="ai-action-label">今日避免</span><span class="ai-action-value" id="ai-avoid"></span></div>
+          <div class="ai-action-item"><span class="ai-action-label">一句提醒</span><span class="ai-action-value" id="ai-reminder"></span></div>
+        </div>
+      </div>
+      <div id="ai-error" class="div-interpret ai-error" style="display:none">
+        <h4>AI 暂时不可用</h4>
+        <p id="ai-error-text"></p>
+      </div>
       <div id="ai-result" class="div-interpret ai-result" style="display:none">
         <h4>&#10024; AI解读</h4>
         <p id="ai-result-text" style="line-height:2"></p>
+      </div>
+    </div>
+    <div class="next-steps-card">
+      <h4>下一步可以这样继续</h4>
+      <div class="next-steps-list">
+        <button class="next-step-btn" id="favorite-result-btn" onclick="favoriteCurrentResult()" aria-pressed="false">
+          <strong>收藏这次卦象</strong>
+          <span>把这次启示留在历史记录里，之后回看更方便。</span>
+        </button>
+        <button class="next-step-btn" onclick="showDailyHex()">
+          <strong>去读今日一卦</strong>
+          <span>把这次问题延展到每天的固定学习与打卡节奏。</span>
+        </button>
+        <button class="next-step-btn" onclick="showEncyclopedia()">
+          <strong>查看相关卦象图鉴</strong>
+          <span>从卦辞、关键词和上下卦结构继续深入理解这次结果。</span>
+        </button>
       </div>
     </div>
     <!-- 分享操作栏 -->
@@ -1931,6 +2227,7 @@ body::after{
       <button class="history-filter-btn" onclick="filterHistory('fav')" id="hf-fav">&#9733; 收藏</button>
       <input class="history-search" id="history-search" placeholder="搜索卦名或问题..." oninput="filterHistory('search')">
     </div>
+    <div class="history-theme-bar" id="history-theme-bar" style="display:none"></div>
     <div class="history-list" id="history-list">
       <!-- populated by JS -->
     </div>
@@ -1947,8 +2244,12 @@ body::after{
 <!-- ===== 卦象图鉴 ===== -->
 <div id="encyclopedia-screen" class="screen scrollable">
   <div class="enc-header">
-    <button class="enc-back-btn" onclick="goTo('home')">&larr; 返回</button>
-    <h2>周易六十四卦</h2>
+    <div class="enc-header-top">
+      <button class="enc-back-btn" onclick="goTo('home')">&larr; 返回</button>
+    </div>
+    <div class="enc-header-title">
+      <h2>周易六十四卦</h2>
+    </div>
     <p>观卦象以知天命 · 察爻辞以通人事</p>
   </div>
   <div class="enc-search">
@@ -2211,6 +2512,49 @@ const GUA_TAGS={
 59:{k:['涣散','凝聚','信仰'],t:'转折'},60:{k:['节制','有度','中庸'],t:'修身'},
 61:{k:['诚信','中正','感化'],t:'修身'},62:{k:['小过','谨慎','务实'],t:'修身'},
 63:{k:['既成','守成','防衰'],t:'完成'},64:{k:['未成','希望','慎终'],t:'开始'}
+};
+
+const THEME_LABELS={
+  all:'全部主题',
+  work:'工作与方向',
+  relationship:'关系与沟通',
+  growth:'自我成长',
+  emotion:'情绪整理',
+  other:'未分类'
+};
+const THEME_KEYWORDS={
+  work:['工作','事业','职业','项目','老板','同事','客户','offer','晋升','跳槽','副业','赚钱','财运','合作','方向'],
+  relationship:['感情','爱情','关系','伴侣','对象','婚','分手','前任','朋友','家人','父母','孩子','相处','沟通'],
+  growth:['成长','学习','修身','改变','选择','坚持','自律','行动','目标','习惯','提升','反思'],
+  emotion:['焦虑','压力','情绪','内耗','失眠','害怕','难过','痛苦','迷茫','不安','担心','纠结']
+};
+const HEX_THEME_FALLBACK={
+  感情:'relationship',
+  家庭:'relationship',
+  人际:'relationship',
+  冲突:'relationship',
+  修身:'growth',
+  学习:'growth',
+  坚持:'growth',
+  成长:'growth',
+  改革:'growth',
+  开始:'growth',
+  完成:'growth',
+  开创:'growth',
+  积累:'growth',
+  转折:'emotion',
+  困难:'emotion',
+  等待:'emotion',
+  得失:'emotion',
+  行动:'work',
+  决断:'work',
+  组织:'work',
+  收获:'work',
+  力量:'work',
+  根基:'work',
+  通泰:'work',
+  变通:'work',
+  光明:'growth'
 };
 
 /* 命宫关键词 */
@@ -2705,6 +3049,7 @@ function openDB(){
 
 async function saveDivRecord(record){
   try{
+    record = normalizeRecord(record);
     const db = await openDB();
     const tx = db.transaction(STORE_NAME,'readwrite');
     tx.objectStore(STORE_NAME).put(record);
@@ -2717,7 +3062,7 @@ async function loadDivRecord(dateStr){
     const db = await openDB();
     const tx = db.transaction(STORE_NAME,'readonly');
     const req = tx.objectStore(STORE_NAME).get(dateStr);
-    return new Promise((res,rej)=>{ req.onsuccess=()=>res(req.result||null); req.onerror=rej; });
+    return new Promise((res,rej)=>{ req.onsuccess=()=>res(normalizeRecord(req.result||null)); req.onerror=rej; });
   }catch(e){ return null; }
 }
 
@@ -2727,6 +3072,93 @@ let lastDivResult = null;
 let lastDivQuestion = null;
 let pendingCallback = null;
 let shakeListenerActive = false;
+let _homeReviewDateKey = null;
+
+function inferThemeKey(question, hex){
+  var q = (question || '').toLowerCase();
+  var keys = Object.keys(THEME_KEYWORDS);
+  for(var i=0;i<keys.length;i++){
+    var themeKey = keys[i];
+    var words = THEME_KEYWORDS[themeKey];
+    for(var j=0;j<words.length;j++){
+      if(q.indexOf(words[j].toLowerCase())!==-1) return themeKey;
+    }
+  }
+  var hexTag = hex && GUA_TAGS[hex.id] ? GUA_TAGS[hex.id].t : '';
+  return HEX_THEME_FALLBACK[hexTag] || 'other';
+}
+
+function getThemeInfo(record){
+  if(!record) return {key:'other',label:THEME_LABELS.other};
+  var key = record.themeKey || inferThemeKey(record.question, record.result);
+  return {key:key, label:THEME_LABELS[key] || THEME_LABELS.other};
+}
+
+function normalizeRecord(record){
+  if(!record) return record;
+  if(!record.timestamp) record.timestamp = Date.now();
+  var theme = getThemeInfo(record);
+  record.themeKey = theme.key;
+  record.themeLabel = theme.label;
+  if(record.favorite && typeof record.fav === 'undefined') record.fav = true;
+  if(record.fav && typeof record.favorite === 'undefined') record.favorite = true;
+  return record;
+}
+
+function formatRecordDate(record){
+  if(!record) return '';
+  var ts = record.timestamp || Date.now();
+  var d = new Date(ts);
+  if(isNaN(d.getTime())) return record.date || '';
+  return d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
+}
+
+function generateReviewInsight(record){
+  var theme = getThemeInfo(record).label;
+  var hexName = record && record.result ? ('第'+record.result.id+'卦 '+record.result.name) : '这次卦象';
+  return '七天后再看，'+hexName+'更像是一个关于“'+theme+'”的提醒。与其急着求答案，不如回想这几天你的情绪、关系或行动是否已经悄悄发生了变化。';
+}
+
+async function markRecordReviewed(dateKey){
+  var record = await loadDivRecord(dateKey);
+  if(!record) return;
+  record.reviewedAt = Date.now();
+  await saveDivRecord(record);
+}
+
+async function updateHomeReviewCard(){
+  var card = document.getElementById('home-review-card');
+  if(!card) return;
+  var records = await loadAllRecords();
+  var now = Date.now();
+  var threshold = 7 * 24 * 60 * 60 * 1000;
+  var candidate = records
+    .filter(function(r){ return r && r.timestamp && (now - r.timestamp >= threshold) && !r.reviewedAt; })
+    .sort(function(a,b){ return (b.timestamp||0) - (a.timestamp||0); })[0];
+  if(!candidate){
+    card.style.display = 'none';
+    _homeReviewDateKey = null;
+    return;
+  }
+  _homeReviewDateKey = candidate.date;
+  document.getElementById('home-review-meta').textContent = formatRecordDate(candidate)+' · '+getThemeInfo(candidate).label;
+  document.getElementById('home-review-question').textContent = candidate.question ? ('“'+candidate.question+'”') : ('第'+candidate.result.id+'卦 '+candidate.result.name);
+  document.getElementById('home-review-insight').textContent = generateReviewInsight(candidate);
+  card.style.display = 'block';
+}
+
+async function openSevenDayReview(){
+  if(!_homeReviewDateKey){ showHistory(); return; }
+  var record = await loadDivRecord(_homeReviewDateKey);
+  if(!record) return;
+  await markRecordReviewed(record.date);
+  lastDivResult = record.result;
+  lastDivQuestion = record.question;
+  lastDivDate = record.date;
+  showDivResult(record.result, record.question, '七日回看 · '+formatRecordDate(record));
+  restoreAIContent(record);
+  updateHomeReviewCard();
+}
 
 function resetBamboo(){
   const qian = document.getElementById('qian-container');
@@ -3093,13 +3525,11 @@ function calcMeiHuaHex(){
 
 function showDivResult(hex, question, title){
   document.getElementById('div-title').textContent = title;
-  /* 重置AI解读区域 */
   var aiBtn = document.getElementById('ai-btn');
   var aiLoading = document.getElementById('ai-loading');
-  var aiResult = document.getElementById('ai-result');
   if(aiBtn){ aiBtn.disabled = false; }
   if(aiLoading){ aiLoading.style.display = 'none'; }
-  if(aiResult){ aiResult.style.display = 'none'; }
+  clearAIContent();
   const qEl = document.getElementById('div-question');
   if(question){qEl.style.display='block';qEl.textContent='\u201C'+question+'\u201D';}
   else{qEl.style.display='none';}
@@ -3215,6 +3645,13 @@ function goTo(page){
   if(el){el.classList.add('active');window.scrollTo(0,0);}
 }
 
+function startPrimaryJourney(){
+  localStorage.setItem('guanxin_onboarded','1');
+  var onboard=document.getElementById('onboard-overlay');
+  if(onboard) onboard.classList.remove('active');
+  goTo('birthday');
+}
+
 /* ===== 性别选择 ===== */
 document.addEventListener('DOMContentLoaded',()=>{
   const gr=document.getElementById('gender-row');
@@ -3232,6 +3669,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   checkOnboard();
   /* 更新打卡徽章 */
   updateCheckinBadge();
+  updateHomeReviewCard();
   /* 检查好友分享链接 */
   checkFriendLink();
 });
@@ -3298,6 +3736,28 @@ function showResult(bmg,mg,ln){
   goTo('result');
 }
 
+async function favoriteCurrentResult(){
+  if(!lastDivResult || !lastDivDate){ showToast('当前暂无可收藏的卦象'); return; }
+  try{
+    var record = await loadDivRecord(lastDivDate);
+    if(!record){ showToast('未找到对应记录'); return; }
+    var alreadyFav = !!(record.favorite || record.fav);
+    record.favorite = true;
+    record.fav = true;
+    await saveDivRecord(record);
+    var favBtn = document.getElementById('favorite-result-btn');
+    if(favBtn){
+      favBtn.classList.add('is-done');
+      favBtn.setAttribute('aria-pressed', 'true');
+      favBtn.querySelector('strong').textContent = '已收藏这次卦象';
+      favBtn.querySelector('span').textContent = '可在占卦历史的收藏列表中快速找到它';
+    }
+    showToast(alreadyFav ? '这次卦象已在收藏中' : '已收藏这次卦象');
+  }catch(e){
+    showToast('收藏失败，请稍后再试');
+  }
+}
+
 /* ===== 自定义确认弹窗 ===== */
 let caCallback = null;
 function showConfirmAssy(title, msg, callback){
@@ -3316,9 +3776,11 @@ function closeConfirmAssy(result){
 
 function showToast(msg){
   const t = document.getElementById('sc-toast');
+  if(!t) return;
   t.textContent = msg;
   t.classList.add('show');
-  setTimeout(()=> t.classList.remove('show'), 2000);
+  if(t._timer) clearTimeout(t._timer);
+  t._timer = setTimeout(()=> t.classList.remove('show'), 2200);
 }
 
 /* 生成分享卡片（Canvas绘制 · 古朴水墨风） */
@@ -3715,7 +4177,7 @@ async function loadAllRecords(){
     const store = tx.objectStore('records');
     const req = store.getAll();
     return new Promise(function(resolve){
-      req.onsuccess = function(){ resolve(req.result || []); };
+      req.onsuccess = function(){ resolve((req.result || []).map(normalizeRecord)); };
       req.onerror = function(){ resolve([]); };
     });
   }catch(e){ return []; }
@@ -3726,6 +4188,8 @@ async function showHistory(){
   // Show filter bar
   var filterBar = document.getElementById('history-filter-bar');
   if(filterBar) filterBar.style.display = 'flex';
+  var themeBar = document.getElementById('history-theme-bar');
+  if(themeBar) themeBar.style.display = 'flex';
   const list = document.getElementById('history-list');
   list.innerHTML = '<p class="history-empty">加载中...</p>';
   const records = await loadAllRecords();
@@ -3733,6 +4197,7 @@ async function showHistory(){
   window._historyRecords = _allHistoryRecords;
   _historyFilter = 'all';
   _historySearch = '';
+  _historyTheme = 'all';
   var searchEl = document.getElementById('history-search');
   if(searchEl) searchEl.value = '';
   // Reset filter button states
@@ -3743,6 +4208,7 @@ async function showHistory(){
   for(var i=0;i<_allHistoryRecords.length;i++){
     window._historyIdxMap[_allHistoryRecords[i].date] = i;
   }
+  renderHistoryThemeBar();
   renderHistoryList();
 }
 
@@ -3756,16 +4222,7 @@ function viewHistoryRecord(idx){
   lastDivDate = r.date;
   showDivResult(r.result, r.question, '历史占卦');
   goTo('divination');
-  /* Restore AI result if available */
-  if(r.aiResult){
-    var aiResultEl = document.getElementById('ai-result');
-    var aiTextEl = document.getElementById('ai-result-text');
-    if(aiResultEl && aiTextEl){
-      aiTextEl.textContent = r.aiResult;
-      aiResultEl.style.display = 'block';
-    }
-    window._lastAIResult = r.aiResult;
-  }
+  restoreAIContent(r);
 }
 
 /* ===== 数字起卦 ===== */
@@ -3881,27 +4338,176 @@ async function submitNumberDiv(){
 function openSettings(){
   var overlay = document.getElementById('settings-overlay');
   var input = document.getElementById('api-key-input');
-  input.value = localStorage.getItem('guanxin_apikey') || '';
+  if(input){
+    input.value = localStorage.getItem('guanxin_apikey') || '';
+  }
   overlay.classList.add('active');
 }
 function closeSettings(){ document.getElementById('settings-overlay').classList.remove('active'); }
 function saveApiKey(){
-  var key = document.getElementById('api-key-input').value.trim();
-  if(key) localStorage.setItem('guanxin_apikey', key);
-  else localStorage.removeItem('guanxin_apikey');
+  var input = document.getElementById('api-key-input');
+  var key = input ? input.value.trim() : '';
+  if(key){
+    localStorage.setItem('guanxin_apikey', key);
+    closeSettings();
+    showToast('已保存本地 Qwen Key，将优先用于当前浏览器');
+    return;
+  }
   closeSettings();
-  showToast('API Key已保存');
+  localStorage.removeItem('guanxin_apikey');
+  showToast('未填写本地 Key，将使用服务端环境变量');
+}
+
+function parseAIActionCard(text, hex){
+  var labels = ['整体寓意','当前形势','建议行动','今日避免','一句提醒','详细解读'];
+  var sections = {};
+  for(var i=0;i<labels.length;i++){
+    var label = labels[i];
+    var token = label + '：';
+    var start = text.indexOf(token);
+    if(start===-1) continue;
+    start += token.length;
+    var end = text.length;
+    for(var j=i+1;j<labels.length;j++){
+      var next = text.indexOf(labels[j] + '：', start);
+      if(next!==-1 && next < end) end = next;
+    }
+    sections[label] = text.slice(start, end).trim();
+  }
+  if(!sections['整体寓意'] || !sections['建议行动']){
+    var summary = generateSummary(hex);
+    sections['整体寓意'] = sections['整体寓意'] || summary.s1;
+    sections['当前形势'] = sections['当前形势'] || '当前更适合先看清局势，再决定是否推进。';
+    sections['建议行动'] = sections['建议行动'] || summary.s2.replace(/^宜/, '');
+    sections['今日避免'] = sections['今日避免'] || '避免在情绪上头时急于做结论，避免反复追问同一个问题。';
+    sections['一句提醒'] = sections['一句提醒'] || summary.s3;
+    sections['详细解读'] = sections['详细解读'] || text;
+  }
+  return {
+    overall: sections['整体寓意'] || '',
+    current: sections['当前形势'] || '',
+    action: sections['建议行动'] || '',
+    avoid: sections['今日避免'] || '',
+    reminder: sections['一句提醒'] || '',
+    detail: sections['详细解读'] || text
+  };
+}
+function renderAIActionCard(actionData){
+  var card = document.getElementById('ai-action-card');
+  if(!card) return;
+  if(!actionData){
+    card.style.display = 'none';
+    ['ai-overall','ai-current','ai-action','ai-avoid','ai-reminder'].forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.textContent = '';
+    });
+    return;
+  }
+  document.getElementById('ai-overall').textContent = actionData.overall || '';
+  document.getElementById('ai-current').textContent = actionData.current || '';
+  document.getElementById('ai-action').textContent = actionData.action || '';
+  document.getElementById('ai-avoid').textContent = actionData.avoid || '';
+  document.getElementById('ai-reminder').textContent = actionData.reminder || '';
+  card.style.display = 'block';
+}
+function renderAIError(message){
+  var card = document.getElementById('ai-error');
+  var textEl = document.getElementById('ai-error-text');
+  if(!card || !textEl) return;
+  if(!message){
+    textEl.textContent = '';
+    card.style.display = 'none';
+    return;
+  }
+  textEl.textContent = message;
+  card.style.display = 'block';
+}
+function clearAIContent(){
+  renderAIActionCard(null);
+  renderAIError('');
+  var aiResultEl = document.getElementById('ai-result');
+  var aiTextEl = document.getElementById('ai-result-text');
+  if(aiTextEl) aiTextEl.textContent = '';
+  if(aiResultEl) aiResultEl.style.display = 'none';
+  window._lastAIResult = null;
+}
+function restoreAIContent(record){
+  clearAIContent();
+  if(!record) return;
+  if(record.aiAction) renderAIActionCard(record.aiAction);
+  if(record.aiResult){
+    var aiResultEl = document.getElementById('ai-result');
+    var aiTextEl = document.getElementById('ai-result-text');
+    if(aiResultEl && aiTextEl){
+      aiTextEl.textContent = record.aiResult;
+      aiResultEl.style.display = 'block';
+    }
+    window._lastAIResult = record.aiResult;
+  }
+}
+function getFriendlyAIError(rawMessage){
+  var msg = rawMessage || '';
+  if(msg.indexOf('DASHSCOPE_API_KEY')!==-1){
+    return 'AI 解读暂未启用。请先在右上角设置里填写可用的 Qwen Key，或在服务端配置 DASHSCOPE_API_KEY。';
+  }
+  if(msg.indexOf('401')!==-1 || msg.indexOf('Unauthorized')!==-1){
+    return 'AI 解读认证失败，请检查你填写的 Qwen Key 是否有效。';
+  }
+  if(msg.indexOf('404')!==-1){
+    return '没有找到 AI 解读接口。请确认当前页面是通过 python server.py 启动，而不是直接打开 index.html。';
+  }
+  if(msg.indexOf('Failed to fetch')!==-1 || msg.indexOf('NetworkError')!==-1){
+    return 'AI 解读连接失败。若你已填写本地 Qwen Key，可能是网络或跨域异常；若未填写，请确认本地代理服务正在运行。';
+  }
+  return 'AI 解读暂时没有成功返回内容，你可以稍后再试，或者先查看卦辞、启示和七日回看。';
+}
+
+async function requestAIByBrowserKey(localKey, payload){
+  var resp = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
+    method:'POST',
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization':'Bearer ' + localKey
+    },
+    body: JSON.stringify({
+      model: payload.model,
+      messages:[{role:'user',content:payload.prompt}],
+      max_tokens: payload.max_tokens,
+      temperature: payload.temperature
+    })
+  });
+  var data = await resp.json();
+  if(!resp.ok){
+    throw new Error((data && data.error && data.error.message) || ('API error: '+resp.status));
+  }
+  return {
+    text: (data.choices && data.choices[0] && data.choices[0].message) ? data.choices[0].message.content : ''
+  };
+}
+
+async function requestAIByProxy(localKey, payload){
+  var resp = await fetch('/api/ai-interpret', {
+    method:'POST',
+    headers: Object.assign(
+      {'Content-Type':'application/json'},
+      localKey ? {'X-DashScope-Api-Key': localKey} : {}
+    ),
+    body: JSON.stringify(payload)
+  });
+  var data = await resp.json();
+  if(!resp.ok) throw new Error((data && (data.error || data.details)) || ('API error: '+resp.status));
+  return data;
 }
 
 /* ===== AI白话解读（DashScope/Qwen） ===== */
 async function requestAIInterpret(){
-  var apiKey = localStorage.getItem('guanxin_apikey') || 'sk-80d2d09cff77454c8aab0f416a6f61ad';
   var hex = lastDivResult;
   if(!hex){ showToast('暂无卦象'); return; }
 
   var btn = document.getElementById('ai-btn');
   var loading = document.getElementById('ai-loading');
   var result = document.getElementById('ai-result');
+  clearAIContent();
 
   btn.disabled = true;
   loading.style.display = 'block';
@@ -3922,30 +4528,39 @@ async function requestAIInterpret(){
     (yaoText ? '动爻爻辞：' + yaoText.t + '\n爻辞解读：' + yaoText.a + '\n' : '') +
     (hex.huHex ? '互卦：第' + hex.huHex.id + '卦 ' + hex.huHex.name + '\n' : '') +
     (hex.bianHex ? '变卦：第' + hex.bianHex.id + '卦 ' + hex.bianHex.name + '\n' : '') +
-    '\n请用3-5段话，从以下角度解读：\n' +
-    '1. 这个卦象对用户问题的整体寓意\n' +
-    '2. 当前形势分析和建议行动方向\n' +
-    '3. 需要注意的事项和可能的变化\n' +
+    '\n请严格按以下格式输出，不要使用 markdown 标题，不要使用代码块：\n' +
+    '整体寓意：...\n' +
+    '当前形势：...\n' +
+    '建议行动：...\n' +
+    '今日避免：...\n' +
+    '一句提醒：...\n' +
+    '详细解读：...\n' +
     '语气温暖有力量，像一位智慧长者在给予建议。不要使用过于玄学的术语，要让普通人也能理解。';
 
   try{
-    var resp = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
-      method:'POST',
-      headers:{'Content-Type':'application/json','Authorization':'Bearer '+apiKey},
-      body: JSON.stringify({
-        model:'qwen-plus',
-        messages:[{role:'user',content:prompt}],
-        max_tokens:1500,
-        temperature:0.8
-      })
-    });
-
-    if(!resp.ok) throw new Error('API error: '+resp.status);
-    var data = await resp.json();
-    var text = (data.choices && data.choices[0] && data.choices[0].message) ? data.choices[0].message.content : '解读生成失败';
+    var localKey = (localStorage.getItem('guanxin_apikey') || '').trim();
+    var payload = {
+      model:'qwen-plus',
+      prompt: prompt,
+      max_tokens:1500,
+      temperature:0.8
+    };
+    var data;
+    if(localKey){
+      try{
+        data = await requestAIByBrowserKey(localKey, payload);
+      }catch(browserErr){
+        data = await requestAIByProxy(localKey, payload);
+      }
+    } else {
+      data = await requestAIByProxy('', payload);
+    }
+    var text = data.text || '解读生成失败';
+    var aiAction = parseAIActionCard(text, hex);
 
     result.style.display = 'block';
     document.getElementById('ai-result-text').textContent = text;
+    renderAIActionCard(aiAction);
 
     /* Persist AI result to current record */
     window._lastAIResult = text;
@@ -3955,12 +4570,14 @@ async function requestAIInterpret(){
       var existing = await loadDivRecord(today);
       if(existing){
         existing.aiResult = text;
+        existing.aiAction = aiAction;
         await saveDivRecord(existing);
       }
     }catch(saveErr){ console.warn('保存AI解读失败:', saveErr); }
 
   } catch(e){
-    showToast('AI解读失败：'+e.message);
+    showToast('AI解读暂时不可用');
+    renderAIError(getFriendlyAIError(e && e.message ? e.message : ''));
   } finally {
     btn.disabled = false;
     loading.style.display = 'none';
@@ -3977,6 +4594,10 @@ function onboardNext(step){
 function closeOnboard(){
   document.getElementById('onboard-overlay').classList.remove('active');
   localStorage.setItem('guanxin_onboarded','1');
+  var hasBirth=!!localStorage.getItem('guanxin_birth');
+  if(!hasBirth){
+    goTo('birthday');
+  }
 }
 function checkOnboard(){
   if(!localStorage.getItem('guanxin_onboarded')){
@@ -4071,6 +4692,7 @@ function updateCheckinBadge(){
 var _historyFilter = 'all';
 var _historySearch = '';
 var _allHistoryRecords = [];
+var _historyTheme = 'all';
 
 function toggleFavorite(dateKey, btnEl){
   openDB().then(function(db){
@@ -4080,13 +4702,43 @@ function toggleFavorite(dateKey, btnEl){
       var rec = e.target.result;
       if(!rec) return;
       rec.fav = !rec.fav;
+      rec.favorite = rec.fav;
       store.put(rec);
       if(btnEl){
         btnEl.classList.toggle('active', rec.fav);
         btnEl.innerHTML = rec.fav ? '&#9733;' : '&#9734;';
       }
+      showHistory();
     };
   });
+}
+function setHistoryTheme(themeKey){
+  _historyTheme = themeKey || 'all';
+  renderHistoryThemeBar();
+  renderHistoryList();
+}
+function renderHistoryThemeBar(){
+  var themeBar = document.getElementById('history-theme-bar');
+  if(!themeBar) return;
+  if(!_allHistoryRecords.length){
+    themeBar.style.display = 'none';
+    themeBar.innerHTML = '';
+    return;
+  }
+  themeBar.style.display = 'flex';
+  var counts = {all:_allHistoryRecords.length};
+  _allHistoryRecords.forEach(function(r){
+    var info = getThemeInfo(r);
+    counts[info.key] = (counts[info.key] || 0) + 1;
+  });
+  var order = ['all','work','relationship','growth','emotion','other'];
+  var html = '';
+  order.forEach(function(key){
+    if(!counts[key]) return;
+    var cls = _historyTheme===key ? ' active' : '';
+    html += '<button class="history-theme-chip'+cls+'" onclick="setHistoryTheme(\''+key+'\')">'+THEME_LABELS[key]+'<span>'+counts[key]+'</span></button>';
+  });
+  themeBar.innerHTML = html;
 }
 function filterHistory(mode){
   if(mode==='search'){
@@ -4116,19 +4768,29 @@ function renderHistoryList(){
       return name.toLowerCase().indexOf(_historySearch)!==-1 || q.toLowerCase().indexOf(_historySearch)!==-1;
     });
   }
+  if(_historyTheme!=='all'){
+    records = records.filter(function(r){ return getThemeInfo(r).key === _historyTheme; });
+  }
   if(!records.length){
-    listEl.innerHTML = '<div class="history-empty">'+(_historyFilter==='fav'?'暂无收藏记录':'暂无占卦记录')+'</div>';
+    var emptyText = '暂无占卦记录';
+    if(_historyFilter==='fav'){
+      emptyText = '暂无收藏记录';
+    } else if(_allHistoryRecords.length && _historyTheme!=='all'){
+      emptyText = '暂无符合当前主题的占卦记录';
+    }
+    listEl.innerHTML = '<div class="history-empty">'+emptyText+'</div>';
     return;
   }
   var html = '';
   // Monthly report (show for 'all' filter)
-  if(_historyFilter==='all'){
+  if(_historyFilter==='all' && _historyTheme==='all'){
     html += generateMonthlyReport(_allHistoryRecords);
   }
   for(var i=0;i<records.length;i++){
     var r = records[i];
     var hexName = r.result ? ('第'+r.result.id+'卦 '+r.result.name) : '未知卦象';
     var date = r.date || '';
+    var theme = getThemeInfo(r);
     var q = r.question ? r.question.slice(0,30) : '';
     var isFav = r.fav ? ' active' : '';
     var favIcon = r.fav ? '&#9733;' : '&#9734;';
@@ -4136,8 +4798,9 @@ function renderHistoryList(){
       + '<div style="display:flex;align-items:center;gap:var(--space-sm)">'
       + '<button class="history-fav-btn'+isFav+'" onclick="event.stopPropagation();toggleFavorite(\''+date+'\',this)">'+favIcon+'</button>'
       + '<div style="flex:1;min-width:0">'
-      + '<div class="history-date">'+date+'</div>'
+      + '<div class="history-date">'+formatRecordDate(r)+'</div>'
       + '<div class="history-hex-name">'+hexName+'</div>'
+      + '<div class="history-theme-badge">'+theme.label+'</div>'
       + (q ? '<div class="history-question">'+q+'</div>' : '')
       + '</div>'
       + '<button class="history-detail-btn">查看</button>'
@@ -4152,23 +4815,32 @@ function renderHistoryList(){
 }
 function generateMonthlyReport(records){
   var now = new Date();
-  var ym = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
   var monthRecords = records.filter(function(r){
-    return r.date && r.date.indexOf(ym)===0;
+    if(!r.timestamp) return false;
+    var d = new Date(r.timestamp);
+    return d.getFullYear()===now.getFullYear() && d.getMonth()===now.getMonth();
   });
   if(monthRecords.length < 2) return '';
   var favCount = monthRecords.filter(function(r){ return r.fav; }).length;
   // Find most common hex
   var hexCounts = {};
+  var themeCounts = {};
   monthRecords.forEach(function(r){
     if(r.result && r.result.name){
       hexCounts[r.result.name] = (hexCounts[r.result.name]||0) + 1;
     }
+    var label = getThemeInfo(r).label;
+    themeCounts[label] = (themeCounts[label] || 0) + 1;
   });
   var topHex = '';
   var topCount = 0;
+  var topTheme = '';
+  var topThemeCount = 0;
   Object.keys(hexCounts).forEach(function(k){
     if(hexCounts[k]>topCount){ topCount=hexCounts[k]; topHex=k; }
+  });
+  Object.keys(themeCounts).forEach(function(k){
+    if(themeCounts[k]>topThemeCount){ topThemeCount=themeCounts[k]; topTheme=k; }
   });
   var html = '<div class="monthly-report">'
     + '<h4>'+now.getFullYear()+'年'+(now.getMonth()+1)+'月 · 卦象月报</h4>'
@@ -4176,6 +4848,7 @@ function generateMonthlyReport(records){
     + '<div class="stat-item"><span class="stat-num">'+monthRecords.length+'</span><span class="stat-label">本月占卦</span></div>'
     + '<div class="stat-item"><span class="stat-num">'+favCount+'</span><span class="stat-label">已收藏</span></div>'
     + (topHex ? '<div class="stat-item"><span class="stat-num" style="font-size:var(--text-lg)">'+topHex+'</span><span class="stat-label">出现'+topCount+'次</span></div>' : '')
+    + (topTheme ? '<div class="stat-item"><span class="stat-num" style="font-size:var(--text-lg)">'+topTheme+'</span><span class="stat-label">最常关注</span></div>' : '')
     + '</div></div>';
   return html;
 }
@@ -4313,8 +4986,10 @@ function showBaZhai(){
   var html='';
 
   /* 标题 */
-  html+='<div style="text-align:center;margin-bottom:var(--space-lg);position:relative">';
-  html+='<button onclick="goTo(\'home\')" style="position:absolute;left:0;top:0;background:none;border:1px solid var(--ink-ghost);border-radius:var(--radius-sm);padding:var(--space-xs) var(--space-sm);font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light);cursor:pointer">&larr; 返回</button>';
+  html+='<div style="text-align:center;margin-bottom:var(--space-lg)">';
+  html+='<div style="display:flex;justify-content:flex-start;margin-bottom:var(--space-sm)">';
+  html+='<button onclick="goTo(\'home\')" style="background:none;border:1px solid var(--ink-ghost);border-radius:var(--radius-sm);padding:var(--space-xs) var(--space-sm);font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light);cursor:pointer">&larr; 返回</button>';
+  html+='</div>';
   html+='<h2 style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--ink-deep);letter-spacing:0.12em;margin-bottom:var(--space-xs)">命宫解读</h2>';
   html+='<p style="font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light)">个人卦象特质 · '+curYear+'流年参考</p>';
   html+='</div>';
@@ -4429,7 +5104,7 @@ function showBaZhai(){
   html+='内容仅供文化体验与自我反思参考，不构成任何决策建议<br>';
   html+='<span style="opacity:0.7">人生际遇，终究由心而行、由行而定</span>';
   html+='</p>';
-  html+='<button onclick="goTo(\'home\')" style="margin-top:var(--space-md);background:none;border:1px solid var(--ink-ghost);color:var(--ink-light);padding:var(--space-xs) var(--space-lg);border-radius:var(--radius-md);font-family:var(--font-serif);font-size:var(--text-sm);cursor:default">返回首页</button>';
+  html+='<button onclick="goTo(\'home\')" style="margin-top:var(--space-md);background:none;border:1px solid var(--ink-ghost);color:var(--ink-light);padding:var(--space-xs) var(--space-lg);border-radius:var(--radius-md);font-family:var(--font-serif);font-size:var(--text-sm);cursor:pointer">返回首页</button>';
   html+='</div>';
 
   /* 渲染 */
@@ -4627,9 +5302,12 @@ function closeEncDetail(){
   <div class="question-modal" style="max-width:360px">
     <button class="qm-close" onclick="closeSettings()">&times;</button>
     <h3>设置</h3>
-    <p class="qm-sub">配置AI解读API Key（DashScope通义千问）</p>
-    <input type="password" id="api-key-input" class="num-input" style="width:100%;font-size:var(--text-sm)" placeholder="sk-xxxxxxxxxxxxxxxx">
-    <p style="font-size:var(--text-xs);color:var(--ink-faint);margin-top:var(--space-xs);text-align:left">Key保存在浏览器本地，不会上传到第三方服务器</p>
+    <p class="qm-sub">AI 解读优先走本地代理，也支持当前浏览器临时填写 Qwen Key</p>
+    <input type="password" id="api-key-input" class="num-input" style="width:100%;font-size:var(--text-sm);margin-top:var(--space-sm)" placeholder="sk-xxxxxxxxxxxxxxxx">
+    <p style="font-size:var(--text-sm);color:var(--ink-light);margin-top:var(--space-xs);text-align:left;line-height:1.8">
+      不填写时：使用服务端环境变量 <code>DASHSCOPE_API_KEY</code>。<br>
+      填写后：仅保存在当前浏览器，并通过本地代理转发，不会直接暴露到页面外部。
+    </p>
     <div class="qm-btns" style="margin-top:var(--space-md)">
       <button class="qm-btn qm-btn-skip" onclick="closeSettings()">取消</button>
       <button class="qm-btn qm-btn-submit" onclick="saveApiKey()">保存</button>
@@ -4643,35 +5321,34 @@ function closeEncDetail(){
     <div id="onboard-step1" class="onboard-step">
       <div style="font-size:3rem;margin-bottom:var(--space-md)">&#9775;</div>
       <h3>欢迎来到观心</h3>
-      <p class="qm-sub">一款以易经智慧观照内心的伴侣</p>
+      <p class="qm-sub">先建立个人档案，再展开后续体验</p>
       <p style="font-size:var(--text-sm);color:var(--ink);line-height:1.8;text-align:left">
-        在这里，你可以：<br>
-        &middot; 每日一卦，品读六十四卦智慧<br>
-        &middot; 心中所惑，诚心问卦求指引<br>
-        &middot; AI白话解读，让古文不再晦涩
+        建议从填写生辰信息开始：<br>
+        &middot; 先生成本命卦、命宫与流年参考<br>
+        &middot; 再进入每日一卦与图鉴浏览<br>
+        &middot; 最后围绕具体问题进行问卦与 AI 解读
       </p>
       <button class="btn btn-primary" style="margin-top:var(--space-lg);width:100%" onclick="onboardNext(2)">开始了解</button>
     </div>
     <div id="onboard-step2" class="onboard-step" style="display:none">
       <div style="font-size:3rem;margin-bottom:var(--space-md)">&#127819;</div>
-      <h3>如何问卦</h3>
-      <p class="qm-sub">三步获得卦象指引</p>
+      <h3>如何开始</h3>
+      <p class="qm-sub">先完成档案，再延展体验</p>
       <p style="font-size:var(--text-sm);color:var(--ink);line-height:1.8;text-align:left">
-        1. 点击「以事问卦」或「数字起卦」<br>
-        2. 静心凝神，长按摇签或输入数字<br>
-        3. 翻看结果，获取AI白话解读
+        1. 填写生辰信息，建立个人命理档案<br>
+        2. 查看命宫解读与今日学习内容<br>
+        3. 遇到具体问题时，再进行问卦和 AI 解读
       </p>
       <button class="btn btn-primary" style="margin-top:var(--space-lg);width:100%" onclick="onboardNext(3)">下一步</button>
     </div>
     <div id="onboard-step3" class="onboard-step" style="display:none">
       <div style="font-size:3rem;margin-bottom:var(--space-md)">&#10024;</div>
-      <h3>AI解读</h3>
-      <p class="qm-sub">让易经智慧触手可及</p>
+      <h3>使用说明</h3>
+      <p class="qm-sub">在体验前先了解边界</p>
       <p style="font-size:var(--text-sm);color:var(--ink);line-height:1.8;text-align:left">
-        AI白话解读已为你预配置好，<br>
-        占卦后可直接点击「AI白话解读」按钮，<br>
-        获得通俗易懂的易经智慧解析。<br><br>
-        如想使用自己的Key，可在右上角设置中更换。
+        生辰信息与 API Key 默认仅保存在当前浏览器。<br>
+        AI 解读与命理解读仅供文化体验、自我观察与启发参考。<br>
+        API Key 现由本地后端代理读取，不再在前端页面中保存。
       </p>
       <button class="btn btn-primary" style="margin-top:var(--space-lg);width:100%" onclick="closeOnboard()">开始探索</button>
     </div>
