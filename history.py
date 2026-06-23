@@ -1,4 +1,4 @@
-﻿with open('prototype.html','r',encoding='utf-8') as f:
+with open('index.html','r',encoding='utf-8') as f:
     c = f.read()
 
 # 1. 在首页罗盘下方添加历史入口
@@ -31,7 +31,7 @@ history_html = '''
 c = c.replace('</div>\n\n<div id="bazhai-screen"', history_html + '</div>\n\n<div id="bazhai-screen"')
 
 # 4. 在以事问卦功能中添加记录保存逻辑
-old_question = 'function doQuestionHex(){ alert(\'以事问卦功能开发中\'); }'
+old_question = 'function doQuestionHex(){ alert(\\'以事问卦功能开发中\\'); }'
 new_question = '''function doQuestionHex(){
   const q=prompt('心中所问之事：（诚心正意，卦象方灵）');
   if(!q)return;
@@ -92,7 +92,7 @@ c = c.replace('function goTo(page){' + oldGoTo + '}', '''function goTo(page){
   if(page==='history')renderHistory();
 }''')
 
-with open('prototype.html','w',encoding='utf-8') as f:
+with open('index.html','w',encoding='utf-8') as f:
     f.write(c)
 
 print('OK 占卦历史功能完成')

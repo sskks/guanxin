@@ -60,7 +60,6 @@
 ```text
 Cculture/
 ├── index.html                  # 当前真实运行入口
-├── prototype.html              # 原型/同步副本
 ├── server.py                   # 当前本地开发服务器 + AI API 代理
 ├── PRODUCT.md                  # 产品级上下文
 ├── DESIGN.md                   # 设计系统上下文

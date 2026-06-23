@@ -1,4 +1,4 @@
-﻿with open('prototype.html','r',encoding='utf-8') as f:
+with open('index.html','r',encoding='utf-8') as f:
     c = f.read()
 
 # 1. 在命宫页 AI 解读下方添加分享给好友按钮
@@ -84,7 +84,7 @@ function copyAdvice(){
 '''
 c = c.replace('function openSettings(){', share_js + 'function openSettings(){')
 
-with open('prototype.html','w',encoding='utf-8') as f:
+with open('index.html','w',encoding='utf-8') as f:
     f.write(c)
 
 print('OK 好友互占功能完成')

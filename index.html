@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="guanxin-version" content="2026-06-23-ui-sync">
 <title>观心 · 周易卦象</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -121,22 +122,30 @@ body::after{
 }
 .btn-back:hover{color:var(--cinnabar)}
 .page-topbar{
+  position:sticky;top:0;z-index:70;
   width:100%;max-width:560px;display:flex;align-items:center;justify-content:space-between;
-  gap:var(--space-md);padding:var(--space-lg) var(--space-md) var(--space-sm);
+  gap:var(--space-md);padding:calc(var(--space-sm) + 2px) var(--space-md) var(--space-sm);
   box-sizing:border-box;
+  background:linear-gradient(180deg,rgba(242,235,217,0.94),rgba(242,235,217,0.72));
+  backdrop-filter:blur(10px);
 }
 .page-back-btn{
-  min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;
-  gap:4px;background:rgba(248,243,230,0.56);border:1px solid var(--ink-ghost);
-  border-radius:var(--radius-sm);font-family:var(--font-serif);font-size:var(--text-sm);
-  color:var(--ink-light);cursor:pointer;transition:all 0.2s;-webkit-tap-highlight-color:transparent;
+  min-width:84px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;
+  gap:6px;padding:0 14px;background:rgba(255,252,246,0.82);border:1px solid rgba(216,206,188,0.9);
+  border-radius:999px;font-family:var(--font-serif);font-size:var(--text-sm);
+  color:var(--ink);cursor:pointer;transition:all 0.2s;-webkit-tap-highlight-color:transparent;
+  box-shadow:0 4px 14px rgba(44,36,24,0.06);
 }
-.page-back-btn:hover,.page-back-btn:focus-visible{border-color:var(--ink-light);color:var(--ink-deep);outline:none}
+.page-back-btn:hover,.page-back-btn:focus-visible{
+  border-color:rgba(168,60,50,0.26);color:var(--ink-deep);outline:none;
+  transform:translateY(-1px);
+  box-shadow:0 8px 20px rgba(44,36,24,0.1);
+}
 .page-title-text{
   flex:1;text-align:center;font-family:var(--font-serif);font-size:var(--text-lg);
   color:var(--ink-deep);letter-spacing:0.08em;font-weight:500;
 }
-.page-topbar-spacer{width:44px;height:44px;flex-shrink:0}
+.page-topbar-spacer{width:84px;height:44px;flex-shrink:0}
 .swipe-back-hint{
   position:fixed;left:12px;top:50%;transform:translateY(-50%);
   width:3px;height:52px;border-radius:999px;background:rgba(168,60,50,0.18);
@@ -448,6 +457,15 @@ body::after{
 }
 .info-row{display:flex;justify-content:space-between;align-items:center;padding:var(--space-sm) 0;border-bottom:1px dashed var(--ink-ghost);gap:var(--space-md)}
 .info-row:last-child{border-bottom:none}
+.info-row-button{
+  width:100%;
+  background:none;
+  border:none;
+  cursor:pointer;
+  font:inherit;
+  text-align:left;
+}
+.info-row-button .info-value{color:var(--jade)}
 .info-label{font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light);flex-shrink:0}
 .info-value{font-size:var(--text-sm);color:var(--ink-deep);font-weight:500;text-align:right}
 .tags-row{display:flex;flex-wrap:wrap;gap:var(--space-sm);justify-content:center;margin-bottom:var(--space-xl)}
@@ -581,16 +599,32 @@ body::after{
   background:linear-gradient(90deg,transparent 5%,rgba(168,60,50,0.12) 30%,rgba(168,60,50,0.2) 50%,rgba(168,60,50,0.12) 70%,transparent 95%);
   z-index:100;pointer-events:none;
 }
-.home-inner{width:100%;max-width:600px;padding:var(--space-2xl) var(--space-md) var(--space-xl);position:relative}
-.home-title-block{text-align:center;margin-bottom:var(--space-2xl);position:relative}
+.home-inner{width:100%;max-width:640px;padding:calc(var(--space-2xl) + 10px) var(--space-md) var(--space-xl);position:relative}
+.home-title-block{text-align:center;margin-bottom:var(--space-xl);position:relative;padding-top:56px}
 .home-title{
-  font-family:var(--font-display);font-size:var(--text-3xl);color:var(--ink-deep);
-  letter-spacing:0.2em;margin-bottom:var(--space-xs);
+  font-family:var(--font-display);font-size:clamp(2.3rem,7vw,3rem);color:var(--ink-deep);
+  letter-spacing:0.18em;margin-bottom:var(--space-xs);
   text-shadow:0 1px 8px rgba(44,36,24,0.05);
 }
 .home-subtitle{
-  font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light);
-  letter-spacing:0.18em;font-weight:300;
+  max-width:28ch;margin:0 auto;
+  font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink);
+  letter-spacing:0.04em;line-height:1.8;font-weight:400;
+}
+.home-path-strip{
+  display:flex;justify-content:center;gap:var(--space-xs);flex-wrap:wrap;
+  margin-top:var(--space-md);
+}
+.home-path-chip{
+  display:inline-flex;align-items:center;gap:6px;
+  min-height:36px;padding:0 14px;border-radius:999px;
+  border:1px solid rgba(168,60,50,0.14);
+  background:rgba(248,243,230,0.82);
+  color:var(--ink);font-size:var(--text-xs);letter-spacing:0.04em;
+  box-shadow:var(--shadow-sm);
+}
+.home-path-chip strong{
+  font-weight:600;color:var(--cinnabar);font-size:11px;letter-spacing:0.08em;
 }
 .home-review-card{
   display:none;
@@ -650,58 +684,135 @@ body::after{
   background:linear-gradient(90deg,transparent,var(--ink-faint) 30%,var(--cinnabar) 50%,var(--ink-faint) 70%,transparent);
   border-radius:1px;opacity:0.6;
 }
+.home-entry-group{margin-top:var(--space-xl)}
+.home-entry-heading{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-md);
+  margin-bottom:var(--space-md);padding:0 2px;
+}
+.home-entry-title{
+  font-family:var(--font-serif);font-size:var(--text-lg);color:var(--ink-deep);
+  font-weight:600;letter-spacing:0.04em;
+}
+.home-entry-copy{
+  max-width:24ch;font-size:var(--text-xs);line-height:1.7;
+  color:var(--ink-light);text-align:right;
+}
+.home-grid{display:flex;flex-direction:column;gap:var(--space-md)}
 .feature-card{
-  background:var(--paper-light);border:1px solid var(--ink-ghost);
-  border-radius:var(--radius-md);padding:var(--space-lg);
-  margin-bottom:var(--space-md);cursor:pointer;
-  transition:all 0.3s var(--ease-ink);
+  appearance:none;width:100%;text-align:left;font:inherit;
+  background:linear-gradient(180deg,rgba(248,243,230,0.98) 0%,rgba(237,230,211,0.9) 100%);
+  border:1px solid rgba(216,206,188,0.88);
+  border-radius:24px;padding:18px 18px 18px 16px;cursor:pointer;
+  transition:transform 0.24s var(--ease-ink),box-shadow 0.24s var(--ease-ink),border-color 0.24s var(--ease-ink),background 0.24s var(--ease-ink);
   position:relative;overflow:hidden;
-  display:grid;grid-template-columns:auto 1fr;gap:var(--space-md);align-items:center;
+  display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;
   box-shadow:var(--shadow-card);
 }
 .feature-card::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
-  background:linear-gradient(to bottom,transparent,var(--cinnabar),transparent);
-  opacity:0;transition:opacity 0.3s;
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(168,60,50,0.06),transparent 36%,rgba(106,142,110,0.05) 100%);
+  opacity:0.72;pointer-events:none;
 }
 .feature-card::after{
-  content:'';position:absolute;inset:5px;
-  border:1px solid rgba(176,164,142,0.12);border-radius:var(--radius-sm);
-  pointer-events:none;transition:border-color 0.3s;
+  content:'';position:absolute;inset:8px;
+  border:1px solid rgba(176,164,142,0.1);border-radius:18px;
+  pointer-events:none;transition:border-color 0.24s var(--ease-ink);
 }
-.feature-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md),var(--shadow-card);border-color:var(--ink-faint)}
-.feature-card:hover::before{opacity:0.6}
-.feature-card:hover::after{border-color:rgba(176,164,142,0.25)}
+.feature-card:hover,.feature-card:focus-visible{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-md),var(--shadow-card);
+  border-color:rgba(122,110,92,0.46);
+}
+.feature-card:hover::after,.feature-card:focus-visible::after{border-color:rgba(176,164,142,0.22)}
+.feature-card:focus-visible{outline:none}
+.feature-card-primary{background:linear-gradient(180deg,rgba(248,243,230,0.99) 0%,rgba(232,223,204,0.96) 100%)}
+.feature-card-primary .card-icon{
+  background:linear-gradient(180deg,rgba(168,60,50,0.18),rgba(168,60,50,0.08));
+  border-color:rgba(168,60,50,0.18);color:var(--cinnabar);
+}
+.feature-card-secondary .card-icon{
+  background:linear-gradient(180deg,rgba(139,115,85,0.16),rgba(139,115,85,0.06));
+  border-color:rgba(139,115,85,0.16);color:var(--gold);
+}
+.feature-card-tertiary .card-icon{
+  background:linear-gradient(180deg,rgba(106,142,110,0.16),rgba(106,142,110,0.06));
+  border-color:rgba(106,142,110,0.16);color:var(--jade);
+}
 .card-icon{
-  font-size:clamp(2rem,4vw,2.5rem);line-height:1;
-  width:clamp(48px,10vw,56px);height:clamp(48px,10vw,56px);
+  font-family:var(--font-serif);font-size:var(--text-xl);font-weight:600;line-height:1;
+  width:56px;height:56px;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  background:radial-gradient(circle,rgba(168,60,50,0.04) 0%,transparent 70%);
-  border-radius:var(--radius-md);transition:transform 0.3s;
+  background:rgba(248,243,230,0.7);
+  border:1px solid rgba(216,206,188,0.8);
+  border-radius:18px;transition:transform 0.24s var(--ease-ink),border-color 0.24s var(--ease-ink);
+  position:relative;z-index:1;
 }
-.feature-card:hover .card-icon{transform:scale(1.08)}
+.feature-card:hover .card-icon,.feature-card:focus-visible .card-icon{transform:translateY(-1px) scale(1.02)}
+.card-body{position:relative;z-index:1}
+.card-kicker{
+  font-size:11px;color:var(--ink-light);letter-spacing:0.08em;
+  margin-bottom:6px;
+}
+.card-meta{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;
+}
+.card-meta-tag{
+  display:inline-flex;align-items:center;min-height:26px;padding:0 10px;
+  border-radius:999px;background:rgba(255,255,255,0.42);
+  border:1px solid rgba(216,206,188,0.88);
+  color:var(--ink-light);font-size:11px;letter-spacing:0.04em;
+}
+.card-arrow{
+  width:40px;height:40px;border-radius:999px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(216,206,188,0.88);background:rgba(255,255,255,0.4);
+  color:var(--ink);font-size:1rem;position:relative;z-index:1;
+  transition:transform 0.24s var(--ease-ink),border-color 0.24s var(--ease-ink),background 0.24s var(--ease-ink);
+}
+.feature-card:hover .card-arrow,.feature-card:focus-visible .card-arrow{
+  transform:translateX(2px);
+  border-color:rgba(168,60,50,0.24);
+  background:rgba(168,60,50,0.08);
+  color:var(--cinnabar);
+}
 /* 快捷入口行 */
 .home-quick-row{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-md);
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
   margin-top:var(--space-lg);padding-top:var(--space-lg);
-  border-top:1px solid var(--ink-ghost);
+  border-top:1px solid rgba(216,206,188,0.9);
 }
 .home-quick-item{
-  display:flex;flex-direction:column;align-items:center;gap:var(--space-xs);
+  appearance:none;width:100%;text-align:left;font:inherit;
+  display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;
+  min-height:72px;padding:12px 14px;border-radius:18px;
   cursor:pointer;-webkit-tap-highlight-color:transparent;
-  transition:transform 0.2s;
+  transition:transform 0.18s var(--ease-ink),box-shadow 0.18s var(--ease-ink),border-color 0.18s var(--ease-ink);
+  border:1px solid rgba(216,206,188,0.86);background:rgba(248,243,230,0.86);
+  box-shadow:var(--shadow-sm);
 }
-.home-quick-item:active{transform:scale(0.95)}
+.home-quick-item:hover,.home-quick-item:focus-visible{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-card);
+  border-color:rgba(122,110,92,0.4);
+}
+.home-quick-item:focus-visible{outline:none}
+.home-quick-item:active{transform:scale(0.98)}
 .quick-icon{
-  width:48px;height:48px;border-radius:var(--radius-md);
+  width:42px;height:42px;border-radius:14px;
   display:flex;align-items:center;justify-content:center;
-  font-size:1.5rem;background:var(--paper-light);
-  border:1px solid var(--ink-ghost);transition:all 0.2s;
+  font-family:var(--font-serif);font-size:var(--text-base);font-weight:600;
+  background:var(--paper-light);
+  border:1px solid rgba(216,206,188,0.92);transition:all 0.18s var(--ease-ink);
+  color:var(--ink-deep);
 }
-.home-quick-item:hover .quick-icon{border-color:var(--ink-faint);background:var(--silk)}
-.quick-label{font-family:var(--font-serif);font-size:var(--text-xs);color:var(--ink-light);letter-spacing:0.04em}
-.card-title{font-family:var(--font-serif);font-size:var(--text-lg);color:var(--ink-deep);font-weight:500;letter-spacing:0.08em}
-.card-desc{font-size:var(--text-sm);color:var(--ink-light);line-height:1.65;margin-top:3px}
+.home-quick-item:hover .quick-icon,.home-quick-item:focus-visible .quick-icon{
+  border-color:rgba(168,60,50,0.2);background:var(--silk);
+}
+.quick-body{display:flex;flex-direction:column;gap:4px}
+.quick-label{font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-deep);letter-spacing:0.04em}
+.quick-desc{font-size:11px;line-height:1.6;color:var(--ink-light)}
+.card-title{font-family:var(--font-serif);font-size:var(--text-lg);color:var(--ink-deep);font-weight:600;letter-spacing:0.04em}
+.card-desc{font-size:var(--text-sm);color:var(--ink);line-height:1.7;margin-top:3px;max-width:28ch}
 
 /* ===== 问卦输入弹窗 · 古朴风 ===== */
 .question-modal-overlay{
@@ -824,6 +935,203 @@ body::after{
 }
 .plain-insight-card p:last-child{margin-bottom:0}
 .plain-insight-card strong{color:var(--ink-deep);font-weight:600}
+.insight-inline-list{
+  display:flex;flex-direction:column;gap:var(--space-sm);margin-bottom:var(--space-lg);
+}
+.insight-inline-item{
+  width:100%;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:var(--space-md);
+  padding:var(--space-md);
+  border:1px solid rgba(216,206,188,0.88);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(180deg,rgba(248,243,230,0.97),rgba(242,235,217,0.9));
+  text-align:left;
+  cursor:pointer;
+  transition:transform 0.22s var(--ease-ink),box-shadow 0.22s var(--ease-ink),border-color 0.22s var(--ease-ink);
+}
+.insight-inline-item:hover{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+  border-color:rgba(106,142,110,0.28);
+}
+.insight-inline-main strong{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+  margin-bottom:2px;
+}
+.insight-inline-main span{
+  display:block;
+  font-size:var(--text-xs);
+  color:var(--ink-light);
+  line-height:1.75;
+}
+.insight-inline-arrow{
+  flex-shrink:0;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--jade);
+  padding-top:2px;
+}
+.insight-sheet{
+  position:fixed;inset:0;z-index:1001;
+  display:flex;align-items:flex-end;justify-content:center;
+  background:rgba(44,36,24,0.42);
+  padding:var(--space-lg) var(--space-md);
+  animation:fadeIn 0.2s ease;
+}
+.insight-sheet-panel{
+  width:min(560px,100%);
+  height:min(78dvh,720px);
+  max-height:calc(100dvh - var(--space-xl));
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border-radius:var(--radius-xl) var(--radius-xl) 0 0;
+  background:linear-gradient(180deg,rgba(248,243,230,0.99),rgba(242,235,217,0.97));
+  border:1px solid rgba(216,206,188,0.95);
+  box-shadow:var(--shadow-lg);
+  padding:0 var(--space-lg) var(--space-xl);
+}
+.insight-sheet-top{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-md);
+  position:sticky;
+  top:0;
+  z-index:2;
+  margin:0 calc(var(--space-lg) * -1) var(--space-md);
+  padding:var(--space-lg) var(--space-lg) var(--space-md);
+  background:linear-gradient(180deg,rgba(248,243,230,0.995) 0%,rgba(248,243,230,0.985) 78%,rgba(248,243,230,0.92) 100%);
+  border-bottom:1px solid rgba(216,206,188,0.72);
+  backdrop-filter:blur(10px);
+}
+.insight-sheet-top h3{
+  font-family:var(--font-serif);font-size:var(--text-lg);font-weight:600;
+  color:var(--ink-deep);letter-spacing:0.06em;
+}
+.insight-sheet-top p{
+  margin-top:var(--space-xs);
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+  line-height:1.7;
+}
+.insight-sheet-close{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(216,206,188,0.95);
+  background:rgba(248,243,230,0.96);
+  color:var(--ink-light);
+  font-size:1.35rem;line-height:1;cursor:pointer;
+  flex-shrink:0;
+}
+.insight-sheet-summary{
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:rgba(106,142,110,0.07);
+  border:1px solid rgba(106,142,110,0.16);
+  margin-bottom:var(--space-md);
+}
+.insight-sheet-summary strong{
+  display:block;font-family:var(--font-serif);font-size:var(--text-sm);color:var(--jade);margin-bottom:4px;
+}
+.insight-sheet-summary span{
+  display:block;font-size:var(--text-sm);line-height:1.85;color:var(--ink);
+}
+.insight-sheet-body{
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-md);
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:var(--space-xs);
+}
+.insight-sheet-body > *{
+  flex-shrink:0;
+}
+.insight-chip-grid{
+  display:grid;grid-template-columns:1fr;gap:var(--space-sm);margin-top:var(--space-sm);
+}
+.insight-chip{
+  padding:var(--space-sm);border-radius:var(--radius-md);
+  background:rgba(106,142,110,0.07);border:1px solid rgba(106,142,110,0.16);
+}
+.insight-chip strong{
+  display:block;font-family:var(--font-serif);font-size:var(--text-sm);
+  color:var(--ink-deep);margin-bottom:2px;
+}
+.insight-chip span{
+  display:block;font-size:var(--text-xs);line-height:1.75;color:var(--ink-light);
+}
+.insight-step-list{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-sm);
+}
+.insight-step-card{
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(180deg,rgba(255,252,246,0.98),rgba(246,240,225,0.95));
+  border:1px solid rgba(216,206,188,0.82);
+}
+.insight-step-card strong{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+  margin-bottom:6px;
+}
+.insight-step-card strong::before{
+  content:attr(data-mark);
+  width:22px;
+  height:22px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(168,60,50,0.09);
+  color:var(--cinnabar);
+  font-size:0.72rem;
+}
+.insight-step-card span{
+  display:block;
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.85;
+}
+.insight-more{
+  border:1px dashed rgba(139,115,85,0.42);
+  border-radius:var(--radius-lg);
+  background:rgba(248,243,230,0.68);
+  overflow:hidden;
+}
+.insight-more summary{
+  list-style:none;
+  cursor:pointer;
+  padding:var(--space-sm) var(--space-md);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--gold);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:var(--space-md);
+}
+.insight-more summary::-webkit-details-marker{display:none}
+.insight-more summary::after{
+  content:'展开';
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+}
+.insight-more[open] summary::after{content:'收起'}
+.insight-more .term-grid{
+  padding:0 var(--space-sm) var(--space-sm);
+  margin-top:0;
+}
 .term-grid{
   display:grid;grid-template-columns:1fr;gap:var(--space-sm);margin-top:var(--space-sm);
 }
@@ -1295,22 +1603,31 @@ body::after{
 .flip-card-overlay{
   position:fixed;inset:0;z-index:1000;
   background:rgba(44,36,24,0.35);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:var(--space-lg);
-  padding:var(--space-xl) var(--space-md);
+  display:flex;align-items:center;justify-content:center;
   animation:fadeIn 0.3s ease;backdrop-filter:blur(4px);
+}
+.flip-card-stage{
+  position:relative;
+  width:min(316px,82vw);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:min(520px,82vh);
+  padding:var(--space-md) 0 calc(var(--space-lg) + 18px);
 }
 .flip-card-container{
   perspective:1200px;
-  width:min(320px,82vw);
-  height:min(440px,68vh);
-  display:grid;place-items:center;
-  flex:0 0 auto;
+  width:100%;
+  height:min(448px,72vh);
+  position:relative;
+  transform:none;
 }
 .flip-card{
   width:100%;height:100%;position:relative;
-  transform-style:preserve-3d;transition:transform 0.8s cubic-bezier(0.4,0,0.2,1);
+  transform-style:preserve-3d;transition:transform 0.68s cubic-bezier(0.32,0.08,0.22,1);
   transform-origin:center center;
+  will-change:transform;
 }
 .flip-card.flipped{transform:rotateY(180deg)}
 .flip-card-face{
@@ -1320,33 +1637,37 @@ body::after{
   transform-style:preserve-3d;
   border-radius:var(--radius-md);
   box-shadow:0 4px 20px rgba(44,36,24,0.12),0 1px 3px rgba(44,36,24,0.06);
+  overflow:hidden;
 }
 /* 背面：古绢签面 */
 .flip-card-back{
-  background:var(--silk);
+  background:
+    linear-gradient(180deg,rgba(250,245,232,0.98),rgba(242,235,219,0.98)),
+    radial-gradient(circle at 50% 18%,rgba(168,60,50,0.08),transparent 36%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:var(--space-lg);overflow:hidden;
   border:1px solid var(--ink-ghost);
   position:relative;
 }
 .flip-card-back::before{
-  content:'';position:absolute;inset:8px;
-  border:1px solid rgba(176,164,142,0.35);
+  content:'';position:absolute;inset:10px;
+  border:1px solid rgba(176,164,142,0.42);
   pointer-events:none;
 }
 .flip-card-back::after{
-  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:40%;height:3px;
-  background:linear-gradient(90deg,transparent,var(--cinnabar),transparent);
-  opacity:0.5;
+  content:'';position:absolute;top:18px;left:18px;right:18px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(168,60,50,0.38),transparent);
+  opacity:0.8;
 }
 .flip-card-back .stick-text{
-  font-family:var(--font-display);font-size:4rem;color:var(--cinnabar);
-  writing-mode:vertical-rl;letter-spacing:0.3em;
-  opacity:0.85;
+  font-family:var(--font-display);font-size:3.25rem;color:var(--cinnabar);
+  writing-mode:vertical-rl;letter-spacing:0.22em;
+  opacity:0.92;
+  line-height:1;
+  margin-left:14px;
 }
 .flip-card-back .stick-deco{
-  width:50%;height:1px;
+  width:56%;height:1px;
   background:linear-gradient(90deg,transparent,var(--ink-ghost),transparent);
   margin:var(--space-md) 0;
 }
@@ -1354,18 +1675,33 @@ body::after{
   font-family:var(--font-serif);font-size:var(--text-base);color:var(--ink);
   letter-spacing:0.15em;
 }
+.flip-card-back .stick-back-note{
+  margin-top:var(--space-sm);
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+  letter-spacing:0.08em;
+}
 /* 正面：宣纸结果面 */
 .flip-card-front{
   background:var(--paper-light);transform:rotateY(180deg);
-  display:flex;flex-direction:column;align-items:center;
-  padding:var(--space-sm) var(--space-lg) var(--space-md);
+  display:flex;flex-direction:column;align-items:stretch;
+  padding:0;
   border:1px solid var(--ink-ghost);
-  position:relative;overflow-y:auto;overflow-x:hidden;
-  scrollbar-width:thin;scrollbar-color:var(--ink-ghost) transparent;
+  position:absolute;inset:0;
 }
 .flip-card-front::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
   background:var(--cinnabar);opacity:0.6;
+}
+.flip-card-front-inner{
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;
+  gap:var(--space-xs);
+  width:100%;height:100%;
+  padding:var(--space-sm) var(--space-lg) var(--space-md);
+  overflow-y:auto;overflow-x:hidden;
+  scrollbar-width:thin;scrollbar-color:var(--ink-ghost) transparent;
 }
 .flip-card-front .hex-result-header{
   font-family:var(--font-serif);font-size:var(--text-lg);color:var(--ink-deep);
@@ -1403,10 +1739,9 @@ body::after{
   color:var(--paper-light);font-family:var(--font-serif);
   font-size:var(--text-sm);letter-spacing:0.12em;
   min-height:1.5em;margin-top:0;animation:pulse 2s ease-in-out infinite;
-  position:static;transform:none;
+  position:absolute;left:50%;bottom:0;transform:translateX(-50%);
   white-space:nowrap;text-shadow:0 1px 4px rgba(44,36,24,0.3);
   transition:opacity 0.25s var(--ease-ink);
-  flex:0 0 auto;
 }
 .flip-close-btn{
   position:absolute;top:var(--space-lg);right:var(--space-lg);
@@ -1487,14 +1822,18 @@ body::after{
   .div-inner{padding:var(--space-xl) var(--space-lg)}
 }
 @media (min-width: 768px){
-  .feature-card{padding:var(--space-xl)}
+  .home-quick-row{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .feature-card{padding:22px 22px 22px 18px}
   .hexagram-show{padding:var(--space-xl) var(--space-2xl)}
 }
 @media (min-width: 1024px){
-  .home-inner{max-width:800px}
+  .home-inner{max-width:860px}
   .home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md)}
-  .home-grid .feature-card{display:block;text-align:center;margin-bottom:0}
+  .home-grid .feature-card{grid-template-columns:1fr}
   .home-grid .card-icon{margin-bottom:var(--space-sm)}
+  .home-grid .card-body{min-height:220px}
+  .home-grid .card-arrow{margin-top:var(--space-sm)}
+  .home-grid .card-desc{max-width:none}
 }
 
 /* ===== 辅助 ===== */
@@ -1504,13 +1843,19 @@ body::after{
 
 /* ===== 设置按钮（首页右上角） ===== */
 .home-settings-btn{
-  position:absolute;top:var(--space-lg);right:var(--space-lg);
-  background:var(--paper-light);border:1px solid var(--ink-ghost);border-radius:var(--radius-md);
-  width:38px;height:38px;display:flex;align-items:center;justify-content:center;
-  font-size:1.2rem;color:var(--ink-faint);cursor:pointer;transition:all 0.25s;z-index:5;
+  position:absolute;top:var(--space-lg);right:var(--space-md);
+  background:rgba(248,243,230,0.9);border:1px solid rgba(216,206,188,0.94);border-radius:999px;
+  min-width:82px;height:40px;display:inline-flex;align-items:center;justify-content:center;
+  gap:8px;padding:0 14px;
+  font-family:var(--font-serif);font-size:var(--text-sm);letter-spacing:0.06em;color:var(--ink);cursor:pointer;
+  transition:all 0.25s var(--ease-ink);z-index:5;
   box-shadow:var(--shadow-sm);
 }
-.home-settings-btn:hover{border-color:var(--ink-light);color:var(--ink-deep)}
+.home-settings-btn::before{content:'\2261';font-size:1rem;line-height:1;color:var(--cinnabar)}
+.home-settings-btn:hover,.home-settings-btn:focus-visible{
+  border-color:rgba(168,60,50,0.28);color:var(--ink-deep);background:rgba(248,243,230,0.98)
+}
+.home-settings-btn:focus-visible{outline:none}
 
 /* ===== 新手引导 ===== */
 .onboard-step{animation:fadeSlideUp 0.3s ease}
@@ -1750,6 +2095,854 @@ body::after{
 .bz-summary-row:last-child{border-bottom:none}
 .bz-summary-label{font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light)}
 .bz-summary-value{font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-deep);font-weight:500}
+.bz-hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at top right,rgba(168,60,50,0.12),transparent 32%),
+    linear-gradient(180deg,rgba(248,243,230,0.98),rgba(241,233,214,0.96));
+  border:1px solid rgba(216,206,188,0.88);
+  border-radius:var(--radius-xl);
+  padding:var(--space-xl) var(--space-lg);
+  margin-bottom:var(--space-lg);
+  box-shadow:var(--shadow-md);
+}
+.bz-hero::before{
+  content:'';
+  position:absolute;
+  inset:10px;
+  border:1px solid rgba(176,164,142,0.16);
+  border-radius:calc(var(--radius-xl) - 6px);
+  pointer-events:none;
+}
+.bz-hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:4px 12px;
+  border-radius:999px;
+  background:rgba(168,60,50,0.08);
+  border:1px solid rgba(168,60,50,0.16);
+  color:var(--cinnabar);
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  letter-spacing:0.08em;
+}
+.bz-hero-title{
+  margin-top:var(--space-md);
+  font-family:var(--font-display);
+  font-size:1.9rem;
+  color:var(--ink-deep);
+  letter-spacing:0.12em;
+  line-height:1.25;
+}
+.bz-hero-sub{
+  margin-top:var(--space-sm);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.9;
+}
+.bz-hero-quote{
+  margin-top:var(--space-lg);
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:rgba(106,142,110,0.07);
+  border:1px solid rgba(106,142,110,0.16);
+}
+.bz-hero-quote strong{
+  display:block;
+  margin-bottom:4px;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--jade);
+}
+.bz-hero-quote span{
+  display:block;
+  font-size:var(--text-sm);
+  color:var(--ink);
+  line-height:1.85;
+}
+.bz-flow-tabs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:var(--space-xs);
+  padding:var(--space-xs);
+  margin-bottom:var(--space-lg);
+  background:rgba(248,243,230,0.92);
+  border:1px solid rgba(216,206,188,0.82);
+  border-radius:999px;
+  position:sticky;
+  top:calc(var(--space-sm) + 2px);
+  z-index:4;
+  backdrop-filter:blur(10px);
+}
+.bz-flow-tab{
+  border:none;
+  border-radius:999px;
+  background:transparent;
+  color:var(--ink-light);
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  letter-spacing:0.08em;
+  padding:10px 8px;
+  cursor:pointer;
+  transition:background 0.2s var(--ease-ink),color 0.2s var(--ease-ink),transform 0.2s var(--ease-ink);
+}
+.bz-flow-tab.is-active{
+  background:linear-gradient(180deg,rgba(168,60,50,0.9),rgba(145,51,43,0.92));
+  color:var(--paper-light);
+  transform:translateY(-1px);
+}
+.bz-flow-panel{display:none}
+.bz-flow-panel.is-active{display:block;animation:fadeIn 0.24s ease}
+.bz-glance-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-sm);
+  margin-bottom:var(--space-lg);
+}
+.bz-glance-card{
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:var(--paper-light);
+  border:1px solid rgba(216,206,188,0.85);
+  box-shadow:var(--shadow-sm);
+}
+.bz-glance-card strong{
+  display:block;
+  margin-bottom:4px;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+}
+.bz-glance-card span{
+  display:block;
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.8;
+}
+.bz-section-shell{
+  background:rgba(248,243,230,0.82);
+  border:1px solid rgba(216,206,188,0.78);
+  border-radius:var(--radius-xl);
+  padding:var(--space-lg);
+  margin-bottom:var(--space-lg);
+}
+.bz-section-kicker{
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  color:var(--cinnabar);
+  letter-spacing:0.12em;
+  margin-bottom:var(--space-xs);
+}
+.bz-section-heading{
+  font-family:var(--font-serif);
+  font-size:var(--text-lg);
+  color:var(--ink-deep);
+  font-weight:600;
+  line-height:1.4;
+}
+.bz-section-copy{
+  margin-top:var(--space-xs);
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.85;
+}
+.bz-scene-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-sm);
+  margin-top:var(--space-md);
+}
+.bz-life-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--space-sm);
+  margin-top:var(--space-md);
+}
+.bz-life-card{
+  width:100%;
+  text-align:left;
+  border:none;
+  cursor:pointer;
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(180deg,rgba(255,252,246,0.98),rgba(244,238,223,0.95));
+  border:1px solid rgba(216,206,188,0.82);
+  box-shadow:var(--shadow-xs);
+  transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.bz-life-card:hover{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+  border-color:rgba(139,115,85,0.35);
+}
+.bz-life-card strong{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--space-sm);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+  margin-bottom:6px;
+}
+.bz-life-card strong em{
+  font-style:normal;
+  font-size:0.68rem;
+  color:var(--cinnabar);
+  letter-spacing:0.08em;
+  padding:2px 8px;
+  border-radius:999px;
+  background:var(--cinnabar-bg);
+  border:1px solid rgba(168,60,50,0.12);
+  flex-shrink:0;
+}
+.bz-life-card span{
+  display:block;
+  font-size:var(--text-xs);
+  line-height:1.8;
+  color:var(--ink-light);
+  margin-bottom:8px;
+}
+.bz-life-card i{
+  display:block;
+  font-style:normal;
+  font-size:0.74rem;
+  line-height:1.7;
+  color:var(--gold);
+}
+.bz-scene-card{
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(180deg,rgba(255,252,246,0.96),rgba(246,240,225,0.94));
+  border:1px solid rgba(216,206,188,0.82);
+}
+.bz-scene-card strong{
+  display:block;
+  margin-bottom:6px;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+}
+.bz-scene-card span{
+  display:block;
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.85;
+}
+.bz-scene-card em{
+  display:block;
+  margin-top:var(--space-sm);
+  font-style:normal;
+  font-size:var(--text-xs);
+  color:var(--jade);
+  line-height:1.75;
+}
+.bz-deep-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-sm);
+  margin-top:var(--space-md);
+}
+.bz-deep-btn{
+  width:100%;
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  border:1px solid rgba(216,206,188,0.88);
+  background:linear-gradient(180deg,rgba(248,243,230,0.97),rgba(241,233,214,0.92));
+  text-align:left;
+  cursor:pointer;
+  transition:transform 0.2s var(--ease-ink),box-shadow 0.2s var(--ease-ink),border-color 0.2s var(--ease-ink);
+}
+.bz-deep-btn:hover{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+  border-color:rgba(106,142,110,0.24);
+}
+.bz-deep-btn strong{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+  margin-bottom:2px;
+}
+.bz-deep-btn span{
+  display:block;
+  font-size:var(--text-xs);
+  color:var(--ink-light);
+  line-height:1.75;
+}
+.bz-action-strip{
+  display:flex;
+  align-items:center;
+  gap:var(--space-sm);
+  flex-wrap:wrap;
+  margin-top:var(--space-md);
+}
+.bz-action-note{
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+  line-height:1.75;
+}
+.bz-next-panel{
+  margin:var(--space-lg) 0;
+  padding:var(--space-lg);
+  border-radius:var(--radius-xl);
+  background:
+    radial-gradient(circle at 12% 8%,rgba(168,60,50,0.08),transparent 34%),
+    linear-gradient(180deg,rgba(248,243,230,0.98),rgba(237,230,211,0.94));
+  border:1px solid rgba(139,115,85,0.22);
+  box-shadow:var(--shadow-md);
+}
+.bz-next-panel h3{
+  font-family:var(--font-serif);
+  font-size:var(--text-lg);
+  color:var(--ink-deep);
+  line-height:1.45;
+  margin-bottom:var(--space-xs);
+}
+.bz-next-panel p{
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.85;
+}
+.bz-next-steps{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-sm);
+  margin-top:var(--space-md);
+}
+.bz-next-step{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:var(--space-sm);
+  align-items:start;
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:rgba(255,252,246,0.76);
+  border:1px solid rgba(216,206,188,0.76);
+}
+.bz-next-step mark{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(168,60,50,0.09);
+  color:var(--cinnabar);
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+}
+.bz-next-step strong{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+  margin-bottom:2px;
+}
+.bz-next-step span{
+  display:block;
+  font-size:var(--text-sm);
+  color:var(--ink-light);
+  line-height:1.75;
+}
+.bz-next-actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-sm);
+  margin-top:var(--space-md);
+}
+.bz-next-btn{
+  min-height:46px;
+  border-radius:var(--radius-md);
+  border:1px solid rgba(168,60,50,0.22);
+  background:var(--cinnabar);
+  color:var(--paper-light);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  cursor:pointer;
+  transition:transform 0.18s var(--ease-ink),box-shadow 0.18s var(--ease-ink),background 0.18s var(--ease-ink);
+}
+.bz-next-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm);background:var(--cinnabar-light)}
+.bz-next-btn.secondary{
+  background:rgba(248,243,230,0.86);
+  color:var(--ink);
+  border-color:rgba(216,206,188,0.92);
+}
+.bz-next-btn.secondary:hover{
+  background:var(--paper-light);
+  color:var(--ink-deep);
+  border-color:rgba(106,142,110,0.3);
+}
+@media (min-width:520px){
+  .bz-next-actions{grid-template-columns:1fr 1fr}
+}
+.bz-star-mirror{
+  margin:var(--space-lg) 0;
+  padding:var(--space-lg);
+  border-radius:var(--radius-xl);
+  background:
+    radial-gradient(circle at 88% 12%,rgba(106,142,110,0.12),transparent 34%),
+    linear-gradient(180deg,rgba(255,252,246,0.94),rgba(241,233,214,0.9));
+  border:1px solid rgba(216,206,188,0.82);
+  box-shadow:var(--shadow-sm);
+}
+.bz-star-mirror-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:var(--space-md);
+  margin-bottom:var(--space-md);
+}
+.bz-star-mirror-head h3{
+  font-family:var(--font-serif);
+  font-size:var(--text-lg);
+  color:var(--ink-deep);
+  line-height:1.45;
+}
+.bz-star-mirror-head p{
+  margin-top:3px;
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+  line-height:1.7;
+}
+.bz-star-origin{
+  flex-shrink:0;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid rgba(139,115,85,0.18);
+  color:var(--gold);
+  background:rgba(139,115,85,0.08);
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+}
+.bz-bagua-shell{
+  margin:var(--space-md) 0;
+  padding:var(--space-md);
+  border-radius:var(--radius-xl);
+  background:linear-gradient(180deg,rgba(248,243,230,0.92),rgba(255,252,246,0.76));
+  border:1px solid rgba(216,206,188,0.82);
+  box-shadow:var(--shadow-sm);
+}
+.bz-bagua-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:var(--space-sm);
+  margin-bottom:var(--space-sm);
+}
+.bz-bagua-head strong{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+}
+.bz-bagua-head span{
+  display:block;
+  margin-top:2px;
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+  line-height:1.7;
+}
+.bz-bagua-orientation{
+  flex-shrink:0;
+  padding:4px 10px;
+  border-radius:999px;
+  background:rgba(139,115,85,0.08);
+  border:1px solid rgba(139,115,85,0.16);
+  color:var(--gold);
+  font-family:var(--font-serif);
+  font-size:var(--text-xs);
+}
+.bz-bagua-board{
+  position:relative;
+  width:min(306px,100%);
+  height:306px;
+  margin:0 auto;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at center,rgba(168,60,50,0.06) 0%,transparent 34%),
+    radial-gradient(circle at center,rgba(139,115,85,0.08) 0%,transparent 60%),
+    linear-gradient(180deg,rgba(255,252,246,0.56),rgba(242,235,217,0.22));
+}
+.bz-bagua-board::before,
+.bz-bagua-board::after{
+  content:'';
+  position:absolute;
+  inset:22px;
+  border-radius:50%;
+  border:1px dashed rgba(139,115,85,0.18);
+  pointer-events:none;
+}
+.bz-bagua-board::after{
+  inset:56px;
+  border-style:solid;
+  border-color:rgba(216,206,188,0.34);
+}
+.bz-bagua-center{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  z-index:1;
+  width:112px;
+  height:112px;
+  border-radius:50%;
+  border:1px solid rgba(168,60,50,0.18);
+  background:linear-gradient(180deg,rgba(255,252,246,0.95),rgba(242,235,217,0.9));
+  box-shadow:0 6px 18px rgba(44,36,24,0.08);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:10px;
+}
+.bz-bagua-center span{
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+  letter-spacing:0.06em;
+}
+.bz-bagua-center strong{
+  margin-top:2px;
+  font-family:var(--font-serif);
+  font-size:1.8rem;
+  line-height:1;
+  color:var(--ink-deep);
+}
+.bz-bagua-center em{
+  margin-top:4px;
+  font-style:normal;
+  font-size:var(--text-xs);
+  color:var(--ink-light);
+  line-height:1.5;
+}
+.bz-bagua-node{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) scale(0.94);
+  z-index:2;
+  width:78px;
+  min-height:78px;
+  padding:4px 4px 6px;
+  border:none;
+  background:none;
+  text-align:center;
+  cursor:pointer;
+  transition:transform 0.18s var(--ease-ink),opacity 0.18s var(--ease-ink),filter 0.18s var(--ease-ink);
+  animation:baguaNodeIn 0.42s var(--ease-ink) both;
+  animation-delay:var(--delay,0ms);
+  opacity:0.9;
+}
+.bz-bagua-node strong{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  font-family:var(--font-serif);
+  font-size:12px;
+  color:var(--ink-deep);
+  line-height:1.15;
+  font-weight:500;
+}
+.bz-bagua-node strong em{
+  font-style:normal;
+  font-size:1.7rem;
+  color:currentColor;
+  line-height:1;
+}
+.bz-bagua-node span{
+  display:block;
+  margin-top:2px;
+  font-size:10px;
+  color:var(--ink-faint);
+  line-height:1.4;
+}
+.bz-bagua-node.ji{
+  color:var(--jade);
+}
+.bz-bagua-node.xiong{
+  color:var(--cinnabar);
+}
+.bz-bagua-node:hover,
+.bz-bagua-node.is-active{
+  transform:translate(-50%,-50%) scale(1);
+  opacity:1;
+  filter:drop-shadow(0 6px 14px rgba(44,36,24,0.12));
+}
+.bz-bagua-node.is-active.ji{
+  text-shadow:0 0 14px rgba(106,142,110,0.18);
+}
+.bz-bagua-node.is-active.xiong{
+  text-shadow:0 0 14px rgba(168,60,50,0.16);
+}
+.bz-bagua-node.pos-top{top:28px;left:50%}
+.bz-bagua-node.pos-top-left{top:74px;left:23%}
+.bz-bagua-node.pos-left{top:153px;left:11%}
+.bz-bagua-node.pos-bottom-left{top:232px;left:23%}
+.bz-bagua-node.pos-bottom{top:278px;left:50%}
+.bz-bagua-node.pos-bottom-right{top:232px;left:77%}
+.bz-bagua-node.pos-right{top:153px;left:89%}
+.bz-bagua-node.pos-top-right{top:74px;left:77%}
+.bz-bagua-panel{
+  margin-top:var(--space-md);
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:rgba(255,252,246,0.82);
+  border:1px solid rgba(216,206,188,0.82);
+}
+.bz-bagua-panel-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:var(--space-sm);
+}
+.bz-bagua-panel-top strong{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:var(--text-base);
+  color:var(--ink-deep);
+}
+.bz-bagua-panel-top span{
+  display:block;
+  margin-top:2px;
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+}
+.bz-bagua-code{
+  flex-shrink:0;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(168,60,50,0.08);
+  border:1px solid rgba(168,60,50,0.14);
+  color:var(--cinnabar);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+}
+.bz-bagua-brief{
+  margin-top:var(--space-sm);
+  font-size:var(--text-sm);
+  color:var(--ink);
+  line-height:1.8;
+}
+.bz-bagua-metrics{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:var(--space-xs);
+  margin-top:var(--space-sm);
+}
+.bz-bagua-metric{
+  padding:8px 10px;
+  border-radius:var(--radius-md);
+  background:rgba(242,235,217,0.54);
+  border:1px solid rgba(216,206,188,0.68);
+}
+.bz-bagua-metric strong{
+  display:block;
+  font-size:11px;
+  color:var(--ink-faint);
+  font-weight:500;
+}
+.bz-bagua-metric span{
+  display:block;
+  margin-top:2px;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+  line-height:1.45;
+}
+.bz-bagua-actions{
+  display:flex;
+  gap:var(--space-xs);
+  margin-top:var(--space-sm);
+}
+.bz-bagua-btn{
+  flex:1;
+  min-height:42px;
+  border-radius:var(--radius-md);
+  border:1px solid rgba(168,60,50,0.18);
+  background:rgba(168,60,50,0.06);
+  color:var(--cinnabar);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  cursor:pointer;
+}
+.bz-bagua-btn.secondary{
+  border-color:rgba(216,206,188,0.82);
+  background:rgba(255,252,246,0.8);
+  color:var(--ink-light);
+}
+.bz-bagua-legend{
+  margin-top:var(--space-sm);
+  padding-top:var(--space-sm);
+  border-top:1px dashed rgba(139,115,85,0.2);
+  font-size:var(--text-xs);
+  color:var(--ink-light);
+  line-height:1.8;
+}
+.bz-bagua-legend strong{
+  color:var(--ink-deep);
+  font-weight:500;
+}
+.bz-path-guide{
+  display:flex;
+  flex-direction:column;
+  gap:var(--space-sm);
+  margin-bottom:var(--space-lg);
+  padding:var(--space-md);
+  border-radius:var(--radius-xl);
+  border:1px solid rgba(168,60,50,0.18);
+  background:
+    radial-gradient(circle at 92% 12%,rgba(168,60,50,0.08),transparent 32%),
+    linear-gradient(180deg,rgba(255,252,246,0.98),rgba(244,238,223,0.96));
+  box-shadow:var(--shadow-sm);
+}
+.bz-path-guide strong{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+  margin-bottom:2px;
+}
+.bz-path-guide span{
+  display:block;
+  font-size:var(--text-xs);
+  color:var(--ink-light);
+  line-height:1.7;
+}
+.bz-path-guide-actions{
+  display:flex;
+  gap:var(--space-xs);
+  flex-wrap:wrap;
+}
+.bz-path-guide-btn{
+  min-height:42px;
+  padding:0 14px;
+  border-radius:999px;
+  border:1px solid rgba(168,60,50,0.18);
+  background:rgba(168,60,50,0.08);
+  color:var(--cinnabar);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  cursor:pointer;
+}
+.bz-path-guide-btn.secondary{
+  border-color:rgba(216,206,188,0.88);
+  background:rgba(255,252,246,0.9);
+  color:var(--ink);
+}
+@keyframes baguaNodeIn{
+  from{opacity:0;transform:translate(-50%,-50%) scale(0.72)}
+  to{opacity:1;transform:translate(-50%,-50%) scale(0.94)}
+}
+.bz-star-groups{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:var(--space-md);
+}
+.bz-star-group-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:var(--space-xs);
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+}
+.bz-star-group-title span{
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+}
+.bz-star-list{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:var(--space-xs);
+}
+.bz-star-pill{
+  min-height:88px;
+  padding:var(--space-sm);
+  border-radius:var(--radius-lg);
+  border:1px solid rgba(216,206,188,0.82);
+  background:rgba(255,252,246,0.72);
+  text-align:left;
+  cursor:pointer;
+  transition:transform 0.18s var(--ease-ink),box-shadow 0.18s var(--ease-ink),border-color 0.18s var(--ease-ink);
+}
+.bz-star-pill:hover{
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+  border-color:rgba(106,142,110,0.24);
+}
+.bz-star-pill strong{
+  display:block;
+  font-family:var(--font-serif);
+  font-size:var(--text-sm);
+  color:var(--ink-deep);
+  line-height:1.25;
+}
+.bz-star-pill strong em{
+  display:block;
+  margin-top:2px;
+  font-style:normal;
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+}
+.bz-star-pill span{
+  display:block;
+  margin-top:6px;
+  font-size:var(--text-xs);
+  color:var(--ink-light);
+  line-height:1.55;
+  word-break:break-word;
+}
+.bz-star-pill.ji{background:rgba(106,142,110,0.07);border-color:rgba(106,142,110,0.18)}
+.bz-star-pill.xiong{background:rgba(168,60,50,0.045);border-color:rgba(168,60,50,0.13)}
+.bz-term-note{
+  margin:var(--space-md) 0;
+  padding:var(--space-md);
+  border-radius:var(--radius-lg);
+  background:rgba(31,38,35,0.035);
+  border:1px dashed rgba(139,115,85,0.24);
+  font-size:var(--text-xs);
+  color:var(--ink-light);
+  line-height:1.8;
+}
+@media (min-width:520px){
+  .bz-star-groups{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .bz-life-grid{grid-template-columns:1fr}
+  .bz-bagua-shell{
+    padding:var(--space-sm);
+  }
+  .bz-bagua-board{
+    width:min(290px,100%);
+    height:290px;
+  }
+  .bz-bagua-node{
+    width:72px;
+    min-height:72px;
+    padding:4px;
+  }
+  .bz-bagua-node.pos-top{top:24px}
+  .bz-bagua-node.pos-top-left{top:68px;left:23%}
+  .bz-bagua-node.pos-left{top:145px;left:12%}
+  .bz-bagua-node.pos-bottom-left{top:222px;left:23%}
+  .bz-bagua-node.pos-bottom{top:266px}
+  .bz-bagua-node.pos-bottom-right{top:222px;left:77%}
+  .bz-bagua-node.pos-right{top:145px;left:88%}
+  .bz-bagua-node.pos-top-right{top:68px;left:77%}
+  .bz-bagua-center{
+    width:102px;
+    height:102px;
+  }
+}
 /* 方位罗盘 */
 .bz-compass{
   display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;
@@ -1935,7 +3128,7 @@ body::after{
   </div>
   <div class="birth-intro-card">
     <h3>为什么先填写生辰信息</h3>
-    <p>录入后可生成本命卦、命宫与流年参考，也能让后续浏览与解读更贴近你的个人视角。</p>
+    <p>录入后可生成生日本命卦、命宫与流年参考，也能让后续浏览与解读更贴近你的个人视角。</p>
   </div>
   <form class="birthday-form" onsubmit="return handleSubmit(event)">
     <div class="form-field">
@@ -2001,8 +3194,8 @@ body::after{
     <div class="ink-blob"></div>
     <p class="loading-text">正在推演命理...</p>
     <div class="loading-steps">
-      <span class="step-dot" data-step="1">排四柱</span>
-      <span class="step-dot" data-step="2">配纳甲</span>
+      <span class="step-dot" data-step="1">读生辰</span>
+      <span class="step-dot" data-step="2">定节律</span>
       <span class="step-dot" data-step="3">定卦象</span>
       <span class="step-dot" data-step="4">推命宫</span>
     </div>
@@ -2023,24 +3216,17 @@ body::after{
       <h3 class="hexagram-name" id="gua-name"></h3>
     </div>
     <div class="info-card">
-      <div class="info-row"><span class="info-label">八字</span><span class="info-value" id="info-bazi"></span></div>
-      <div class="info-row"><span class="info-label">本命卦</span><span class="info-value" id="info-gua"></span></div>
-      <div class="info-row"><span class="info-label">命宫</span><span class="info-value" id="info-minggong"></span></div>
-      <div class="info-row"><span class="info-label">流年宫</span><span class="info-value" id="info-liunian"></span></div>
+      <div class="info-row"><span class="info-label">生辰节律</span><span class="info-value" id="info-bazi"></span></div>
+      <button class="info-row info-row-button" onclick="openProfileInsight('bengua')"><span class="info-label">生日本命卦</span><span class="info-value" id="info-gua"></span></button>
+      <button class="info-row info-row-button" onclick="openProfileInsight('minggong')"><span class="info-label">命宫</span><span class="info-value" id="info-minggong"></span></button>
+      <button class="info-row info-row-button" onclick="openProfileInsight('liunian')"><span class="info-label">流年宫</span><span class="info-value" id="info-liunian"></span></button>
     </div>
     <div class="tags-row" id="tags-row"></div>
     <div class="plain-insight-card">
-      <h4>先用白话看懂自己</h4>
+      <h4>先抓重点，再按需展开</h4>
       <p id="profile-plain-text"></p>
-      <div class="term-grid" id="profile-term-grid"></div>
     </div>
-    <div class="plain-insight-card">
-      <h4>本命卦详细解读</h4>
-      <p id="profile-bengua-relation"></p>
-      <p id="profile-bengua-plain"></p>
-      <p id="profile-bengua-classic"></p>
-      <p id="profile-bengua-advice"></p>
-    </div>
+    <div class="insight-inline-list" id="profile-insight-list"></div>
     <p class="desc-text" id="desc-text"></p>
     <div class="disclaimer-card" style="text-align:left">
       <h4>结果说明</h4>
@@ -2053,10 +3239,15 @@ body::after{
 <!-- ===== 首页 ===== -->
 <div id="home-screen" class="screen scrollable">
   <div class="home-inner">
-    <button class="home-settings-btn" onclick="openSettings()" title="设置">&#9881;</button>
+    <button class="home-settings-btn" onclick="openSettings()" title="设置" aria-label="打开设置">设置</button>
     <div class="home-title-block">
       <h1 class="home-title">观 心</h1>
-      <p class="home-subtitle">先看自己的命理档案，再延展到每日学习与问卦</p>
+      <p class="home-subtitle">先读懂自己的性格与情绪底色，再决定今天该学习、该提问，还是该回看。</p>
+      <div class="home-path-strip" aria-label="主路径提示">
+        <div class="home-path-chip"><strong>01</strong><span>先填生辰</span></div>
+        <div class="home-path-chip"><strong>02</strong><span>看命宫与生日本命卦</span></div>
+        <div class="home-path-chip"><strong>03</strong><span>再学卦或问事</span></div>
+      </div>
     </div>
     <div class="home-review-card" id="home-review-card">
       <div class="home-review-eyebrow">七日回看</div>
@@ -2069,45 +3260,97 @@ body::after{
         <button class="btn btn-outline" onclick="showHistory()">去历史记录</button>
       </div>
     </div>
-    <div class="home-grid">
-      <div class="feature-card" onclick="showBaZhai()">
-        <div class="card-icon">&#129504;</div>
-        <div>
-          <h3 class="card-title">命宫解读</h3>
-          <p class="card-desc">从你的生辰信息出发，查看本命卦与流年参考</p>
-        </div>
-      </div>
-      <div class="feature-card" onclick="showDailyHex()">
-        <div class="card-icon">&#9775;</div>
-        <div>
-          <h3 class="card-title">每日一卦 <span class="checkin-badge" id="checkin-badge" style="display:none"></span></h3>
-          <p class="card-desc">每日学一卦，六十四卦逐日品读</p>
-        </div>
-      </div>
-      <div class="feature-card" onclick="doQuestionHex()">
-        <div class="card-icon">&#10067;</div>
-        <div>
-          <h3 class="card-title">以事问卦</h3>
-          <p class="card-desc">心中所惑，诚心问卦以求指引</p>
-        </div>
+    <div class="home-review-card" id="home-practice-card" style="display:none">
+      <div class="home-review-eyebrow">今日练习</div>
+      <h3>白天先做，晚上回看</h3>
+      <p class="home-review-question" id="home-practice-action"></p>
+      <p class="home-review-insight" id="home-practice-review"></p>
+      <div class="home-review-actions">
+        <button class="btn btn-primary" onclick="reviewTodayPractice(true)">我做到了</button>
+        <button class="btn btn-outline" onclick="reviewTodayPractice(false)">今晚再回看</button>
       </div>
     </div>
-    <div class="home-quick-row">
-      <div class="home-quick-item" onclick="showEncyclopedia()">
-        <div class="quick-icon">&#128214;</div>
-        <span class="quick-label">卦象图鉴</span>
+    <div class="home-entry-group">
+      <div class="home-entry-heading">
+        <div class="home-entry-title">现在先从这里开始</div>
+        <p class="home-entry-copy">主路径先给你一个能看懂、能落地的个人观察入口。</p>
       </div>
-      <div class="home-quick-item" onclick="doNumberDiv()">
-        <div class="quick-icon">&#128290;</div>
-        <span class="quick-label">数字起卦</span>
+      <div class="home-grid">
+        <button type="button" class="feature-card feature-card-primary" onclick="showBaZhai()" aria-label="打开命宫解读">
+          <div class="card-icon">命</div>
+          <div class="card-body">
+            <p class="card-kicker">主路径 · 先建档</p>
+            <h3 class="card-title">命宫解读</h3>
+            <p class="card-desc">从生辰信息先看你的性格底色、情绪按钮和今年节奏，再决定后面怎么学、怎么问。</p>
+            <div class="card-meta">
+              <span class="card-meta-tag">填写生辰</span>
+              <span class="card-meta-tag">个性档案</span>
+            </div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">&rarr;</div>
+        </button>
+        <button type="button" class="feature-card feature-card-secondary" onclick="showDailyHex()" aria-label="打开每日一卦">
+          <div class="card-icon">学</div>
+          <div class="card-body">
+            <p class="card-kicker">学习入口 · 轻量回访</p>
+            <h3 class="card-title">每日一卦 <span class="checkin-badge" id="checkin-badge" style="display:none"></span></h3>
+            <p class="card-desc">每天学一卦，先用白话看懂，再慢慢接触卦辞、象辞和传统思路。</p>
+            <div class="card-meta">
+              <span class="card-meta-tag">每日更新</span>
+              <span class="card-meta-tag">适合新手</span>
+            </div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">&rarr;</div>
+        </button>
+        <button type="button" class="feature-card feature-card-tertiary" onclick="doQuestionHex()" aria-label="打开以事问卦">
+          <div class="card-icon">问</div>
+          <div class="card-body">
+            <p class="card-kicker">问题入口 · 当下有惑</p>
+            <h3 class="card-title">以事问卦</h3>
+            <p class="card-desc">当你心里已经有一件卡住的事，就直接带着问题来问，先拿到一个行动方向。</p>
+            <div class="card-meta">
+              <span class="card-meta-tag">摇签问事</span>
+              <span class="card-meta-tag">行动提醒</span>
+            </div>
+          </div>
+          <div class="card-arrow" aria-hidden="true">&rarr;</div>
+        </button>
       </div>
-      <div class="home-quick-item" onclick="showHistory()">
-        <div class="quick-icon">&#128218;</div>
-        <span class="quick-label">占卦历史</span>
+    </div>
+    <div class="home-entry-group">
+      <div class="home-entry-heading">
+        <div class="home-entry-title">再往下探索</div>
+        <p class="home-entry-copy">图鉴、历史和工具入口收在下面，减少首页首屏噪音。</p>
       </div>
-      <div class="home-quick-item" onclick="goTo('birthday')">
-        <div class="quick-icon">&#128302;</div>
-        <span class="quick-label">重新排盘</span>
+      <div class="home-quick-row">
+        <button type="button" class="home-quick-item" onclick="showEncyclopedia()" aria-label="打开卦象图鉴">
+          <div class="quick-icon">图</div>
+          <div class="quick-body">
+            <span class="quick-label">卦象图鉴</span>
+            <span class="quick-desc">查卦名、看结构、继续学习</span>
+          </div>
+        </button>
+        <button type="button" class="home-quick-item" onclick="doNumberDiv()" aria-label="打开数字起卦">
+          <div class="quick-icon">数</div>
+          <div class="quick-body">
+            <span class="quick-label">数字起卦</span>
+            <span class="quick-desc">直接输入数字，快速起卦</span>
+          </div>
+        </button>
+        <button type="button" class="home-quick-item" onclick="showHistory()" aria-label="打开占卦历史">
+          <div class="quick-icon">史</div>
+          <div class="quick-body">
+            <span class="quick-label">占卦历史</span>
+            <span class="quick-desc">回看提问、收藏和主题变化</span>
+          </div>
+        </button>
+        <button type="button" class="home-quick-item" onclick="goTo('birthday')" aria-label="重新填写生辰信息">
+          <div class="quick-icon">盘</div>
+          <div class="quick-body">
+            <span class="quick-label">重新排盘</span>
+            <span class="quick-desc">更新生辰信息，重建档案</span>
+          </div>
+        </button>
       </div>
     </div>
   </div>
@@ -2928,6 +4171,66 @@ const BZ_STAR_DESC={
   lh:'六煞文曲水，凶方，主桃花劫、情感波折',
   hj:'祸害禄存土，小凶之方，主小病小灾、言语不和'
 };
+const BZ_STAR_ORDER=['sn','ty','yn','fw','jm','wg','lh','hj'];
+const BZ_STAR_KIND={sn:'ji',ty:'ji',yn:'ji',fw:'ji',jm:'xiong',wg:'xiong',lh:'xiong',hj:'xiong'};
+const BZ_STAR_SELF={
+  sn:{
+    brief:'生发型，适合推进与重启',
+    life:'生气属木，重在生发和向上。适合看一个人的启动力、成长欲和把局面重新带动起来的能力。',
+    scene:'更像“往前冲的生命力”：适合放在学习、事业推进、新计划启动、恢复信心。',
+    practice:'今天挑一件能让局面往前动的小事，不求大胜，只求让气重新流动。',
+    caution:'不要把它理解成必然顺利。生气只是提醒你：哪里更适合主动生发，仍要看现实条件。'
+  },
+  ty:{
+    brief:'修复型，适合养回状态',
+    life:'天医属土，重在滋养和修复。适合看一个人怎么恢复状态、接住支持、把身心秩序补回来。',
+    scene:'更像“恢复力和修复力”：适合放在休整、求助、健康管理、修复关系里的疲惫感。',
+    practice:'今天先补一个基础：睡眠、饮食、整理空间，或向可信的人说明你的真实处境。',
+    caution:'它不是医疗判断。任何健康问题仍应回到专业建议，这里只作为生活节奏提醒。'
+  },
+  yn:{
+    brief:'长线型，适合经营关系与合作',
+    life:'延年属金，重在稳定、规则和长久。适合看一个人如何维持关系、稳住合作、把短期冲动拉回长期秩序。',
+    scene:'更像“长期经营力”：适合放在谈合作、修复沟通、做长期规划、确认边界。',
+    practice:'今天把一个关系或计划从“情绪反应”改写成“长期规则”：说清期待、边界和下一步。',
+    caution:'延年不是一味维持。真正的长久来自清楚的规则，而不是长期忍耐。'
+  },
+  fw:{
+    brief:'沉定型，适合复盘与稳场',
+    life:'伏位属土，重在安定和沉淀。适合看一个人如何回到自己、静下来复盘、建立不被外界牵着走的稳定感。',
+    scene:'更像“内在定盘星”：适合放在复盘、学习、静心、整理计划、把状态从乱拉回稳。',
+    practice:'今天留十分钟复盘：我现在真正能控制的是什么？先把这一项稳住。',
+    caution:'伏位不是躲起来不动。它提醒先稳住根基，再决定要不要出手。'
+  },
+  jm:{
+    brief:'高压型，先控风险再决断',
+    life:'绝命在八宅里属于强提醒，不适合用恐吓方式理解。它更像“高消耗、高风险、高决断压力”的信号。',
+    scene:'适合用于检查冲动决策、重大承诺、过度透支、关系或工作里的断裂感。',
+    practice:'今天不要在情绪最高点做长期决定。先写下最坏结果、可承受底线和一个替代方案。',
+    caution:'不要把“绝命”理解成命运定数。这里改成风险管理提醒：先降压，再判断。'
+  },
+  wg:{
+    brief:'扰动型，先去误会和噪声',
+    life:'五鬼常被解释为扰动、口舌、暗耗。放到自我观察里，就是念头杂、误会多、容易被情绪带偏。',
+    scene:'适合用于检查沟通误解、信息混乱、焦虑内耗、临时变故。',
+    practice:'今天重要沟通只保留事实、请求和截止时间，少猜对方动机。',
+    caution:'它不是“有鬼”或神秘恐吓，而是提醒你：信息不清时，先减噪。'
+  },
+  lh:{
+    brief:'牵引型，情绪和欲望都更强',
+    life:'六煞属水，重在牵连、暧昧、欲望和情绪拉扯。放到性格观察里，常见为关系敏感、容易被人事牵动、情绪起伏时更难抽离。',
+    scene:'更像“关系磁场的牵动感”：适合观察边界、依赖、桃花拉扯、反复纠缠、想说又不敢说的状态。',
+    practice:'今天把一段关系里的真实需求写清楚：我需要什么、我能给什么、我不能继续承担什么。',
+    caution:'六煞不是否定关系，而是提醒关系越牵动情绪，越要有清楚边界。'
+  },
+  hj:{
+    brief:'摩擦型，先处理小失衡',
+    life:'祸害多指小摩擦、小失误、言语不顺。放到日常里，就是细节没处理好导致心气被消耗。',
+    scene:'适合用于检查拖延的小事、反复的小争执、表达里的刺和误会。',
+    practice:'今天清掉一个“小麻烦”：补一条消息、确认一个细节、整理一个容易出错的环节。',
+    caution:'祸害不是大灾判断。它更像提醒：小处不顺，往往会拖住大处的心力。'
+  }
+};
 
 /* 根据命卦洛书数计算八宅方位 */
 function calcBaZhai(mgNum){
@@ -2946,8 +4249,8 @@ function calcBaZhai(mgNum){
     var star;
     if(key==='0,0,0') star='fw';
     else if(key==='1,1,1') star='yn';
-    else if(key==='1,1,0') star='sn';
-    else if(key==='0,0,1') star='ty';
+    else if(key==='1,1,0') star='ty';
+    else if(key==='0,0,1') star='sn';
     else if(key==='1,0,0') star='hj';
     else if(key==='0,1,0') star='jm';
     else if(key==='0,1,1') star='wg';
@@ -3005,6 +4308,20 @@ function calcWXRelation(bmg,mg,ln){
 /* 先天八卦数 → 洛书数 映射: 乾1→6,兑2→7,离3→9,震4→3,巽5→4,坎6→1,艮7→8,坤8→2 */
 const XT_LUO=[0,6,7,9,3,4,1,8,2]; // index=先天数, value=洛书数
 const XT_NAME=['','乾','兑','离','震','巽','坎','艮','坤'];
+const LUO_TO_XT=(function(){
+  var map={};
+  for(var i=1;i<XT_LUO.length;i++) map[XT_LUO[i]]=i;
+  return map;
+})();
+
+function getXianTianNumByLuo(luo){
+  return LUO_TO_XT[luo] || '';
+}
+
+function getXianTianNameByLuo(luo){
+  var num = getXianTianNumByLuo(luo);
+  return XT_NAME[num] || '';
+}
 
 function hexagramById(id){
   let upN=1,loN=1;
@@ -3503,33 +4820,33 @@ function showFlipCard(hex){
   const overlay = document.createElement('div');
   overlay.className = 'flip-card-overlay';
 
-  const yaoData = YAO_CI[hex.id];
-  const yaoText = (yaoData && yaoData[hex.yao-1]) ? yaoData[hex.yao-1] : null;
-  const huInfo = hex.huHex ? hex.huHex.name : '';
-  const bianInfo = hex.bianHex ? hex.bianHex.name : '';
-  const huSub = hex.huHex ? (hex.huHex.up.name+'\u00B7'+hex.huHex.lo.name) : '';
-  const bianSub = hex.bianHex ? (hex.bianHex.up.name+'\u00B7'+hex.bianHex.lo.name) : '';
+  const plain = getHexPlainInsight(hex);
+  const action = getActionAdvice(hex);
 
   overlay.innerHTML =
-    '<div class="flip-card-container">'+
-      '<div class="flip-card" id="flip-card">'+
-        '<div class="flip-card-face flip-card-back">'+
-          '<div class="stick-text">签</div>'+
-          '<div class="stick-deco"></div>'+
-          '<div class="stick-hex-name">第'+hex.id+'卦 · '+hex.name+'</div>'+
-        '</div>'+
-        '<div class="flip-card-face flip-card-front">'+
-          '<div class="hex-result-header">第'+hex.id+'卦 '+hex.name+'</div>'+
-          '<div class="hex-result-sub">上'+hex.up.name+hex.up.sym+' · 下'+hex.lo.name+hex.lo.sym+' · 动爻第'+hex.yao+'爻</div>'+
-          '<div class="hex-result-section"><h5>卦辞</h5><p>'+(hex.info.c||'卦辞暂无')+'</p></div>'+
-          '<div class="hex-result-section"><h5>动爻</h5><p>'+(yaoText?yaoText.t:'')+'</p></div>'+
-          (huInfo?'<div class="hex-result-section"><h5>互卦 · '+huInfo+'</h5><p style="color:var(--jade)">'+huSub+'</p></div>':'')+
-          (bianInfo?'<div class="hex-result-section"><h5>变卦 · '+bianInfo+'</h5><p style="color:var(--gold)">'+bianSub+'</p></div>':'')+
-          '<button class="view-full-btn" onclick="this.closest(\'.flip-card-overlay\').remove();showDivResult(window._flipHex,window._flipQ,window._flipTitle)">查看完整解读</button>'+
+    '<div class="flip-card-stage">'+
+      '<div class="flip-card-container">'+
+        '<div class="flip-card" id="flip-card">'+
+          '<div class="flip-card-face flip-card-back">'+
+            '<div class="stick-text">签</div>'+
+            '<div class="stick-deco"></div>'+
+            '<div class="stick-hex-name">第'+hex.id+'卦 · '+hex.name+'</div>'+
+            '<div class="stick-back-note">轻点翻面，看这支签想提醒你的重点</div>'+
+          '</div>'+
+          '<div class="flip-card-face flip-card-front">'+
+            '<div class="flip-card-front-inner">'+
+              '<div class="hex-result-header">第'+hex.id+'卦 '+hex.name+'</div>'+
+              '<div class="hex-result-sub">上'+hex.up.name+hex.up.sym+' · 下'+hex.lo.name+hex.lo.sym+' · 动爻第'+hex.yao+'爻</div>'+
+              '<div class="hex-result-section"><h5>这卦先提醒什么</h5><p>'+plain.core+'</p></div>'+
+              '<div class="hex-result-section"><h5>现在先做什么</h5><p>'+action+'</p></div>'+
+              '<div class="hex-result-section"><h5>象法怎么看</h5><p>先看上卦怎样显在外面，再看下卦怎样托住里面；动爻提示眼下真正动的是哪一层，不用一次把所有变化都读完。</p></div>'+
+              '<button class="view-full-btn" onclick="this.closest(\'.flip-card-overlay\').remove();showDivResult(window._flipHex,window._flipQ,window._flipTitle)">查看完整解读</button>'+
+            '</div>'+
+          '</div>'+
         '</div>'+
       '</div>'+
+      '<div class="flip-tap-hint" id="flip-tap-hint">点击签条翻转查看</div>'+
     '</div>'+
-    '<div class="flip-tap-hint" id="flip-tap-hint">点击签条翻转查看</div>'+
     '<button class="flip-close-btn" onclick="this.closest(\'.flip-card-overlay\').remove()" title="关闭">&times;</button>';
 
   window._flipHex = hex;
@@ -3544,7 +4861,7 @@ function showFlipCard(hex){
   overlay.addEventListener('click', function(e){
     if(e.target.classList.contains('view-full-btn')) return;
     if(e.target.classList.contains('flip-close-btn')) return;
-    if(e.target.closest('.flip-card-front')) return;
+    if(e.target.closest('.flip-card-front') && !e.target.classList.contains('flip-card-front')) return;
     card.classList.toggle('flipped');
     if(tapHint && card.classList.contains('flipped')){ tapHint.style.opacity='0'; }
     else if(tapHint){ tapHint.style.opacity='1'; }
@@ -3775,10 +5092,7 @@ function showDivResult(hex, question, title){
   } else if(bianSection){ bianSection.style.display='none'; }
 
   const detEl = document.getElementById('div-detail');
-  if(hex.detail && detEl){
-    detEl.style.display='block';
-    document.getElementById('div-detail-text').textContent = hex.detail;
-  } else if(detEl){detEl.style.display='none';}
+  if(detEl){detEl.style.display='none';}
   goTo('divination');
 }
 
@@ -3816,7 +5130,7 @@ const PAGE_MAP = {splash:'splash-screen',birthday:'birthday-screen',loading:'loa
   daily:'daily-screen',bamboo:'bamboo-screen',history:'history-screen',
   bazhai:'bazhai-screen',
   encyclopedia:'encyclopedia-screen'};
-const SWIPE_BACK_PAGES = new Set(['daily','bamboo','divination','history','bazhai','encyclopedia']);
+const SWIPE_BACK_PAGES = new Set(['daily','bamboo','divination','result','history','bazhai','encyclopedia']);
 
 function goTo(page, options){
   options = options || {};
@@ -3828,12 +5142,21 @@ function goTo(page, options){
   }
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   const el=document.getElementById(PAGE_MAP[page]);
-  if(el){el.classList.add('active');currentPage=page;window.scrollTo(0,0);}
+  if(el){
+    el.classList.add('active');
+    currentPage=page;
+    syncOnboardVisibility();
+    window.scrollTo(0,0);
+  }
 }
 
 function goBack(fallback){
   var target = navStack.pop() || fallback || 'home';
+  while(target === 'loading'){
+    target = navStack.pop() || fallback || 'home';
+  }
   if(target === currentPage) target = navStack.pop() || fallback || 'home';
+  if(target === 'loading') target = fallback || 'home';
   goTo(target, {replace:true});
 }
 
@@ -3895,6 +5218,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   /* 更新打卡徽章 */
   updateCheckinBadge();
   updateHomeReviewCard();
+  updateTodayPracticeCard();
   /* 检查好友分享链接 */
   checkFriendLink();
 });
@@ -3926,17 +5250,8 @@ async function handleSubmit(e){
   localStorage.setItem('guanxin_birth', JSON.stringify({y,m,d,h,gender}));
   goTo('loading', {replace:true});
   await animateLoading();
-  const bmg=calcBenMingGua(y,m,d,h);
-  const mg=calcMingGong(y,gender);
-  const cy=new Date().getFullYear();
-  const ln=calcLiuNian(mg.num,cy);
-  showResult(bmg,mg,ln);
-  // Check pending navigation (e.g. from Ba Zhai page)
-  var pendingNav=localStorage.getItem('guanxin_pending_nav');
-  if(pendingNav==='bazhai'){
-    localStorage.removeItem('guanxin_pending_nav');
-    setTimeout(function(){showBaZhai();},800);
-  }
+  localStorage.removeItem('guanxin_pending_nav');
+  showBaZhai({replace:true,justBuilt:true});
   return false;
 }
 function animateLoading(){
@@ -3960,19 +5275,19 @@ function showResult(bmg,mg,ln){
   var profilePlain = getProfilePlainInsight(bmg, mg, ln);
   var profilePlainEl = document.getElementById('profile-plain-text');
   if(profilePlainEl){
-    profilePlainEl.innerHTML = '<strong>这是什么意思：</strong>' + profilePlain.text + '<br><strong>今天可用的建议：</strong>' + profilePlain.advice;
+    profilePlainEl.innerHTML = '<strong>这是什么意思：</strong>' + profilePlain.text + '<br><strong>操作方式：</strong>先点下面你最想了解的一项，再看详细解释。';
   }
-  renderTermGrid('profile-term-grid', profilePlain.terms);
-  var benInsight = getBenMingGuaInsight(bmg);
-  var benRelationEl = document.getElementById('profile-bengua-relation');
-  if(benRelationEl) benRelationEl.innerHTML = '<strong>它从哪里来：</strong>' + benInsight.relation;
-  var benPlainEl = document.getElementById('profile-bengua-plain');
-  if(benPlainEl) benPlainEl.innerHTML = '<strong>它在提醒什么：</strong>' + benInsight.plain;
-  var benClassicEl = document.getElementById('profile-bengua-classic');
-  if(benClassicEl) benClassicEl.innerHTML = '<strong>传统文本：</strong>' + [benInsight.classical, benInsight.xiang].filter(Boolean).join('<br>');
-  var benAdviceEl = document.getElementById('profile-bengua-advice');
-  if(benAdviceEl) benAdviceEl.innerHTML = '<strong>怎么用到生活里：</strong>' + benInsight.advice;
-  document.getElementById('desc-text').textContent=mg.desc+'\n\n'+ln.desc;
+  window._profileInsightData = buildProfileInsightData(bmg, mg, ln, null);
+  var insightList = document.getElementById('profile-insight-list');
+  if(insightList){
+    insightList.innerHTML = renderInsightListMarkup([
+      {key:'overview', title:'先看这些词是什么意思', hint:'命宫、本命卦、流年宫分别在看什么'},
+      {key:'minggong', title:'看命宫解读', hint:'了解你的内在基调和默认反应方式'},
+      {key:'bengua', title:'看本命卦解读', hint:'用更短的方式看长期处事底色'},
+      {key:'liunian', title:'看流年宫解读', hint:'先理解今年更适合推进还是稳住'}
+    ], 'openProfileInsight');
+  }
+  document.getElementById('desc-text').textContent='下面的长段原文可以先不急着看。先从点击解释开始，抓住你现在最需要的一条提醒，再决定要不要继续读传统文本。';
   goTo('result', {replace:true});
 }
 
@@ -4021,6 +5336,78 @@ function showToast(msg){
   t.classList.add('show');
   if(t._timer) clearTimeout(t._timer);
   t._timer = setTimeout(()=> t.classList.remove('show'), 2200);
+}
+
+function escapeHtml(value){
+  return String(value == null ? '' : value)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+function saveMingGongPractice(actionText, avoidText, reviewText){
+  var item = {
+    id:'practice-'+Date.now(),
+    date:new Date().toISOString(),
+    action:actionText || '',
+    avoid:avoidText || '',
+    review:reviewText || ''
+  };
+  try{
+    var list = JSON.parse(localStorage.getItem('guanxin_minggong_practices') || '[]');
+    list.unshift(item);
+    localStorage.setItem('guanxin_minggong_practices', JSON.stringify(list.slice(0,30)));
+    localStorage.setItem('guanxin_today_practice', JSON.stringify(item));
+    showToast('已记下今日练习，今晚可回看是否做到');
+  }catch(e){
+    showToast('记录失败，请稍后再试');
+  }
+}
+
+function getTodayPractice(){
+  try{
+    var raw = localStorage.getItem('guanxin_today_practice');
+    if(!raw) return null;
+    return JSON.parse(raw);
+  }catch(e){
+    return null;
+  }
+}
+
+function updateTodayPracticeCard(){
+  var card = document.getElementById('home-practice-card');
+  if(!card) return;
+  var item = getTodayPractice();
+  if(!item){
+    card.style.display = 'none';
+    return;
+  }
+  document.getElementById('home-practice-action').textContent = item.action || '今天先做一个小动作。';
+  document.getElementById('home-practice-review').textContent = item.review || '晚上回看：这件事有没有真的做到？';
+  card.style.display = 'block';
+}
+
+function reviewTodayPractice(done){
+  var item = getTodayPractice();
+  if(!item) return;
+  item.reviewedAt = new Date().toISOString();
+  item.done = !!done;
+  localStorage.setItem('guanxin_today_practice', JSON.stringify(item));
+  showToast(done ? '已记下：今天有做到' : '已记下：今晚继续回看');
+  updateTodayPracticeCard();
+}
+
+function askFromMingGong(promptText){
+  goTo('home');
+  setTimeout(function(){
+    doQuestionHex();
+    setTimeout(function(){
+      var input = document.getElementById('question-input');
+      if(input && promptText) input.value = promptText;
+    },260);
+  },120);
 }
 
 /* 生成分享卡片（Canvas绘制 · 古朴水墨风） */
@@ -4279,10 +5666,10 @@ function getHexPlainInsight(hex){
   var tags = GUA_TAGS[hex.id] || {k:[],t:''};
   var summary = generateSummary(hex);
   var themes = tags.k && tags.k.length ? tags.k.slice(0,3).join('、') : '变化、取舍、节奏';
-  var core = '这个卦不是在替你下结论，而是在提醒你：此刻最需要看清的是「'+themes+'」。先别急着判断好坏，先分辨哪些事你能控制，哪些事只能等待条件成熟。';
-  var yao = hex.yao ? '第'+hex.yao+'爻表示事情正在某一层发生变化。它不是“吉凶判决”，更像一个阶段提示：现在先处理眼前这一层，不要一次解决所有问题。' : '动爻表示局势里正在变化的部分。';
-  var hu = hex.huHex ? '互卦「'+hex.huHex.name+'」可理解为事情中间隐藏的原因或过程，不一定立刻看见，但会影响走向。' : '互卦可理解为事情中间隐藏的过程。';
-  var bian = hex.bianHex ? '变卦「'+hex.bianHex.name+'」可理解为如果你继续行动，局势可能转向的方向。它提醒你提前准备，而不是被动等待。' : '变卦可理解为局势可能转向的方向。';
+  var core = '这卦先看的不是“会不会成”，而是你现在正处在什么势里。它更强调「'+themes+'」这组主题：该顺势看清什么，该收住什么，该等什么条件成熟。';
+  var yao = hex.yao ? '第'+hex.yao+'爻表示当前真正动起来的是哪一层。先处理这一层，往往比一口气解释整件事更有用。' : '动爻表示局势里正在变化的部分。';
+  var hu = hex.huHex ? '互卦「'+hex.huHex.name+'」更像中段过程：表面之外，事情暗里正怎么酝酿、怎么转折。' : '互卦可理解为事情中段隐藏的过程。';
+  var bian = hex.bianHex ? '变卦「'+hex.bianHex.name+'」更像后续走向：如果你继续这样应对，局面大概率会往哪个方向发展。' : '变卦可理解为局势可能转向的方向。';
   return {core:core, yao:yao, hu:hu, bian:bian, summary:summary};
 }
 
@@ -4306,7 +5693,8 @@ function getActionAdvice(hex){
 
 function getProfilePlainInsight(bmg, mg, ln){
   var keywords = (mg.kw || []).slice(0,3).join('、') || '自我节奏';
-  var text = '命宫不是给你贴标签，而是帮你看见自己的惯性。你当前这组信息更强调「'+keywords+'」：遇事先看自己的节奏是否被打乱，再决定要不要行动。';
+  var genderLabel = getBirthGenderLabel();
+  var text = '命宫不是给你贴标签，而是帮你看见自己的惯性。你当前这组信息更强调「'+keywords+'」：'+genderLabel+'在遇事时更容易先回到自己熟悉的节奏里，再决定要不要行动。';
   var terms = [
     {name:'命宫', text:'可以理解成你的内在基调：你容易用什么方式感受世界、处理压力、建立安全感。'},
     {name:'本命卦', text:'像一张长期性格地图：不是命运判决，而是提醒你哪些能力值得培养，哪些惯性要留意。'},
@@ -4317,16 +5705,682 @@ function getProfilePlainInsight(bmg, mg, ln){
   return {text:text, terms:terms, advice:advice};
 }
 
+function getMingGongExperienceModel(mg, bmg, ln, wxr){
+  var kw = (mg.kw || []).slice(0,3);
+  var kwText = kw.join('、') || '自我节奏';
+  var bmgTags = ((GUA_TAGS[bmg.id] && GUA_TAGS[bmg.id].k) || []).slice(0,3);
+  var lnTag = wxr ? wxr.rel : '比和';
+  var bmgKeywordText = bmgTags.join('、') || '长期成长';
+  var headlineMap = {
+    '坎':'你的命宫底色偏警觉型，遇事先看风险，再决定要不要推进',
+    '坤':'你的命宫底色偏承接型，遇事先顾局面，再回到自己',
+    '震':'你的命宫底色偏启动型，遇事先动起来，再补判断',
+    '巽':'你的命宫底色偏感应型，遇事先感受关系，再决定怎么说',
+    '中':'你的命宫底色偏平衡型，遇事先顾整体，再定重点',
+    '乾':'你的命宫底色偏主导型，遇事先定方向，再处理细节',
+    '兑':'你的命宫底色偏表达型，遇事先让气氛顺，再讲真感受',
+    '艮':'你的命宫底色偏守成型，遇事先稳住，再判断要不要动',
+    '离':'你的命宫底色偏感召型，遇事先被意义点亮，再开始投入'
+  };
+  var attractionMap = {
+    '坎':'这类命宫最吸引人的地方，是表面安静，内里判断很深。',
+    '坤':'这类命宫最吸引人的地方，是能让人感觉被接住、被安放。',
+    '震':'这类命宫最吸引人的地方，是有动能，遇事不会一直停在原地。',
+    '巽':'这类命宫最吸引人的地方，是细腻、会拿捏分寸，善于柔和推进。',
+    '中':'这类命宫最吸引人的地方，是稳定、顾全、很少轻易失衡。',
+    '乾':'这类命宫最吸引人的地方，是主心骨强，给人一种能定局的感觉。',
+    '兑':'这类命宫最吸引人的地方，是表达有温度，容易带来轻松和连结。',
+    '艮':'这类命宫最吸引人的地方，是沉得住，越遇到事越能稳场。',
+    '离':'这类命宫最吸引人的地方，是有光感，能看到意义，也能感染别人。'
+  };
+  var blindspotMap = {
+    '坎':'一旦焦虑，你会想先把所有风险都想完，结果反而更难迈出第一步。',
+    '坤':'一旦局面复杂，你会先顾别人和气氛，最后把自己的真实需求放到最末。',
+    '震':'一旦情绪上来，你会先动，容易在还没想清边界前就投入过多。',
+    '巽':'一旦关系敏感，你会更在意说法和氛围，容易绕太久才说核心。',
+    '中':'一旦角色太多、选择太多，你会一直想平衡所有面，迟迟不肯定一个重点。',
+    '乾':'一旦责任感上来，你会想亲自扛、亲自定，最后把疲惫和紧绷都压给自己。',
+    '兑':'一旦你想维持轻松和体面，就容易把真正的累和委屈藏起来。',
+    '艮':'一旦你认定某个判断是对的，就不太愿意轻易调整，容易守过头。',
+    '离':'一旦你被某个意义点燃，就容易先热起来，忽略现实节奏能不能接得住。'
+  };
+  var actionMap = {
+    '坎':'今天先别追求全部想通，只选一个最小动作，把焦虑换成推进感。',
+    '坤':'今天先问自己一句：这件事里我真正需要的是什么，而不只是别人需要我做什么。',
+    '震':'今天适合先行动，但只推进一小步，让速度服从节奏。',
+    '巽':'今天先把最关键的一句话说清楚，别让“顾全”变成“绕开核心”。',
+    '中':'今天只定一个优先级，不做全盘平衡，先让事情往前动。',
+    '乾':'今天不是再扛更多，而是把最重要的一件事扛稳，其余适当放权。',
+    '兑':'今天试一次不只安抚别人，也把自己的感受明确说出来。',
+    '艮':'今天先判断：我是在稳住，还是已经卡住。该守的守，该松的松。',
+    '离':'今天把一个理想拆成一个现实动作，让热情真正落地。'
+  };
+  var sceneMap = {
+    '工作推进':'你在工作里更容易表现出「'+kwText+'」的底色。遇到任务时，你常先按自己的惯性判断局势，再决定要不要加速。',
+    '关系相处':'在关系里，你最容易被触发的不是事情本身，而是自己是否被理解、被尊重、被安心对待。',
+    '情绪低谷':'情绪乱时，命宫会比平时更明显地暴露出惯性。此时最重要的，不是追求高状态，而是先把节奏稳回来。'
+  };
+  var sceneActionMap = {
+    '工作推进':'把工作判断缩成一句：现在最该推进的是哪一小步。',
+    '关系相处':'先说自己的真实感受，再谈对方是否做得到。',
+    '情绪低谷':'先恢复身体和作息秩序，再做重大判断。'
+  };
+  var avoidMap = {
+    '坎':'今天先避免反复推演最坏结果，尤其不要在焦虑最重时做长期决定。',
+    '坤':'今天先避免把所有人的需要都排在自己前面，至少保留一个清楚的个人边界。',
+    '震':'今天先避免因为想快点证明自己，就一次答应太多事。',
+    '巽':'今天先避免只顾气氛不说重点，温和不等于回避。',
+    '中':'今天先避免继续做全盘权衡，先选一个最重要的判断。',
+    '乾':'今天先避免把所有责任都扛到自己身上，能分出去的事就不要硬撑。',
+    '兑':'今天先避免用轻松语气盖住真实感受，至少对自己诚实一次。',
+    '艮':'今天先避免把“稳住”变成“完全不动”，该松动的地方要留出口。',
+    '离':'今天先避免只谈愿景不落步骤，热情必须有一个现实承接点。'
+  };
+  var reviewMap = {
+    '坎':'我今天有没有少想一次最坏结果，多完成一个小动作？',
+    '坤':'我今天有没有表达一次自己的真实需要，而不是只照顾别人？',
+    '震':'我今天有没有把冲劲控制在一个可持续的小步里？',
+    '巽':'我今天有没有把最关键的一句话说清楚？',
+    '中':'我今天有没有少纠结一次平衡，多确定一个优先级？',
+    '乾':'我今天有没有把力量放在最关键的事上，而不是全部亲自扛？',
+    '兑':'我今天有没有在照顾气氛之外，也照顾自己的感受？',
+    '艮':'我今天有没有分清自己是在沉稳，还是已经卡住？',
+    '离':'我今天有没有把一个想法落成一个现实动作？'
+  };
+  var askMap = {
+    '坎':'我现在最担心的事，下一步该先处理什么？',
+    '坤':'这段关系或责任里，我怎样照顾别人也不委屈自己？',
+    '震':'我想推进这件事，今天适合先做哪一步？',
+    '巽':'我该怎样把真实想法说清楚，又不伤害关系？',
+    '中':'现在这么多选择里，我最该优先处理哪一个？',
+    '乾':'这件事哪些责任该我扛，哪些可以放下或分出去？',
+    '兑':'我怎样表达自己的感受，才不会只是在安抚别人？',
+    '艮':'我现在是该继续稳住，还是该开始调整？',
+    '离':'我这个想法怎样落成今天能完成的一步？'
+  };
+  return {
+    headline: headlineMap[mg.name] || ('你现在最明显的命宫底色，是「'+kwText+'」'),
+    intro: '命宫看的是你的性格底色和情绪默认反应：你平时先怎么想、怎么扛、怎么把自己稳回来。生日本命卦看你长期反复会遇到的主题，流年宫看今年外部节奏。',
+    firstSentence: attractionMap[mg.name] || '这类命宫最吸引人的地方，是气质和判断背后有稳定的内在线索。',
+    secondSentence: blindspotMap[mg.name] || '真正重要的不是给自己贴标签，而是多一次停下来选择的能力。看见触发点，命宫才会从“结论”变成“工具”。',
+    actionNow: actionMap[mg.name] || '今天先抓住一件能执行的小事，不让惯性接管判断。',
+    avoidNow: avoidMap[mg.name] || '今天先避免在情绪最高点做长期决定，先把注意力放回一个小动作。',
+    reviewQuestion: reviewMap[mg.name] || '我今天有没有少一点内耗，多一个具体行动？',
+    askPrompt: askMap[mg.name] || '我现在最该先处理的一小步是什么？',
+    yearFocus: '今年流年落在「'+ln.name+'宫」，五行关系是「'+lnTag+'」。这说明你今年做事更需要讲究节奏感，而不是只凭一时状态冲刺。',
+    deepHint: '如果想继续学深一点，再点开命宫、生日本命卦、流年或八星。先看它和你现在的处境有什么关系，再回头看传统术语。',
+    quoteLabel: '你现在最该留意的是',
+    cards: [
+      {title:'你给人的第一感受', text:attractionMap[mg.name] || '你的底色不在表面性格，而在你处理世界的方式。'},
+      {title:'你最容易卡住的地方', text:blindspotMap[mg.name] || '你最容易被自己的老反应拖住，而不是被问题本身拖住。'},
+      {title:'你眼下先练这一点', text:actionMap[mg.name] || '把注意力收回到一个最小行动，而不是抽象焦虑。'}
+    ],
+    scenes: Object.keys(sceneMap).map(function(label){
+      return {label:label, text:sceneMap[label], action:sceneActionMap[label]};
+    }),
+    learn: [
+      {key:'minggong', title:'命宫深读', hint:'看你的默认反应、惯性和成长课题'},
+      {key:'bengua', title:'生日本命卦深读', hint:'看你长期会反复遇到的人生主题：'+bmgKeywordText},
+      {key:'liunian', title:'流年深读', hint:'看今年更适合发力、收稳还是先调整节奏'},
+      {key:'terms', title:'术语白话本', hint:'先把命宫、本命卦、流年宫这些词看明白'}
+    ]
+  };
+}
+
+function getBirthGenderLabel(){
+  try{
+    var birth = JSON.parse(localStorage.getItem('guanxin_birth') || '{}');
+    return birth.gender === 'female' ? '你' : '你';
+  }catch(e){
+    return '你';
+  }
+}
+
 function getBenMingGuaInsight(bmg){
   var gua = GUACI[bmg.id] || {c:'',a:''};
   var tags = GUA_TAGS[bmg.id] || {k:[],t:''};
-  var keywords = tags.k && tags.k.length ? tags.k.slice(0,4).join('、') : '自我节奏、处事方式';
-  var relation = '你的本命卦是第'+bmg.id+'卦「'+bmg.name+'」，由上'+bmg.up.name+'（'+bmg.up.nat+'）与下'+bmg.lo.name+'（'+bmg.lo.nat+'）组成。它不是随便抽到的一卦，而是根据你填写的生辰信息推得，用来观察长期性格底色和处理问题的惯性。';
-  var plain = '从白话看，它更像在提醒你：你的优势和课题都围绕「'+keywords+'」展开。顺的时候，不要只靠惯性推进；卡住的时候，也不要急着否定自己，先看是外部条件不成熟，还是自己的节奏被打乱。';
-  var classical = gua.c ? '卦辞参考：'+gua.c : '';
-  var xiang = gua.a ? '传统解读：'+gua.a : '';
-  var advice = '实践建议：把它当成一张长期提醒卡。每次遇到关系、工作、选择或情绪问题时，先问自己三件事：我现在是在顺势还是硬扛？我是否忽略了自己的底层需求？我能不能先做一个更小、更稳的动作？';
-  return {relation:relation, plain:plain, classical:classical, xiang:xiang, advice:advice};
+  var keywords = tags.k && tags.k.length ? tags.k.slice(0,3) : ['自我节奏','处事方式','长期课题'];
+  var upNat = bmg.up && bmg.up.nat ? bmg.up.nat : '外部环境';
+  var loNat = bmg.lo && bmg.lo.nat ? bmg.lo.nat : '内在基础';
+  var relation = '第'+bmg.id+'卦「'+bmg.name+'」：上'+bmg.up.name+'为'+upNat+'，下'+bmg.lo.name+'为'+loNat+'。它用来观察你的长期处事底色。';
+  var plain = '核心提醒：你的长期课题是把「'+keywords.join('、')+'」用稳。不是让你相信命定，而是提醒你遇事先看自己的惯性。';
+  var chips = [
+    {title:'你的优势', text:'容易在「'+keywords[0]+'」上形成个人判断力，适合把经验沉淀成方法。'},
+    {title:'容易卡住', text:'压力大时可能会重复旧反应：急着证明、过度忍耐，或把问题想得太满。'},
+    {title:'今天先做', text:'选一件正在困扰你的事，写下“我能控制的1步”和“暂时控制不了的1件事”。'},
+    {title:'回看问题', text:'一周后看：我有没有少一点内耗，多一个具体行动？'}
+  ];
+  var classical = gua.c ? '卦辞：'+gua.c : '';
+  var xiang = gua.a ? '传统意象：'+gua.a : '';
+  return {relation:relation, plain:plain, chips:chips, classical:classical, xiang:xiang};
+}
+
+function renderInsightChips(chips){
+  if(!chips || !chips.length) return '';
+  return '<div class="insight-chip-grid">' + chips.map(function(item){
+    return '<div class="insight-chip"><strong>'+item.title+'</strong><span>'+item.text+'</span></div>';
+  }).join('') + '</div>';
+}
+
+function summarizeInsightText(text, fallback){
+  var raw = String(text || '').replace(/\s+/g,' ').trim();
+  if(!raw) return fallback || '';
+  var parts = raw.split(/[。！？]/).map(function(item){ return item.trim(); }).filter(Boolean);
+  var summary = parts.slice(0,2).join('。');
+  if(summary && summary.slice(-1)!=='。') summary += '。';
+  return summary || fallback || raw;
+}
+
+function renderInsightSections(sections){
+  if(!sections || !sections.length) return '';
+  return '<details class="insight-more"><summary>传统文本与补充解释</summary><div class="term-grid">' + sections.map(function(section){
+    return '<div class="term-row"><strong>'+section.label+'</strong><span>'+section.text+'</span></div>';
+  }).join('') + '</div></details>';
+}
+
+function renderInsightSteps(steps){
+  if(!steps || !steps.length) return '';
+  return '<div class="insight-step-list">' + steps.map(function(step, idx){
+    return '<div class="insight-step-card"><strong data-mark="'+(idx+1)+'">'+step.title+'</strong><span>'+step.text+'</span></div>';
+  }).join('') + '</div>';
+}
+
+function getLifeDimensionModel(mg, bmg, ln, wxr){
+  var relation = wxr ? wxr.rel : '比和';
+  var mgName = mg.name;
+  var bmgTags = ((GUA_TAGS[bmg.id] && GUA_TAGS[bmg.id].k) || []).slice(0,3);
+  var bmgKeywordText = bmgTags.join('、') || '长期节奏、选择取舍、关系边界';
+  var relationMap = {
+    '生我':'外部更容易给你补给和支持，但前提是你愿意接住资源。',
+    '我生':'你容易持续输出，适合有意识地分配体力和注意力。',
+    '我克':'你有推进事情的势能，但越能推进，越要注意用力方式。',
+    '克我':'外部约束感会更强，适合先稳住节奏，再谈突破。',
+    '比和':'外部和你容易同频放大，优点是顺，风险是惯性也会被一起放大。'
+  };
+  var matrix = {
+    '坎':{
+      career:{summary:'你在事业上最强的地方是先看风险和结构，再决定怎么动。', pit:'容易因为想把变量看全，迟迟不愿先推进第一步。', check:'这件事里，我现在缺的是信息，还是缺行动？', action:'把手头最重要的任务拆成 1 个今天能完成的小步。', basis:'命宫坎的重点是“险中求序”，流年关系是「'+relation+'」。', boundary:'这里只看工作节奏和压力处理，不替你决定跳槽、辞职或合作。'},
+      relationship:{summary:'你在关系里会先保护自己和局面，不会轻易把真实感受全部摊开。', pit:'容易先猜测风险和后果，最后让关系停在试探里。', check:'我现在不说，是因为还没想清楚，还是怕关系失控？', action:'今天只把一个真实感受说清楚，不延伸到结论和指责。', basis:'坎象强调内在警觉，本命卦更容易把「'+bmgKeywordText+'」带进关系判断。', boundary:'这里只帮助你看自己的反应，不判断对方爱不爱、会不会复合。'},
+      wellbeing:{summary:'你的身心状态很容易受不确定感影响，越没把握越难真正放松。', pit:'一旦持续脑内推演，身体恢复就会跟不上。', check:'最近一周，我的睡眠、胃口、精力有没有被担心明显影响？', action:'今晚减少一次信息输入，把最担心的一件事写成“事实 / 猜测 / 下一步”。', basis:'坎为险，重点不是坏事会发生，而是提醒你先建立内在秩序。', boundary:'这不是健康诊断；如果状态持续影响睡眠、饮食或日常功能，应找专业支持。'},
+      wealth:{summary:'你对资源和安全感很敏感，做财务判断时会先看风险和后路。', pit:'容易因为担心损失而反复犹豫，或用小额消费缓冲焦虑。', check:'我这笔支出是在解决现实问题，还是在缓解当下不安？', action:'把本周非必要支出列出来，任何大额决定延迟 24 小时。', basis:'坎的资源主题更偏风险识别，五行关系「'+relation+'」会影响你收放节奏。', boundary:'这里只是资源管理提醒，不构成投资建议或收益判断。'}
+    },
+    '坤':{
+      career:{summary:'你在事业上擅长承接、配合和稳住局面，是团队里很能托底的人。', pit:'容易先照顾整体和别人需求，把自己的方向放到最后。', check:'我现在在推进真正重要的事，还是只是在收拾别人留下的事？', action:'今天先为自己保留一个不被打断的任务时段。', basis:'坤的本意是承载，不是无边界承担；流年关系是「'+relation+'」。', boundary:'这里只帮助你看工作角色分配，不替你做岗位或合作判断。'},
+      relationship:{summary:'你在关系里很会接住别人，也愿意为稳定关系付出。', pit:'最容易卡在“我再忍一忍、再多理解一点”，最后忽略自己的真实需要。', check:'我现在的体贴，是出于愿意，还是因为不敢表达需要？', action:'今天明确说出一个自己的需求，不加“如果不方便就算了”。', basis:'坤重包容，本命卦里的「'+bmgKeywordText+'」会决定你把关系看得多重。', boundary:'这里只帮助你看边界和表达，不判断对方值不值得、会不会回头。'},
+      wellbeing:{summary:'你的身心容易在长期照顾别人、维持稳定的过程中慢慢透支。', pit:'外表能撑住，内里却已经累，只是自己不愿承认。', check:'最近我有没有因为顾全别人，忽略了自己的休息和恢复？', action:'今天先取消一个非必要承诺，把这段时间留给睡眠、吃饭或散步。', basis:'坤讲承载，但承载过度就会失衡。', boundary:'这不是健康诊断；如果疲惫、低落或失眠持续存在，应寻求专业帮助。'},
+      wealth:{summary:'你在钱财上偏向稳妥、保守，也容易把支出优先让给家庭或关系。', pit:'容易为了维持和气、面子或照顾别人，长期忽略自己的资源边界。', check:'这笔钱是我愿意花，还是我怕拒绝带来关系压力？', action:'把最近三笔“为了关系而花”的钱记下来，看看是否超出你的舒适区。', basis:'坤的资源主题强调承接和分配，五行关系「'+relation+'」决定你今年更适合守还是调。', boundary:'这里只讨论资源边界和消费节奏，不提供投资或借贷建议。'}
+    },
+    '震':{
+      career:{summary:'你在事业上有启动能力，适合开局、突破和推进。', pit:'容易因为想尽快证明价值，在边界没定清前先答应太多。', check:'我现在是在推进关键点，还是在被速度感牵着走？', action:'今天只推进一件最关键的事，其余新增事项先延后确认。', basis:'震的本意是动而知变，流年关系「'+relation+'」会放大你的推进欲。', boundary:'这里只帮助你看行动节奏，不预测升职、创业成败。'},
+      relationship:{summary:'你在关系里有直觉和行动力，很多话和决定会先一步出来。', pit:'容易在情绪上来时先反应，再慢慢补解释。', check:'我现在最想立刻表达的，是事实，还是情绪冲击？', action:'先把最想说的话写下来，30 分钟后只保留最关键的一句。', basis:'震象主动、直接，本命卦的「'+bmgKeywordText+'」会决定你冲出去的方向。', boundary:'这里只帮助你看表达节奏，不判断对方态度或关系结果。'},
+      wellbeing:{summary:'你的身心状态会直接受节奏影响，越快越容易忘记恢复。', pit:'最容易在高压或兴奋期忽略休息，等身体提醒时已经过头。', check:'我最近的累，是正常忙碌，还是已经开始影响睡眠和专注？', action:'今天给自己安排一个固定停顿点，到点就离开屏幕 10 分钟。', basis:'震重启动，也最怕持续过冲。', boundary:'这不是健康诊断；如果疲惫和睡眠问题持续，请寻求专业支持。'},
+      wealth:{summary:'你在钱财上更容易被“先抓住机会”驱动，行动快于复盘。', pit:'容易因为冲劲和新鲜感，先花钱后评估。', check:'这笔支出是计划内推进，还是情绪驱动下的立刻行动？', action:'任何临时起意的大额购买，先等到明天再决定。', basis:'震的资源主题偏启动和冲劲，五行关系「'+relation+'」会放大你的行动冲动。', boundary:'这里只帮助你看消费和风险节奏，不构成投资建议。'}
+    },
+    '巽':{
+      career:{summary:'你在事业上擅长协调、渗透式推进和关系经营。', pit:'容易为了顾全气氛和他人感受，绕太久才进入核心。', check:'我现在是在有效沟通，还是在避免说重点？', action:'今天先把一个关键判断写成一句明确结论，再决定怎么说。', basis:'巽的重点是入，不是拖；流年关系「'+relation+'」决定你今年更适合柔进还是先稳。', boundary:'这里只帮助你看沟通和推进方式，不替你决定合作关系。'},
+      relationship:{summary:'你在关系里细腻，会先看气氛、分寸和对方接受度。', pit:'容易只顾关系和谐，不敢把真正需求说透。', check:'我现在留白，是成熟，还是在回避真正想说的话？', action:'今天选一个最重要的话题，只表达需求，不附加过多铺垫。', basis:'巽象柔而入，本命卦的「'+bmgKeywordText+'」决定你在关系里最在意什么。', boundary:'这里只帮助你看沟通方式，不判断对方是否真心。'},
+      wellbeing:{summary:'你的身心消耗常常不是正面冲突，而是长期细腻感受和反复斟酌。', pit:'最容易在表面平稳时，内部已经很累。', check:'最近让我累的，是事情本身，还是我一直在顾气氛和别人感受？', action:'今天停止一次过度解释，把时间留给安静、呼吸或散步。', basis:'巽的耗能常来自持续渗透和顾全。', boundary:'这不是健康诊断；如果焦虑、疲惫持续存在并影响功能，应寻求专业支持。'},
+      wealth:{summary:'你在钱财上比较会权衡，也容易把人情和关系放进支出判断。', pit:'容易在“怕尴尬、怕关系变差”中做出本来不想做的支出。', check:'这笔花费是出于价值判断，还是在为关系压力买单？', action:'遇到非计划内的人情支出，先给自己 10 分钟单独判断。', basis:'巽的资源主题偏协调与渗透，五行关系「'+relation+'」会影响你今年的收放感。', boundary:'这里只讨论资源边界，不提供理财或投资建议。'}
+    },
+    '中':{
+      career:{summary:'你在事业上擅长看整体、做平衡和统筹。', pit:'容易因为想兼顾太多，迟迟不肯定一个最优先事项。', check:'我现在是真的在平衡，还是在拖延做判断？', action:'今天只定一个优先级，并删掉一件本来不必要的事。', basis:'中的难点是平衡，不是模糊折中；流年关系「'+relation+'」决定你今年更该收束还是推进。', boundary:'这里只帮助你看判断结构，不替你决定重大职业选择。'},
+      relationship:{summary:'你在关系里常常是那个顾全、调和、理解各方的人。', pit:'最容易把自己的立场藏在“都可以”“我再看看”后面。', check:'我现在在维持平衡，还是已经失去自己的位置？', action:'今天把一个“都可以”改成清楚表达你的真实倾向。', basis:'中宫重位置和分寸，本命卦的「'+bmgKeywordText+'」会影响你在关系里优先保什么。', boundary:'这里只帮助你看自己的位置，不判断关系输赢或归属。'},
+      wellbeing:{summary:'你的身心负荷常来自长期判断、协调和顾全，而不是表面的冲突。', pit:'看起来稳，其实脑子一直没停过。', check:'我最近的累，是身体在累，还是一直在替所有人平衡？', action:'今天给自己一个完全不做判断的时段，只恢复，不处理问题。', basis:'中的课题是找到当下最合适的位置与力度。', boundary:'这不是健康诊断；如果持续疲惫或难以恢复，应找专业支持。'},
+      wealth:{summary:'你在钱财上重整体安全感和全盘配置，不喜欢失衡。', pit:'容易因为想把每一面都顾到，反而迟迟不做必要取舍。', check:'我现在是在做合理配置，还是因为不想失衡而拖着不决定？', action:'今天只做一个资源取舍：保留一项最重要的，延后一项不紧急的。', basis:'中宫的资源主题强调位置感与整体调度，五行关系「'+relation+'」会放大这种需求。', boundary:'这里只讨论资源取舍，不提供投资判断。'}
+    },
+    '乾':{
+      career:{summary:'你在事业上有方向感、标准感和定局能力。', pit:'容易把责任和压力都收进自己手里，最后变成全靠自己扛。', check:'我现在是在发挥主心骨，还是在把所有责任都抓在自己手里？', action:'今天把一件不必亲自扛的事交出去，保住自己的主力位。', basis:'乾讲自强，不讲逞强；流年关系「'+relation+'」会影响你今年用力的方式。', boundary:'这里只看责任结构和节奏，不预测升迁或成败。'},
+      relationship:{summary:'你在关系里容易先带方向、定标准，也比较难彻底示弱。', pit:'容易把“我来解决”放在“我先感受”前面。', check:'我现在是在表达需要，还是在用控制感代替脆弱？', action:'今天在一段关系里先说感受，再说你想怎么做。', basis:'乾的关系课题常在“力量感”和“柔软度”之间。', boundary:'这里只帮助你看自己的表达方式，不判断对方是否配得上你。'},
+      wellbeing:{summary:'你的身心负荷常来自长期高标准和责任感，而不是表面的脆弱。', pit:'最容易在还能撑的时候继续硬撑，直到身体先发出信号。', check:'最近我的紧绷，是事情真的这么多，还是我不允许自己松一点？', action:'今天给自己安排一个明确的停机点，到点就停止继续扛责任。', basis:'乾的高阶不是不累，而是知道如何用力。', boundary:'这不是健康诊断；如果持续紧绷影响睡眠、专注或情绪，应找专业支持。'},
+      wealth:{summary:'你在钱财上重掌控、效率和长期布局。', pit:'容易把资源管理做成压力管理，什么都想自己把控。', check:'我现在是在做清晰规划，还是在用控制感缓解不安？', action:'今天只核对一项最关键的财务安排，不一次处理所有问题。', basis:'乾的资源主题偏主导和布局，五行关系「'+relation+'」会影响你今年的控制欲强度。', boundary:'这里只帮助你看资源管理方式，不提供投资建议。'}
+    },
+    '兑':{
+      career:{summary:'你在事业上擅长表达、连接、让氛围和合作流动起来。', pit:'容易把轻松和体面放在前面，真正困难的点说得不够直接。', check:'我现在是在有效表达，还是在维持表面顺畅？', action:'今天把一个你一直含糊带过的问题，讲成一句清楚的判断。', basis:'兑的价值是交流，不是只求和气；流年关系「'+relation+'」决定你今年更该收还是放。', boundary:'这里只帮助你看沟通和协作方式，不预测工作结果。'},
+      relationship:{summary:'你在关系里有温度，容易带来轻松和连接感。', pit:'最容易卡在先安抚别人，自己的真实感受反而没被说出来。', check:'我现在的轻松，是自然的，还是在掩盖自己的不舒服？', action:'今天在一段关系里说一句不那么圆滑、但真实的话。', basis:'兑象悦，真正的课题不是讨喜，而是真实交流。', boundary:'这里只帮助你看表达和连结，不判断对方心意和关系结局。'},
+      wellbeing:{summary:'你的身心消耗常来自“表面轻松、内里疲惫”的落差。', pit:'越想把气氛维持好，越容易忽略自己其实已经很累。', check:'最近我有没有一直在照顾气氛，却没照顾自己的恢复？', action:'今天给自己一个不需要回应任何人的安静时段。', basis:'兑的耗能常在外部表达和内部压抑之间。', boundary:'这不是健康诊断；如果情绪低落或疲惫持续，请找专业支持。'},
+      wealth:{summary:'你在钱财上容易受体验、社交和即时舒适感影响。', pit:'容易在想要轻松一下、奖励自己一下时，低估长期累积支出。', check:'这笔钱是在购买价值，还是在购买短暂安慰？', action:'今天记录一笔冲动消费，问自己它解决了什么。', basis:'兑的资源主题偏体验和流动，五行关系「'+relation+'」会影响你今年的花费节奏。', boundary:'这里只帮助你看消费节奏，不构成投资或借贷建议。'}
+    },
+    '艮':{
+      career:{summary:'你在事业上擅长稳住节奏、守住原则和把事情做扎实。', pit:'容易把必要的谨慎拖成迟迟不松动。', check:'我现在是在稳，还是已经因为怕变动而卡住？', action:'今天只推动一个原本一直搁着的小调整，不求一步到位。', basis:'艮讲止，重点是知止而后能动；流年关系「'+relation+'」决定你今年更该守还是该松。', boundary:'这里只帮助你看工作节奏，不替你决定重大职业去留。'},
+      relationship:{summary:'你在关系里重稳定、可靠和长期感，不轻易改变判断。', pit:'容易因为太想守住现有秩序，而忽略关系里其实已经需要调整。', check:'我现在是在守护关系，还是在守一个已经失效的旧判断？', action:'今天只讨论一个需要调整的点，不把整段关系一次说死。', basis:'艮的关系课题是守与松的分寸，本命卦的「'+bmgKeywordText+'」会放大这个主题。', boundary:'这里只帮助你看关系节奏和边界，不判断是否分开或复合。'},
+      wellbeing:{summary:'你的身心状态在外表上常显得稳，但累和堵容易积在里面。', pit:'最容易把“不想动”误以为“我很稳定”。', check:'我最近的停，是恢复性的暂停，还是已经卡到没有能量？', action:'今天做一个轻量身体动作，比如散步、拉伸或早点休息。', basis:'艮的身心课题常在停与堵之间分辨。', boundary:'这不是健康诊断；如果低动力和疲惫持续，请找专业支持。'},
+      wealth:{summary:'你在钱财上偏向保守、稳妥，重长期安全感。', pit:'容易因为怕动资源、怕判断错，而错过必要的调整。', check:'我现在是在稳健管理，还是在因为不安而完全不敢动？', action:'今天只核对一项长期支出或储蓄安排，确认它还适合现在。', basis:'艮的资源主题偏守成和边界，五行关系「'+relation+'」会影响你今年的松紧度。', boundary:'这里只帮助你看资源节奏，不构成投资建议。'}
+    },
+    '离':{
+      career:{summary:'你在事业上容易先看到意义、愿景和表达方向。', pit:'容易先被愿景点燃，现实步骤和承载力反而跟不上。', check:'我现在最强的是想法，还是已经有现实落点？', action:'把一个想法拆成今天能完成的一步，不再停在愿景层。', basis:'离讲明，重点是照见并落实；流年关系「'+relation+'」会影响你今年的发光方式。', boundary:'这里只帮助你看节奏与方向，不预测事业结果。'},
+      relationship:{summary:'你在关系里很在意理解、意义和情感交流的质量。', pit:'容易因为太想被看见、被理解，在失落时把话说得过满。', check:'我现在是在表达真实需要，还是在放大失望感？', action:'今天只说一个最重要的需要，不把所有失落一次倾倒。', basis:'离的关系课题常在“想被看见”和“如何清楚表达”之间。', boundary:'这里只帮助你看情感表达，不判断对方立场或结局。'},
+      wellbeing:{summary:'你的身心状态容易受热度、投入感和意义感影响，热起来就会忘记负荷。', pit:'最容易在精神上很亮的时候，身体已经开始透支。', check:'我最近的兴奋和投入，有没有建立在透支睡眠和恢复上？', action:'今天给自己定一个停下来的时间，让热情有出口也有收口。', basis:'离讲明，不只是发光，也要先照见自己的负荷。', boundary:'这不是健康诊断；如果持续失眠、亢奋或明显透支，请找专业支持。'},
+      wealth:{summary:'你在钱财上容易为愿景、体验和“值得”买单。', pit:'容易高估一个想法的价值感，低估长期现金流压力。', check:'这笔钱是在支持长期价值，还是在为一时热情冲动买单？', action:'今天把一项想投入的花费写下“目的 / 成本 / 替代方案”三栏。', basis:'离的资源主题偏价值感和表达欲，五行关系「'+relation+'」会影响你今年的投入感。', boundary:'这里只帮助你看资源判断节奏，不构成投资建议。'}
+    }
+  };
+  var current = matrix[mgName] || matrix['中'];
+  return [
+    {key:'career', title:'事业', badge:'看推进', data:current.career},
+    {key:'relationship', title:'感情', badge:'看关系', data:current.relationship},
+    {key:'wellbeing', title:'身心', badge:'看负荷', data:current.wellbeing},
+    {key:'wealth', title:'钱财', badge:'看资源', data:current.wealth}
+  ];
+}
+
+function buildLifeDimensionInsights(dimensions, mg, bmg, ln, wxr){
+  var data = {};
+  var relationText = wxr ? wxr.rel : '比和';
+  var benguaName = bmg && bmg.name ? bmg.name : '生日本命卦';
+  dimensions.forEach(function(item){
+    var row = item.data || {};
+    data['life_'+item.key] = {
+      title:'四维生活解析 · '+item.title,
+      subtitle:'命宫 '+mg.name+'宫 · 生日本命卦 '+benguaName+' · 流年 '+ln.name+'宫',
+      summary:row.summary || '',
+      chips:[
+        {title:'这维度在看什么', text:item.badge ? item.badge.replace('看','先看') : '先看你当前最容易卡住的地方'},
+        {title:'今年节奏提醒', text:'当前五行关系为「'+relationText+'」，先看节奏是否匹配，再决定推进还是收束。'},
+        {title:'边界提示', text:row.boundary || '这里只把术数内容转成自我观察和现实提醒，不替代现实决策。'}
+      ],
+      steps:[
+        {title:'容易卡住的点', text:row.pit || '当惯性反应一再重复时，就需要停下来复盘。'},
+        {title:'先核对这个问题', text:row.check || '先核对自己真正卡住的地方，再往下行动。'},
+        {title:'今天先做这一件事', text:row.action || '先做一个低风险、当天能完成的小动作。'},
+        {title:'传统为什么会这样看', text:row.basis || '当前解释来自命宫、生日本命卦、流年宫与五行关系的组合观察。'}
+      ],
+      sections:[
+        {label:'使用边界', text:row.boundary || '这里只作文化体验与自我观察参考，不作确定性判断。'}
+      ]
+    };
+  });
+  return data;
+}
+
+function compactLifeAction(text){
+  if(!text) return '先做一个低风险、当天能完成的小动作。';
+  return String(text).replace(/^今天/, '').replace(/^先/, '先');
+}
+
+function renderInsightListMarkup(items, openFnName){
+  if(!items || !items.length) return '';
+  return '<div class="insight-inline-list">' + items.map(function(item){
+    return '<button type="button" class="insight-inline-item" onclick="'+openFnName+'(\''+item.key+'\')">'
+      + '<span class="insight-inline-main"><strong>'+item.title+'</strong><span>'+item.hint+'</span></span>'
+      + '<span class="insight-inline-arrow">查看</span>'
+      + '</button>';
+  }).join('') + '</div>';
+}
+
+function buildBaZhaiStarModel(mg){
+  var dirs = calcBaZhai(mg.num);
+  var byStar = {};
+  dirs.forEach(function(item){ byStar[item.star] = item; });
+  return BZ_STAR_ORDER.map(function(key){
+    var dirInfo = byStar[key] || {};
+    var htInfo = dirInfo.dirLuo && LUO[dirInfo.dirLuo] ? LUO[dirInfo.dirLuo] : null;
+    var culture = BZ_STAR_SELF[key] || {};
+    return {
+      key:key,
+      name:BZ_STAR_NAMES[key],
+      kind:BZ_STAR_KIND[key] || 'xiong',
+      dir:dirInfo.dir || '',
+      dirLuo:dirInfo.dirLuo || '',
+      dirTriName:dirInfo.dirTriName || '',
+      htNum:dirInfo.dirLuo || '',
+      htName:dirInfo.dirTriName || '',
+      htSym:htInfo ? htInfo.sym : '',
+      wx:BZ_STAR_WX[key] || '',
+      jx:BZ_STAR_JX[key] || '',
+      hexName:dirInfo.hexName || '',
+      brief:culture.brief || '',
+      xtNum:dirInfo.dirLuo ? getXianTianNumByLuo(dirInfo.dirLuo) : '',
+      xtName:dirInfo.dirLuo ? getXianTianNameByLuo(dirInfo.dirLuo) : '',
+      pairCode:dirInfo.dirLuo ? String(mg.num) + String(dirInfo.dirLuo) : '',
+      life:culture.life || BZ_STAR_DESC[key] || '',
+      scene:culture.scene || '',
+      practice:culture.practice || '',
+      caution:culture.caution || '传统内容只作为文化学习与自我观察，不作为确定性判断。'
+    };
+  });
+}
+
+function buildBaZhaiBoardModel(stars, mg, grp){
+  var byDir = {};
+  stars.forEach(function(star){
+    if(star.dirLuo) byDir[star.dirLuo] = star;
+  });
+  var order = [
+    {luo:9,pos:'top'},
+    {luo:4,pos:'top-left'},
+    {luo:3,pos:'left'},
+    {luo:8,pos:'bottom-left'},
+    {luo:1,pos:'bottom'},
+    {luo:6,pos:'bottom-right'},
+    {luo:7,pos:'right'},
+    {luo:2,pos:'top-right'}
+  ];
+  var items = order.map(function(cfg){
+    var star = byDir[cfg.luo] || {};
+    return {
+      key:star.key || '',
+      pos:cfg.pos,
+      dir:star.dir || (BZ_LUO_DIR[cfg.luo] || ''),
+      dirLuo:cfg.luo,
+      htNum:cfg.luo,
+      htName:(LUO[cfg.luo] && LUO[cfg.luo].name) || '',
+      htSym:(LUO[cfg.luo] && LUO[cfg.luo].sym) || '',
+      xtNum:star.xtNum || getXianTianNumByLuo(cfg.luo),
+      xtName:star.xtName || getXianTianNameByLuo(cfg.luo),
+      name:star.name || '',
+      wx:star.wx || '',
+      kind:star.kind || 'ji',
+      brief:star.brief || '',
+      scene:star.scene || '',
+      pairCode:star.pairCode || (String(mg.num) + String(cfg.luo))
+    };
+  }).filter(function(item){ return item.key; });
+  return {
+    centerNum:mg.num,
+    centerName:mg.name,
+    grp:grp,
+    items:items,
+    defaultKey:(items.find(function(item){ return item.kind==='ji'; }) || items[0] || {}).key || ''
+  };
+}
+
+function renderBaZhaiBoardMarkup(stars, mg, grp){
+  var board = buildBaZhaiBoardModel(stars, mg, grp);
+  var map = {};
+  board.items.forEach(function(item){ map[item.key] = item; });
+  window._bazhaiBoardItems = map;
+  window._bazhaiBoardDefaultKey = board.defaultKey;
+  return '<div class="bz-bagua-shell">'
+    + '<div class="bz-bagua-head">'
+      + '<div><strong>后天八卦互动盘</strong><span>中间是你的命宫数，外围八方按后天八卦方位展开。点任一方位，就能看到该方位数怎样与你的命宫数对应到八星。</span></div>'
+      + '<span class="bz-bagua-orientation">后天盘 · 离上坎下</span>'
+    + '</div>'
+    + '<div class="bz-bagua-board">'
+      + board.items.map(function(item, idx){
+        return '<button type="button" class="bz-bagua-node pos-'+item.pos+' '+item.kind+'" data-bz-node="'+item.key+'" style="--delay:'+(idx*45)+'ms" onclick="setBaZhaiBoardActive(\''+item.key+'\')" onmouseenter="setBaZhaiBoardActive(\''+item.key+'\')" aria-label="'+item.dir+'方，后天'+item.htNum+'，对应'+item.name+'">'
+          + '<strong><em>'+(item.htSym || '')+'</em>'+(item.htName || item.dir)+item.htNum+'</strong>'
+          + '<span>'+item.dir+'</span>'
+          + '</button>';
+      }).join('')
+      + '<div class="bz-bagua-center"><span>你的命宫数</span><strong>'+board.centerNum+'</strong><em>'+board.centerName+'宫 · '+board.grp+'</em></div>'
+    + '</div>'
+    + '<div class="bz-bagua-panel">'
+      + '<div class="bz-bagua-panel-top"><div><strong id="bz-bagua-title">点击方位看对应八星</strong><span id="bz-bagua-sub">先用后天八卦数读方位，再和你的命宫数组合起来看</span></div><div class="bz-bagua-code" id="bz-bagua-code">--</div></div>'
+      + '<p class="bz-bagua-brief" id="bz-bagua-brief">先点一个方位，看该后天方位数怎样与你的命宫数组合成八星信息。</p>'
+      + '<div class="bz-bagua-metrics">'
+        + '<div class="bz-bagua-metric"><strong>后天卦数</strong><span id="bz-bagua-xt">--</span></div>'
+        + '<div class="bz-bagua-metric"><strong>方位 / 卦位</strong><span id="bz-bagua-luo">--</span></div>'
+        + '<div class="bz-bagua-metric"><strong>组合数</strong><span id="bz-bagua-pair">--</span></div>'
+        + '<div class="bz-bagua-metric"><strong>五行 / 星性</strong><span id="bz-bagua-wx">--</span></div>'
+      + '</div>'
+      + '<div class="bz-bagua-actions">'
+        + '<button type="button" class="bz-bagua-btn" onclick="openCurrentBaZhaiBoardInsight()">看完整解释</button>'
+        + '<button type="button" class="bz-bagua-btn secondary" onclick="showBaZhaiNumberGuide()">看数字怎么用</button>'
+      + '</div>'
+      + '<div class="bz-bagua-legend">'
+        + '<strong>后天八卦数：</strong>坎1、坤2、震3、巽4、中5、乾6、兑7、艮8、离9。<br>'
+        + '<strong>在这里怎么读：</strong>八星配对优先用后天八卦数直接看方位；你的命宫数也是可直接配对的八宅盘数字。<br>'
+        + '<strong>如果你习惯先天记法：</strong>乾1→后天6、兑2→后天7、离3→后天9、震4→后天3、巽5→后天4、坎6→后天1、艮7→后天8、坤8→后天2。比如命宫数是1时，19=延年，16=六煞。'
+      + '</div>'
+    + '</div>'
+  + '</div>';
+}
+
+function setBaZhaiBoardActive(key){
+  var item = window._bazhaiBoardItems && window._bazhaiBoardItems[key];
+  if(!item) return;
+  window._bazhaiBoardCurrentKey = key;
+  document.querySelectorAll('[data-bz-node]').forEach(function(node){
+    var active = node.getAttribute('data-bz-node') === key;
+    node.classList.toggle('is-active', active);
+    node.setAttribute('aria-pressed', active ? 'true' : 'false');
+  });
+  var title = document.getElementById('bz-bagua-title');
+  var sub = document.getElementById('bz-bagua-sub');
+  var code = document.getElementById('bz-bagua-code');
+  var brief = document.getElementById('bz-bagua-brief');
+  var xt = document.getElementById('bz-bagua-xt');
+  var luo = document.getElementById('bz-bagua-luo');
+  var pair = document.getElementById('bz-bagua-pair');
+  var wx = document.getElementById('bz-bagua-wx');
+  if(title) title.textContent = item.dir + '方 · ' + item.name;
+  if(sub) sub.textContent = '后天' + item.htNum + ' ' + item.htName + '，位于' + item.dir + '方，与你的命宫数组成 ' + item.pairCode;
+  if(code) code.textContent = item.pairCode + ' · ' + item.name;
+  if(brief) brief.textContent = item.brief + '。' + (item.scene || '把它当作一个性格磁场入口来看。');
+  if(xt) xt.textContent = item.htNum + ' · ' + item.htName + (item.htSym ? ' ' + item.htSym : '');
+  if(luo) luo.textContent = item.dir + ' · ' + item.htName;
+  if(pair) pair.textContent = item.pairCode;
+  if(wx) wx.textContent = item.wx + ' · ' + item.brief;
+}
+
+function initBaZhaiBoard(){
+  if(window._bazhaiBoardDefaultKey){
+    setBaZhaiBoardActive(window._bazhaiBoardDefaultKey);
+  }
+}
+
+function openCurrentBaZhaiBoardInsight(){
+  if(window._bazhaiBoardCurrentKey){
+    openBaZhaiInsight('star_' + window._bazhaiBoardCurrentKey);
+  }
+}
+
+function showBaZhaiNumberGuide(){
+  showToast('八星配对先看后天八卦数：方位上的 1、2、3、4、6、7、8、9 直接与你的命宫数组合。');
+}
+
+function buildBaZhaiStarInsights(stars, mg, grp){
+  var data = {};
+  stars.forEach(function(star){
+    data['star_'+star.key] = {
+      title:'八星性格镜 · '+star.name,
+      subtitle:(star.dir ? star.dir+'方 · ' : '') + (star.jx || '') + (star.wx ? ' · 五行属'+star.wx : ''),
+      summary:star.brief ? star.brief+'。'+star.life : star.life,
+      chips:[
+        {title:'星性底色', text:star.brief || '先把它当作一种性格倾向来观察。'},
+        {title:'现实场景', text:star.scene || '适合当作一个观察自己状态的入口。'},
+        {title:'今天怎么用', text:star.practice || '先做一个能降低内耗的小动作。'},
+        {title:'边界提醒', text:star.caution}
+      ],
+      steps:[
+        {title:'传统含义', text:star.life},
+        {title:'你会在哪些地方被它带动', text:star.scene || '把它看作一种状态提醒，而不是结果判断。'},
+        {title:'失衡时先怎么处理', text:star.practice || '把提醒落到一个具体动作上。'},
+        {title:'不要怎么理解', text:star.caution}
+      ],
+      sections:[
+        {label:'你的方位位置', text:'你的'+mg.name+'宫在八宅体系中属于'+grp+'，'+star.name+'落在'+(star.dir || '对应')+'方。'},
+        {label:'八宅边界', text:'八宅常把个人命卦分为东四命与西四命，并以八方对应八颗游年星。观心只把它作为传统文化学习和自我观察框架，不做吉凶断言。'},
+        {label:'传统描述', text:BZ_STAR_DESC[star.key] || ''},
+        {label:'卦象关联', text:star.hexName ? '此方位在当前算法中关联到「'+star.hexName+'」，可作为延伸学习入口。' : '当前暂无卦象关联。'}
+      ]
+    };
+  });
+  return data;
+}
+
+function openInsightSheet(data){
+  if(!data) return;
+  closeInsightSheet();
+  var overlay = document.createElement('div');
+  overlay.className = 'insight-sheet';
+  overlay.id = 'insight-sheet';
+  overlay.onclick = function(e){ if(e.target===overlay) closeInsightSheet(); };
+  overlay.innerHTML =
+    '<div class="insight-sheet-panel">'
+      + '<div class="insight-sheet-top">'
+        + '<div><h3>'+data.title+'</h3>'+(data.subtitle ? '<p>'+data.subtitle+'</p>' : '')+'</div>'
+        + '<button type="button" class="insight-sheet-close" onclick="closeInsightSheet()" aria-label="关闭解释">&times;</button>'
+      + '</div>'
+      + '<div class="insight-sheet-body">'
+      + (data.summary ? '<div class="insight-sheet-summary"><strong>先看这一句</strong><span>'+data.summary+'</span></div>' : '')
+      + renderInsightChips(data.chips)
+      + renderInsightSteps(data.steps)
+      + renderInsightSections(data.sections)
+      + '</div>'
+    + '</div>';
+  document.body.appendChild(overlay);
+  window._insightEscHandler = function(e){
+    if(e.key==='Escape') closeInsightSheet();
+  };
+  document.addEventListener('keydown', window._insightEscHandler);
+}
+
+function closeInsightSheet(){
+  var overlay = document.getElementById('insight-sheet');
+  if(overlay) overlay.remove();
+  if(window._insightEscHandler){
+    document.removeEventListener('keydown', window._insightEscHandler);
+    window._insightEscHandler = null;
+  }
+}
+
+function buildProfileInsightData(bmg, mg, ln, wxr){
+  var profilePlain = getProfilePlainInsight(bmg, mg, ln);
+  var benInsight = getBenMingGuaInsight(bmg);
+  var mgSummary = summarizeInsightText(mg.desc, '命宫更像你的内在基调：你怎么处理压力、建立安全感、进入稳定状态。');
+  var lnSummary = summarizeInsightText(ln.desc, '流年宫代表今年外部节奏更偏向哪种状态。');
+  var relSummary = wxr ? summarizeInsightText(wxr.interp, '今年先看节奏是否匹配，再决定要不要发力。') : '';
+  var mgKeywords = (mg.kw || []).slice(0,4);
+  var mgKeywordText = mgKeywords.join('、');
+  var bmgKeywords = ((GUA_TAGS[bmg.id] && GUA_TAGS[bmg.id].k) || []).slice(0,3).join('、');
+  var mgTraits = {
+    '坎':'你更容易先观察、先判断，再决定要不要出手。优点是看得细，风险是想得太多。',
+    '坤':'你更容易先接住环境和他人的情绪。优点是包容稳，风险是把自己放太后面。',
+    '震':'你通常先动起来，再边走边修正。优点是有启动能力，风险是急的时候容易过冲。',
+    '巽':'你会先感受气氛和关系，再决定怎么说怎么做。优点是会协调，风险是容易绕太久。',
+    '中':'你容易站在整体位置看问题。优点是顾全大局，风险是迟迟不下判断。',
+    '乾':'你习惯先定方向和标准。优点是果断有主心骨，风险是容易把压力全扛在自己身上。',
+    '兑':'你常先通过沟通和表达来处理问题。优点是亲和有感染力，风险是表面轻松、内里疲惫。',
+    '艮':'你会先稳住再行动。优点是可靠能守住节奏，风险是容易卡在不肯松动。',
+    '离':'你更容易先看到意义和愿景。优点是有热情和表达力，风险是热起来时忽略现实负荷。'
+  };
+  var mgStudy = {
+    '坎':'从周易看，坎不是单纯的“难”，而是教人学会在不确定里保持内在秩序。',
+    '坤':'坤的哲思不只是柔顺，而是“能承载，所以能成事”。真正的厚德不是一味退让。',
+    '震':'震的重点不是吓人，而是“动而知变”。人生很多成长，都来自被迫醒来之后的主动调整。',
+    '巽':'巽强调的是入。它提醒人：真正有效的改变，很多时候不是硬撞进去，而是持续渗透。',
+    '中':'中宫的难点是平衡。周易里的“中”不是模糊折中，而是找到当下最合适的位置和力度。',
+    '乾':'乾的核心不是逞强，而是自强不息。真正高阶的乾，是有方向，也知道什么时候收锋。',
+    '兑':'兑的价值不只是会说，而是能让关系流动起来。它教人以交流达成理解，而不是只求热闹。',
+    '艮':'艮讲“止”。止不是停滞，而是知道什么时候不再乱动，把力量留给真正重要的地方。',
+    '离':'离讲“明”。明不是只会发光，而是先照见自己，再照见事情，最后照见别人。'
+  };
+  var mgPractice = {
+    '坎':'遇到不安时，先缩小问题范围，只回答“我现在最先处理哪一步”。你越能把注意力从想太多拉回一件小事，坎的力量就越稳。',
+    '坤':'你不是一定要先照顾所有人。坤宫真正成熟的地方，是先把自己安顿好，再去承载别人，这样你的善意才不会变成委屈。',
+    '震':'你适合先行动，但行动前最好先给自己设一条边界，比如今天只推进一小步。这样震的冲劲会变成开路，而不是透支。',
+    '巽':'你擅长用关系和沟通慢慢推进事情。关键不是一味迁就，而是学会在柔和里保持方向，让“好说话”不变成“没立场”。',
+    '中':'你容易顾大局，所以更需要训练当下判断。中宫最有价值的修炼，不是面面俱到，而是知道此刻什么最重要。',
+    '乾':'你常把责任扛得很前。乾宫真正高阶的部分，不是一直硬撑，而是懂得把力量投在最关键的位置，不和所有事较劲。',
+    '兑':'你会通过表达让气氛变轻，这很珍贵。但兑宫也要学会一句话：不是所有温和都要拿自己去换。边界感会让你的亲和更有分量。',
+    '艮':'你一旦认定，就很能稳住局面。艮宫的课题不是更硬，而是分清哪些原则值得守，哪些旧判断已经该松动了。',
+    '离':'你容易先看到意义和希望，这让你有感染力。离宫要补的一课是，把愿景拆成现实步骤，不让热情停在口头和想象里。'
+  };
+  var mgMirror = {
+    '坎':'当你开始反复想最坏结果时，说明你已经从观察进入了内耗，这时最需要的不是再判断一次，而是先做一件确定的小事。',
+    '坤':'当你总在想“先把别人安排好再说”时，往往就是你忽略自己的时刻。坤宫很怕长期过度承载，最后把温柔变成疲惫。',
+    '震':'当你急着立刻推进、立刻证明时，通常也是最容易用力过猛的时候。震宫先求启动，但不求一次跑完全程。',
+    '巽':'当你一直在斟酌说法、照顾气氛，却迟迟没有表达真正想法时，就说明巽宫的优点正在变成绕路。',
+    '中':'当你什么都能理解、什么都想平衡，却迟迟下不了结论时，就需要提醒自己：平衡不是拖延。',
+    '乾':'当你开始什么都想亲自扛、亲自定时，乾宫就容易从担当变成紧绷。真正的强不是不累，而是懂得分配力量。',
+    '兑':'当你表面轻松、谁都安抚得住，但晚上回头觉得空和累时，说明兑宫已经在消耗自己。表达别人之前，也要表达自己。',
+    '艮':'当你觉得“再等等、再守守看”时，要分辨这是沉稳还是僵住。艮宫最怕把必要的暂停，拖成不肯变化。',
+    '离':'当你只盯着远方意义，却没给今天安排现实动作时，离宫就容易剩下热而不落地。'
+  };
+  var relationTip = wxr ? '今年五行关系是「'+wxr.rel+'」，所以你的命宫节奏要学会和外部环境配合。' : '今年更适合先看自己的节奏，再决定推进还是收稳。';
+  return {
+    overview: {
+      title:'先看白话提示',
+      subtitle:'不需要一次读完，先点你最关心的一项。',
+      summary:'先抓住关键词和今天能做的一件小事，其余按需展开。',
+      sections: profilePlain.terms.map(function(row){ return {label:row.name, text:row.text}; })
+    },
+    minggong: {
+      title:'命宫 · '+mg.name+'宫',
+      subtitle:'看你的内在基调和默认反应方式',
+      summary:(mgTraits[mg.name] || '你会先按自己熟悉的方式处理压力，先看惯性，再决定调整。') + ' 这不是给你下定论，而是帮你更快看见自己的默认反应。',
+      chips:[
+        {title:'你的底色', text:mgKeywordText || '自我节奏、处理压力、建立安全感'},
+        {title:'你更容易怎么反应', text:mgTraits[mg.name] || '你会先按自己熟悉的方式处理压力，先看惯性，再决定调整。'},
+        {title:'能学到什么', text:mgStudy[mg.name] || '命宫的价值，不是贴标签，而是帮助你看清惯性后做更合适的选择。'},
+        {title:'今年怎么用', text:relationTip}
+      ],
+      steps:[
+        {title:'一句判断', text:'你不是被命宫固定住，而是更容易沿着「'+(mgKeywordText || '自我节奏')+'」这套熟悉反应处理压力。看见它，是为了多一个选择。'},
+        {title:'最容易误会的地方', text:mgMirror[mg.name] || '当你反复用同一种方式回应世界，却没有更靠近问题本身时，惯性就已经盖过了判断。'},
+        {title:'今天可以怎么用', text:(mgPractice[mg.name] || '先抓住一件可执行的小事，别让惯性替你做决定。') + ' ' + relationTip},
+        {title:'传统出处怎么理解', text:(mgStudy[mg.name] || '命宫更像一个观察自己的入口。') + ' 传统文字可以作为学习材料，但真正有用的是把它转成日常选择。'}
+      ],
+      sections:[
+        {label:'先看你自己', text:'命宫不是算你是什么人，而是帮你看到：你在压力里最自然会怎么反应。你当前更偏向「'+mgKeywordText+'」这条路径，平时舒服时是优势，情绪乱时也最容易变成惯性。'},
+        {label:'你容易卡在哪', text:mgMirror[mg.name] || '当你不断重复自己熟悉的反应，却没有更靠近问题本身时，就说明惯性已经盖过了判断。'},
+        {label:'教学理解', text:(mgStudy[mg.name] || '周易里的命宫，更像一个观察自己的入口。') + ' ' + (mgPractice[mg.name] || '真正会用命宫的人，不是拿它下定义，而是拿它当作每天校正自己的镜子。')},
+        {label:'怎么落到今天', text:(mgPractice[mg.name] || '先抓住一件可执行的小事，别让惯性替你做决定。') + ' ' + relationTip},
+        {label:'传统原文', text:mg.desc}
+      ]
+    },
+    bengua: {
+      title:'本命卦 · '+bmg.name,
+      subtitle:'看你的长期处事底色',
+      summary:benInsight.plain,
+      chips:benInsight.chips,
+      steps:[
+        {title:'一句判断', text:benInsight.plain},
+        {title:'它不是在说什么', text:'本命卦不是命运判决，也不是把人归类。它更像一张长期课题图，提醒你哪些主题会反复出现。'},
+        {title:'怎么用到现实里', text:'遇到重要选择时，先看自己是不是又回到了「'+(bmgKeywords || '自我节奏、关系取舍、长期成长')+'」这些熟悉课题里，再决定下一步。'},
+        {title:'传统出处怎么理解', text:[benInsight.classical, benInsight.xiang].filter(Boolean).join(' ') || '传统文本暂缺，先以卦象结构作为学习入口。'}
+      ],
+      sections:[
+        {label:'这卦从哪里来', text:benInsight.relation},
+        {label:'白话抓手', text:'如果命宫更像你当下默认反应，本命卦更像你长线会反复遇到的主题。你这组本命卦更常围绕「'+(bmgKeywords || '自我节奏、关系取舍、长期成长')+'」展开。'},
+        {label:'传统文本', text:[benInsight.classical, benInsight.xiang].filter(Boolean).join(' ') || '暂无传统文本'}
+      ]
+    },
+    liunian: {
+      title:'流年宫 · '+ln.name+'宫',
+      subtitle:'看今年外部节奏更偏向什么状态',
+      summary:'今年先别急着问结果，更适合观察外部节奏正在把你推向哪里。' + (relSummary ? ' ' + relSummary : ' 先稳住节奏，再决定推进还是收稳。'),
+      chips:[
+        {title:'今年重点', text:relSummary || '先看外部节奏，再决定推进还是收稳。'},
+        {title:'适合做法', text:'遇事先稳住节奏，再决定是否扩大动作。'}
+      ],
+      steps:[
+        {title:'一句判断', text:lnSummary},
+        {title:'今年容易误判的地方', text:'流年宫不是预测结果，而是看今年外部节奏更容易把你带到哪种状态。误区是把它当答案，而不是当提醒。'},
+        {title:'今年怎么用', text:relSummary || '先看外部节奏，再决定推进还是收稳。遇事先稳住节奏，再决定是否扩大动作。'},
+        {title:'传统出处怎么理解', text:ln.desc}
+      ],
+      sections:[
+        {label:'白话理解', text:'流年宫不是预测结果，而是提醒你：这一年更像顺风、逆风，还是需要先稳基础。'},
+        {label:'今年原文', text:ln.desc}
+      ]
+    },
+    terms: {
+      title:'这些词怎么理解',
+      subtitle:'先懂意思，再看术语',
+      summary:'不用背概念，只要知道它们分别在看“自己、长期惯性、今年节奏”。',
+      sections: profilePlain.terms.map(function(row){ return {label:row.name, text:row.text}; })
+    }
+  };
+}
+
+function openProfileInsight(key){
+  if(!window._profileInsightData || !window._profileInsightData[key]) return;
+  openInsightSheet(window._profileInsightData[key]);
+}
+
+function openBaZhaiInsight(key){
+  if(!window._bazhaiInsightData || !window._bazhaiInsightData[key]) return;
+  openInsightSheet(window._bazhaiInsightData[key]);
+}
+
+function switchBzFlow(tabKey){
+  document.querySelectorAll('.bz-flow-tab').forEach(function(btn){
+    btn.classList.toggle('is-active', btn.getAttribute('data-flow')===tabKey);
+  });
+  document.querySelectorAll('.bz-flow-panel').forEach(function(panel){
+    panel.classList.toggle('is-active', panel.getAttribute('data-flow-panel')===tabKey);
+  });
 }
 
 function renderTermGrid(containerId, rows){
@@ -4848,10 +6902,21 @@ function closeOnboard(){
   }
 }
 function checkOnboard(){
-  if(!localStorage.getItem('guanxin_onboarded')){
+  if(!localStorage.getItem('guanxin_onboarded') && currentPage==='home'){
     setTimeout(function(){
-      document.getElementById('onboard-overlay').classList.add('active');
+      var overlay = document.getElementById('onboard-overlay');
+      if(overlay && currentPage==='home' && !localStorage.getItem('guanxin_onboarded')){
+        overlay.classList.add('active');
+      }
     },500);
+  }
+}
+
+function syncOnboardVisibility(){
+  var overlay = document.getElementById('onboard-overlay');
+  if(!overlay) return;
+  if(currentPage !== 'home' || localStorage.getItem('guanxin_onboarded')){
+    overlay.classList.remove('active');
   }
 }
 
@@ -5180,7 +7245,8 @@ function checkFriendLink(){
 }
 
 /* ===== 八宅风水 · 渲染函数 ===== */
-function showBaZhai(){
+function showBaZhai(options){
+  options = options || {};
   /* 1. 读取出生信息 */
   var birthStr=localStorage.getItem('guanxin_birth');
   if(!birthStr){
@@ -5209,23 +7275,7 @@ function showBaZhai(){
   /* 6. 东四/西四 */
   var grp=LUO[mg.num].grp;
 
-  /* 7. 五行图标色 */
-  var wxColors={'金':'#B8860B','木':'#4A7C59','水':'#2E5984','火':'#A83C32','土':'#8B7355'};
-  var wxBgLight={'金':'rgba(184,134,11,0.08)','木':'rgba(74,124,89,0.08)','水':'rgba(46,89,132,0.08)','火':'rgba(168,60,50,0.08)','土':'rgba(139,115,85,0.08)'};
-
-  /* 8. 五行生克详细解读 */
-  var wxDetail={
-    '生我':'今年外部环境对你形成滋养之势，如同水润泽木。适合学习新技能、接受指导、拓展人脉。贵人运较旺，可以大胆寻求帮助与合作，但仍需保持谦逊感恩之心。',
-    '我生':'今年你的精力会较多地向外输出，如同木生火般自然耗散。适合主动创造价值、付出关怀、分享所学。但需注意量力而行，避免过度消耗导致身心疲惫。',
-    '我克':'今年你对外在环境有较好的掌控力，如同金能伐木。适合推进项目、解决问题、争取机会。行动上可以果断一些，但也要留意不要过于强势而忽略他人感受。',
-    '克我':'今年外部压力可能增大，如同金遇火炼。这是一个磨练和成长的年份，适合沉淀自我、修炼内功。面对挑战时保持冷静，化压力为动力，逆境中往往蕴含转机。',
-    '比和':'今年命宫与流年五行相同，形成共振之势。优势得以强化，但也意味着波动加剧。顺境时把握机会乘势而上，逆境时则需格外注意同一领域的风险。'
-  };
-
-  /* 9. 本命卦象辞 */
-  var guaCiInfo=GUACI[bmg.id]||{c:'',a:''};
-
-  /* 10. 流年建议 */
+  /* 7. 流年建议 */
   var lnAdvice={
     '生我':'把握贵人机遇，虚心学习',
     '我生':'适度付出，注意养精蓄锐',
@@ -5234,10 +7284,31 @@ function showBaZhai(){
     '比和':'顺势而为，居安思危'
   };
   var profilePlain = getProfilePlainInsight(bmg, mg, ln);
-  var benInsight = getBenMingGuaInsight(bmg);
+  var experienceModel = getMingGongExperienceModel(mg, bmg, ln, wxr);
+  var lifeDimensions = getLifeDimensionModel(mg, bmg, ln, wxr);
+  var starModel = buildBaZhaiStarModel(mg);
+  window._bazhaiInsightData = buildProfileInsightData(bmg, mg, ln, wxr);
+  Object.assign(window._bazhaiInsightData, buildLifeDimensionInsights(lifeDimensions, mg, bmg, ln, wxr));
+  Object.assign(window._bazhaiInsightData, buildBaZhaiStarInsights(starModel, mg, grp));
+  window._minggongPractice = {
+    action:experienceModel.actionNow,
+    avoid:experienceModel.avoidNow,
+    review:experienceModel.reviewQuestion,
+    ask:experienceModel.askPrompt
+  };
 
-  /* 11. 生成HTML */
+  /* 8. 生成HTML */
   var html='';
+
+  if(options.justBuilt){
+    html+='<div class="bz-path-guide">';
+    html+='<div><strong>建档完成</strong><span>回首页继续主路径，或先留在这里看解读。</span></div>';
+    html+='<div class="bz-path-guide-actions">';
+    html+='<button type="button" class="bz-path-guide-btn" onclick="goTo(\'home\')">进入主路径首页</button>';
+    html+='<button type="button" class="bz-path-guide-btn secondary" onclick="switchBzFlow(\'focus\')">先继续看个人解读</button>';
+    html+='</div>';
+    html+='</div>';
+  }
 
   /* 标题 */
   html+='<div style="text-align:center;margin-bottom:var(--space-lg)">';
@@ -5248,126 +7319,114 @@ function showBaZhai(){
   html+='<p style="font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light)">个人卦象特质 · '+curYear+'流年参考</p>';
   html+='</div>';
 
-  html+='<div class="plain-insight-card">';
-  html+='<h4>先用白话看懂</h4>';
-  html+='<p><strong>这是什么意思：</strong>'+profilePlain.text+'</p>';
-  html+='<p><strong>今年建议：</strong>'+profilePlain.advice+'</p>';
-  html+='<div class="term-grid">';
-  profilePlain.terms.forEach(function(row){
-    html+='<div class="term-row"><strong>'+row.name+'</strong><span>'+row.text+'</span></div>';
-  });
+  html+='<div class="bz-hero">';
+  html+='<span class="bz-hero-badge">'+mg.sym+' '+mg.name+'宫 · '+grp+'</span>';
+  html+='<div class="bz-hero-title">'+experienceModel.headline+'</div>';
+  html+='<p class="bz-hero-sub">'+experienceModel.intro+'</p>';
+  html+='<div class="bz-hero-quote"><strong>'+experienceModel.quoteLabel+'</strong><span>'+experienceModel.actionNow+'</span></div>';
+  html+='</div>';
+
+  html+='<div class="bz-next-panel">';
+  html+='<h3>今天先这样用</h3>';
+  html+='<p>命宫解读如果不能落到今天，就会变成一段好看的话。先做一个动作，少做一个惯性反应，晚上再回看一次。</p>';
+  html+='<div class="bz-next-steps">';
+  html+='<div class="bz-next-step"><mark>做</mark><div><strong>今天先做</strong><span>'+escapeHtml(experienceModel.actionNow)+'</span></div></div>';
+  html+='<div class="bz-next-step"><mark>止</mark><div><strong>今天先不要</strong><span>'+escapeHtml(experienceModel.avoidNow)+'</span></div></div>';
+  html+='<div class="bz-next-step"><mark>看</mark><div><strong>晚上回看</strong><span>'+escapeHtml(experienceModel.reviewQuestion)+'</span></div></div>';
+  html+='</div>';
+  html+='<div class="bz-next-actions">';
+  html+='<button type="button" class="bz-next-btn" onclick="saveMingGongPractice(window._minggongPractice.action,window._minggongPractice.avoid,window._minggongPractice.review)">记下今日练习</button>';
+  html+='<button type="button" class="bz-next-btn secondary" onclick="askFromMingGong(window._minggongPractice.ask)">带着这个问题去问易</button>';
   html+='</div>';
   html+='</div>';
 
-  html+='<div class="plain-insight-card">';
-  html+='<h4>本命卦详细解读</h4>';
-  html+='<p><strong>它从哪里来：</strong>'+benInsight.relation+'</p>';
-  html+='<p><strong>它在提醒什么：</strong>'+benInsight.plain+'</p>';
-  if(benInsight.classical || benInsight.xiang){
-    html+='<p><strong>传统文本：</strong>'+[benInsight.classical, benInsight.xiang].filter(Boolean).join('<br>')+'</p>';
-  }
-  html+='<p><strong>怎么用到生活里：</strong>'+benInsight.advice+'</p>';
+  html+='<div class="bz-flow-tabs">';
+  html+='<button type="button" class="bz-flow-tab is-active" data-flow="focus" onclick="switchBzFlow(\'focus\')">先看结论</button>';
+  html+='<button type="button" class="bz-flow-tab" data-flow="scene" onclick="switchBzFlow(\'scene\')">看场景</button>';
+  html+='<button type="button" class="bz-flow-tab" data-flow="deep" onclick="switchBzFlow(\'deep\')">去深读</button>';
   html+='</div>';
 
-  /* 基本信息摘要 */
-  html+='<div class="bz-summary">';
-  html+='<div class="bz-summary-row"><span class="bz-summary-label">命宫</span><span class="bz-summary-value">'+mg.sym+' '+mg.name+'（'+mg.nat+'）· '+grp+'</span></div>';
-  html+='<div class="bz-summary-row"><span class="bz-summary-label">本命卦</span><span class="bz-summary-value">'+bmg.name+' · 上'+bmg.up.name+'下'+bmg.lo.name+'</span></div>';
-  html+='<div class="bz-summary-row"><span class="bz-summary-label">'+curYear+'流年</span><span class="bz-summary-value">'+ln.sym+' '+ln.name+'（'+ln.nat+'）</span></div>';
-  html+='</div>';
-
-  /* 命宫特质卡片 */
-  html+='<div class="bz-section">';
-  html+='<div class="bz-section-title">命宫特质</div>';
-  /* 关键词标签 */
-  html+='<div style="display:flex;flex-wrap:wrap;gap:var(--space-xs);margin-bottom:var(--space-md)">';
-  mg.kw.forEach(function(k){
-    html+='<span style="display:inline-block;padding:2px var(--space-sm);background:rgba(106,142,110,0.08);border:1px solid rgba(106,142,110,0.18);border-radius:var(--radius-sm);font-family:var(--font-serif);font-size:var(--text-xs);color:var(--jade)">'+k+'</span>';
-  });
-  html+='<span style="display:inline-block;padding:2px var(--space-sm);background:var(--gold-light);border:1px solid rgba(139,115,85,0.18);border-radius:var(--radius-sm);font-family:var(--font-serif);font-size:var(--text-xs);color:var(--gold)">'+mg.nat+'·'+grp+'</span>';
-  html+='</div>';
-  /* 命宫详述（换行转<br>） */
-  var descLines=mg.desc.split('\n');
-  descLines.forEach(function(line){
-    line=line.trim();
-    if(line){
-      var isTitle=line.indexOf('【')===0;
-      var isQuote=line.indexOf('《')===0;
-      if(isTitle){
-        html+='<div style="font-family:var(--font-serif);font-size:var(--text-sm);color:var(--cinnabar);font-weight:500;margin:var(--space-sm) 0 var(--space-xs)">'+line+'</div>';
-      }else if(isQuote){
-        html+='<div style="font-family:var(--font-serif);font-size:var(--text-xs);color:var(--ink-faint);font-style:italic;line-height:1.8;margin-bottom:var(--space-sm);padding-left:var(--space-sm);border-left:2px solid var(--ink-ghost)">'+line+'</div>';
-      }else{
-        html+='<p style="font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink);line-height:1.9;margin-bottom:var(--space-sm)">'+line+'</p>';
-      }
-    }
-  });
-  html+='</div>';
-
-  /* 本命卦卡片 */
-  html+='<div class="bz-section">';
-  html+='<div class="bz-section-title">本命卦象</div>';
-  html+='<div class="bz-wx-card">';
-  html+='<div style="font-family:var(--font-display);font-size:var(--text-lg);color:var(--ink-deep);letter-spacing:0.1em;margin-bottom:var(--space-xs)">'+bmg.name+'</div>';
-  html+='<div style="font-family:var(--font-serif);font-size:var(--text-xs);color:var(--ink-light);margin-bottom:var(--space-md)">上卦 '+bmg.up.name+'（'+bmg.up.nat+'）'+bmg.up.sym+' · 下卦 '+bmg.lo.name+'（'+bmg.lo.nat+'）'+bmg.lo.sym+'</div>';
-  if(guaCiInfo.c){
-    html+='<div style="font-family:var(--font-serif);font-size:var(--text-xs);color:var(--ink-faint);line-height:1.8;margin-bottom:var(--space-sm);padding:var(--space-sm);background:rgba(176,164,142,0.06);border-radius:var(--radius-sm);border-left:2px solid var(--ink-ghost)">';
-    html+='<span style="color:var(--ink-light)">卦辞：</span>'+guaCiInfo.c;
-    html+='</div>';
-  }
-  if(guaCiInfo.a){
-    html+='<div style="font-family:var(--font-serif);font-size:var(--text-xs);color:var(--ink-faint);line-height:1.8;padding:var(--space-sm);background:rgba(176,164,142,0.06);border-radius:var(--radius-sm);border-left:2px solid var(--ink-ghost)">';
-    html+='<span style="color:var(--ink-light)">象辞：</span>'+guaCiInfo.a;
-    html+='</div>';
-  }
-  html+='</div>';
-  html+='</div>';
-
-  /* 五行生克关系卡片 */
-  html+='<div class="bz-section">';
-  html+='<div class="bz-section-title">'+curYear+'流年五行</div>';
-  html+='<div class="bz-wx-card">';
-  html+='<div class="bz-wx-row">';
-  /* 命宫五行 */
-  html+='<div class="bz-wx-item">';
-  html+='<div class="wx-icon" style="background:'+wxBgLight[wxr.mgWX]+';color:'+(wxColors[wxr.mgWX]||'#666')+';border:1px solid '+(wxColors[wxr.mgWX]||'#666')+'30">'+mg.sym+'</div>';
-  html+='<div class="wx-label">命宫 · '+mg.name+'</div>';
-  html+='<div style="font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-deep);font-weight:500">'+wxr.mgWX+'</div>';
-  html+='</div>';
-  /* 箭头 */
-  var relArrow={'生我':'⟵','我生':'⟶','我克':'⟶','克我':'⟵','比和':'⟷'};
-  var relLabel={'生我':'生','我生':'泄','我克':'克','克我':'制','比和':'同'};
-  html+='<div class="bz-wx-arrow" style="font-size:var(--text-lg);display:flex;flex-direction:column;align-items:center;gap:2px">';
-  html+='<span>'+( relArrow[wxr.rel]||'⟷')+'</span>';
-  html+='<span style="font-size:var(--text-xs);color:var(--ink-faint)">'+(relLabel[wxr.rel]||'同')+'</span>';
-  html+='</div>';
-  /* 流年五行 */
-  html+='<div class="bz-wx-item">';
-  html+='<div class="wx-icon" style="background:'+wxBgLight[wxr.lnWX]+';color:'+(wxColors[wxr.lnWX]||'#666')+';border:1px solid '+(wxColors[wxr.lnWX]||'#666')+'30">'+ln.sym+'</div>';
-  html+='<div class="wx-label">流年 · '+ln.name+'</div>';
-  html+='<div style="font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-deep);font-weight:500">'+wxr.lnWX+'</div>';
-  html+='</div>';
-  html+='</div>';
-
-  /* 关系标签 */
   var tagCls='bi';
   if(wxr.rel==='生我'||wxr.rel==='我生') tagCls='sheng';
   else if(wxr.rel==='克我'||wxr.rel==='我克') tagCls='ke';
-  html+='<div style="text-align:center;margin-bottom:var(--space-md)">';
-  html+='<span class="bz-wx-tag '+tagCls+'">'+wxr.rel+'</span>';
-  html+='<span style="font-family:var(--font-serif);font-size:var(--text-xs);color:var(--ink-faint);margin-left:var(--space-sm)">'+(lnAdvice[wxr.rel]||'')+'</span>';
+  html+='<div class="bz-flow-panel is-active" data-flow-panel="focus">';
+  html+='<div class="bz-glance-grid">';
+  experienceModel.cards.forEach(function(card){
+    html+='<div class="bz-glance-card"><strong>'+card.title+'</strong><span>'+card.text+'</span></div>';
+  });
   html+='</div>';
 
-  /* 解读文字 */
-  html+='<div class="bz-wx-result">';
-  html+='<p style="margin-bottom:var(--space-sm)">'+wxr.interp+'</p>';
-  html+='<p style="font-size:var(--text-sm);color:var(--ink);line-height:1.9;margin-bottom:var(--space-sm)">'+(wxDetail[wxr.rel]||'')+'</p>';
+  html+='<div class="bz-star-mirror">';
+  html+='<div class="bz-star-mirror-head">';
+  html+='<div><h3>八星性格镜</h3><p>这里不把八星当吉凶判词，而是当作八种星性磁场来看：你容易被什么带动，失衡时会卡在哪，顺手时又能把力量用到哪里。</p></div>';
+  html+='<span class="bz-star-origin">'+grp+'</span>';
+  html+='</div>';
+  html+=renderBaZhaiBoardMarkup(starModel, mg, grp);
+  html+='<div class="bz-star-groups">';
+  html+='<div><div class="bz-star-group-title">四个助力<span>适合主动借力</span></div><div class="bz-star-list">';
+  starModel.filter(function(star){ return star.kind==='ji'; }).forEach(function(star){
+    html+='<button type="button" class="bz-star-pill ji" onclick="openBaZhaiInsight(\'star_'+star.key+'\')"><strong>'+star.name+'<em>'+star.wx+' · '+star.dir+'方</em></strong><span>'+star.brief+'</span></button>';
+  });
+  html+='</div></div>';
+  html+='<div><div class="bz-star-group-title">四个提醒<span>适合先降噪</span></div><div class="bz-star-list">';
+  starModel.filter(function(star){ return star.kind==='xiong'; }).forEach(function(star){
+    html+='<button type="button" class="bz-star-pill xiong" onclick="openBaZhaiInsight(\'star_'+star.key+'\')"><strong>'+star.name+'<em>'+star.wx+' · '+star.dir+'方</em></strong><span>'+star.brief+'</span></button>';
+  });
+  html+='</div></div>';
+  html+='</div>';
+  html+='<div class="bz-term-note">怎么看这块：先记星性，再看五行，再看失衡时会怎样。比如六煞属水，重在牵连、欲望和情绪拉扯；生气属木，重在生发和向前。术语边界：八宅里的“命卦/命宫”主要看个人方位系统；页面里的“生日本命卦”是观心用生辰组合出的六十四卦观察层，两者不是同一个概念。</div>';
+  html+='</div>';
 
-  /* 本命卦上下卦五行补充 */
-  html+='<p style="font-size:var(--text-xs);color:var(--ink-faint);line-height:1.7">';
-  html+='命宫五行属'+wxr.mgWX+'，'+curYear+'流年五行属'+wxr.lnWX+'，呈「'+wxr.rel+'」之象。';
-  html+='本命卦「'+bmg.name+'」上卦'+bmg.up.name+'属'+wxr.bmgUpWX+'，下卦'+bmg.lo.name+'属'+wxr.bmgLoWX+'。';
-  html+='</p>';
+  html+='<div class="bz-section-shell">';
+  html+='<div class="bz-section-kicker">为什么会这样</div>';
+  html+='<div class="bz-section-heading">为什么你会觉得这些反应总在重复出现</div>';
+  html+='<p class="bz-section-copy">'+profilePlain.text+'</p>';
+  html+='<p class="bz-section-copy">'+experienceModel.secondSentence+'</p>';
+  html+='<div class="bz-action-strip">';
+  html+='<span class="bz-wx-tag '+tagCls+'">'+wxr.rel+'</span>';
+  html+='<span class="bz-action-note">'+experienceModel.yearFocus+' '+(lnAdvice[wxr.rel]||'')+'</span>';
+  html+='</div>';
+  html+='</div>';
+  html+='</div>';
+
+  html+='<div class="bz-flow-panel" data-flow-panel="scene">';
+  html+='<div class="bz-section-shell">';
+  html+='<div class="bz-section-kicker">放进生活里看</div>';
+  html+='<div class="bz-section-heading">把命宫落到现实场景里看</div>';
+  html+='<p class="bz-section-copy">用户真正想知道的不是术语，而是这些特质会在工作、关系、情绪起伏时怎么出现，又该怎么用。</p>';
+  html+='<div class="bz-scene-grid">';
+  experienceModel.scenes.forEach(function(scene){
+    html+='<div class="bz-scene-card"><strong>'+scene.label+'</strong><span>'+scene.text+'</span><em>现在更适合这样做：'+scene.action+'</em></div>';
+  });
+  html+='</div>';
+  html+='<div class="bz-section-shell" style="margin-top:var(--space-lg)">';
+  html+='<div class="bz-section-kicker">四个现实维度</div>';
+  html+='<div class="bz-section-heading">从你最在意的四个现实维度切进去</div>';
+  html+='<p class="bz-section-copy">先看一句判断和一个卡点，再决定要不要展开深读。这样比一次看完整段术语更容易抓住重点。</p>';
+  html+='<div class="bz-life-grid">';
+  lifeDimensions.forEach(function(item){
+    html+='<button type="button" class="bz-life-card" onclick="openBaZhaiInsight(\'life_'+item.key+'\')"><strong>'+item.title+'<em>'+item.badge+'</em></strong><span>'+item.data.summary+'</span><i>先做：'+compactLifeAction(item.data.action)+'</i></button>';
+  });
+  html+='</div>';
+  html+='</div>';
+  html+='</div>';
+  html+='</div>';
+
+  html+='<div class="bz-flow-panel" data-flow-panel="deep">';
+  html+='<div class="bz-summary">';
+  html+='<button type="button" class="bz-summary-row" onclick="openBaZhaiInsight(\'minggong\')" style="width:100%;background:none;border:none;cursor:pointer;text-align:left"><span class="bz-summary-label">命宫</span><span class="bz-summary-value">'+mg.sym+' '+mg.name+'（'+mg.nat+'）· '+grp+'</span></button>';
+  html+='<button type="button" class="bz-summary-row" onclick="openBaZhaiInsight(\'bengua\')" style="width:100%;background:none;border:none;cursor:pointer;text-align:left"><span class="bz-summary-label">生日本命卦</span><span class="bz-summary-value">'+bmg.name+' · 上'+bmg.up.name+'下'+bmg.lo.name+'</span></button>';
+  html+='<button type="button" class="bz-summary-row" onclick="openBaZhaiInsight(\'liunian\')" style="width:100%;background:none;border:none;cursor:pointer;text-align:left"><span class="bz-summary-label">'+curYear+'流年</span><span class="bz-summary-value">'+ln.sym+' '+ln.name+'（'+ln.nat+'）</span></button>';
+  html+='</div>';
+
+  html+='<div class="bz-section-shell">';
+  html+='<div class="bz-section-kicker">按需深读</div>';
+  html+='<div class="bz-section-heading">想继续看深一点，再按你关心的方向展开</div>';
+  html+='<p class="bz-section-copy">'+experienceModel.deepHint+'</p>';
+  html+='<div class="bz-deep-grid">';
+  experienceModel.learn.forEach(function(item){
+    html+='<button type="button" class="bz-deep-btn" onclick="openBaZhaiInsight(\''+item.key+'\')"><strong>'+item.title+'</strong><span>'+item.hint+'</span></button>';
+  });
   html+='</div>';
   html+='</div>';
   html+='</div>';
@@ -5379,12 +7438,13 @@ function showBaZhai(){
   html+='内容仅供文化体验与自我反思参考，不构成任何决策建议<br>';
   html+='<span style="opacity:0.7">人生际遇，终究由心而行、由行而定</span>';
   html+='</p>';
-  html+='<button onclick="goBack(\'home\')" style="margin-top:var(--space-md);background:none;border:1px solid var(--ink-ghost);color:var(--ink-light);padding:var(--space-xs) var(--space-lg);border-radius:var(--radius-md);font-family:var(--font-serif);font-size:var(--text-sm);cursor:pointer">返回上一页</button>';
+  html+='<button onclick="goTo(\'home\',{replace:true})" style="margin-top:var(--space-md);background:none;border:1px solid var(--ink-ghost);color:var(--ink-light);padding:var(--space-xs) var(--space-lg);border-radius:var(--radius-md);font-family:var(--font-serif);font-size:var(--text-sm);cursor:pointer">返回首页</button>';
   html+='</div>';
 
   /* 渲染 */
   document.getElementById('bz-content').innerHTML=html;
-  goTo('bazhai');
+  initBaZhaiBoard();
+  goTo('bazhai', {replace:!!options.replace});
 }
 
 /* ===== 卦象图鉴 · 百科功能 ===== */
@@ -5613,7 +7673,7 @@ function closeEncDetail(){
       <h3>第一次使用，先这样开始</h3>
       <p class="qm-sub">不用懂周易，按你现在的状态选入口</p>
       <div class="onboard-choice-list">
-        <div class="onboard-choice"><strong>我想先了解自己</strong><span>先填写生辰信息，生成命宫和本命卦档案。</span></div>
+        <div class="onboard-choice"><strong>我想先了解自己</strong><span>先填写生辰信息，生成命宫和生日本命卦档案。</span></div>
         <div class="onboard-choice"><strong>我现在有点乱</strong><span>去“问易”，把问题写成一句话，再看行动建议。</span></div>
         <div class="onboard-choice"><strong>我想慢慢学习</strong><span>看“每日一卦”和“卦象图鉴”，先读白话解释。</span></div>
       </div>

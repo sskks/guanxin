@@ -1,4 +1,4 @@
-﻿with open('prototype.html','r',encoding='utf-8') as f:
+with open('index.html','r',encoding='utf-8') as f:
     c = f.read()
 
 # 1. 在首页顶部添加打卡徽章
@@ -31,7 +31,7 @@ window.addEventListener('load',()=>{
 '''
 c = c.replace('window.addEventListener(\'load\',checkFriendShare);', checkin_js + 'window.addEventListener(\'load\',checkFriendShare);')
 
-with open('prototype.html','w',encoding='utf-8') as f:
+with open('index.html','w',encoding='utf-8') as f:
     f.write(c)
 
 print('OK 每日打卡功能完成')

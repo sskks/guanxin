@@ -1,4 +1,4 @@
-﻿with open('prototype.html','r',encoding='utf-8') as f:
+with open('index.html','r',encoding='utf-8') as f:
     c = f.read()
 
 # 找到 renderAlmanac 开始，替换整个函数
@@ -44,7 +44,7 @@ c = c[:idx] + new_func + c[end_idx+1:]
 c = c.replace('onclick="goTo(\'home\')">← 返回</button>', 'onclick="goTo(\'home\')" style="padding:var(--space-xs) var(--space-sm);min-height:36px;font-size:var(--text-xs)">← 返回</button>')
 c = c.replace('<div style="width:60px"></div>', '<button class="btn btn-outline" style="padding:var(--space-xs) var(--space-sm);min-height:36px;font-size:var(--text-xs)" onclick="navAlmanac(1)">后一天 →</button>')
 
-with open('prototype.html','w',encoding='utf-8') as f:
+with open('index.html','w',encoding='utf-8') as f:
     f.write(c)
 
 print('OK 节气日历深化完成')

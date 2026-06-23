@@ -1,8 +1,8 @@
-﻿with open('prototype.html','r',encoding='utf-8') as f:
+with open('index.html','r',encoding='utf-8') as f:
     c = f.read()
 
 # 重写 renderAlmanac，完整显示日历、宜忌、吉时、养生
-c = c.replace('function renderAlmanac(){const now=new Date(),y=now.getFullYear(),m=now.getMonth()+1,d=now.getDate();const jq=getJieqi(m,d);document.getElementById('almanac-content').innerHTML='<h3>今日：'+m+'月'+d+'日</h3><p style="margin-top:var(--space-sm)">'+(jq?'当前节气：'+jq.name+'：'+jq.desc:'下一个节气临近...')+'</p>';}',
+c = c.replace('function renderAlmanac(){const now=new Date(),y=now.getFullYear(),m=now.getMonth()+1,d=now.getDate();const jq=getJieqi(m,d);document.getElementById('almanac-content').innerHTML=\'<h3>今日：\'+m+\'月\'+d+\'日</h3><p style="margin-top:var(--space-sm)">\'+(jq?\'当前节气：\'+jq.name+\'：\'+jq.desc:\'下一个节气临近...\')+\'</p>\';}',
 '''let almanacDate=new Date();
 function navAlmanac(dir){almanacDate.setDate(almanacDate.getDate()+dir);renderAlmanac();}
 function renderAlmanac(){
@@ -58,7 +58,7 @@ c = c.replace('<span style="font-family:var(--font-serif);font-size:var(--text-b
 c = c.replace('<div style="width:60px"></div>',
   '<button class="btn btn-outline" style="padding:var(--space-xs) var(--space-sm);min-height:36px;font-size:var(--text-xs)" onclick="navAlmanac(1)">后一天 →</button>')
 
-with open('prototype.html','w',encoding='utf-8') as f:
+with open('index.html','w',encoding='utf-8') as f:
     f.write(c)
 
 print('OK 二十四节气深化完成')

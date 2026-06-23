@@ -1,4 +1,4 @@
-﻿with open('prototype.html','r',encoding='utf-8') as f:
+with open('index.html','r',encoding='utf-8') as f:
     c = f.read()
 
 # 1. 在东震问卦功能中改为跳转到摇卦页
@@ -58,7 +58,7 @@ shaking_html = '''
 
 c = c.replace('<div id="almanac-screen"', shaking_html + '<div id="almanac-screen"')
 
-with open('prototype.html','w',encoding='utf-8') as f:
+with open('index.html','w',encoding='utf-8') as f:
     f.write(c)
 
 print('OK 摇卦动画完成')

@@ -22,7 +22,6 @@
 
 ```
 index.html      → 主应用（SPA 全部代码，5364行）
-prototype.html  → 源文件（与 index.html 一致）
 server.py       → 本地服务器 + AI API 代理
 docs/           → 项目文档（PRD、架构、规范、状态）
 *.py            → 开发补丁脚本（已无运行时用途）
