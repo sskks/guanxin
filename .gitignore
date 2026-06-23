@@ -28,5 +28,8 @@ desktop.ini
 *.log
 .codex-server*
 
+# Local design/review tool state
+.impeccable/
+
 # QoderWork
 .qoderwork*/
