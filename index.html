@@ -281,6 +281,9 @@ body::after{
   transition:all 0.4s var(--ease-ink);
   animation:brushStroke 1.2s var(--ease-ink) 1s both;
   box-shadow:0 4px 16px rgba(44,36,24,0.15);
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none;
 }
 .splash-content .btn-ink::before{
   content:'';position:absolute;inset:0;border-radius:var(--radius-full);
@@ -3112,7 +3115,7 @@ body::after{
     </div>
     <p class="splash-subtitle">以易观心 · 明悟自性</p>
     <p class="splash-verse"><span>天行健</span><span>君子以自强不息</span></p>
-    <button class="btn-ink" onclick="startPrimaryJourney()">开始探索</button>
+    <button id="splash-start-btn" class="btn-ink" onclick="startPrimaryJourney()">开始探索</button>
     <div class="entry-hero-note">
       <strong>从填写生辰信息开始。</strong> 先建立个人命理档案，再进入每日一卦、命宫解读与问卦体验。
     </div>
@@ -5199,6 +5202,24 @@ function startPrimaryJourney(){
   goTo('birthday');
 }
 
+function bindFastTapButton(id, handler){
+  var btn = document.getElementById(id);
+  if(!btn || btn._fastTapBound) return;
+  btn._fastTapBound = true;
+  var lastTriggerAt = 0;
+
+  function fire(e){
+    if(e) e.preventDefault();
+    var now = Date.now();
+    if(now - lastTriggerAt < 450) return;
+    lastTriggerAt = now;
+    handler();
+  }
+
+  btn.addEventListener('pointerup', fire);
+  btn.addEventListener('touchend', fire, {passive:false});
+}
+
 /* ===== 性别选择 ===== */
 document.addEventListener('DOMContentLoaded',()=>{
   initSwipeBack();
@@ -5221,6 +5242,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   updateTodayPracticeCard();
   /* 检查好友分享链接 */
   checkFriendLink();
+  bindFastTapButton('splash-start-btn', startPrimaryJourney);
+  bindFastTapButton('onboard-start-btn', closeOnboard);
 });
 
 /* ===== 生日表单初始化 ===== */
@@ -7697,7 +7720,7 @@ function closeEncDetail(){
         医疗、法律、投资、亲密关系等重大决定，请回到现实证据和专业建议。<br>
         如果看完结果，先做一件小事，再回看自己是否变清晰。
       </p>
-      <button class="btn btn-primary" style="margin-top:var(--space-lg);width:100%" onclick="closeOnboard()">开始探索</button>
+      <button id="onboard-start-btn" class="btn btn-primary" style="margin-top:var(--space-lg);width:100%" onclick="closeOnboard()">开始探索</button>
     </div>
     <div style="display:flex;justify-content:center;gap:6px;margin-top:var(--space-md)">
       <span class="onboard-dot active" id="dot1"></span>
