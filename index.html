@@ -737,9 +737,9 @@ body::after{
 }
 .ai-followup-head p{
   margin:0;
-  font-size:var(--text-sm);
+  font-size:12px;
   color:var(--ink-light);
-  line-height:1.72;
+  line-height:1.62;
 }
 .ai-followup-grid{
   display:grid;
@@ -908,6 +908,11 @@ body::after{
   background:rgba(248,243,230,0.8);
   color:var(--ink-light);font-size:11px;letter-spacing:0.04em;
   box-shadow:var(--shadow-sm);
+}
+.home-intro-note span{
+  max-width:22ch;
+  text-align:left;
+  line-height:1.55;
 }
 .home-intro-note strong{
   color:var(--cinnabar);
@@ -1097,19 +1102,22 @@ body::after{
   display:grid;
   gap:4px;
   width:100%;
-  padding:9px 11px;
+  padding:8px 10px;
   border-radius:14px;
   border:1px solid rgba(216,206,188,0.88);
   background:rgba(255,252,246,0.68);
   color:var(--ink-light);
   font-size:11px;
-  line-height:1.58;
+  line-height:1.5;
 }
 .home-return-chip strong{
   color:var(--ink-deep);
   font-weight:600;
   margin-right:0;
   white-space:normal;
+}
+.home-return-chip > span:not(.home-return-links){
+  max-width:28ch;
 }
 .home-return-links{
   display:flex;
@@ -1511,8 +1519,50 @@ body::after{
   font-weight:600;letter-spacing:0.04em;
 }
 .home-entry-copy{
-  max-width:24ch;font-size:var(--text-xs);line-height:1.7;
+  max-width:20ch;font-size:11px;line-height:1.58;
   color:var(--ink-light);text-align:right;
+}
+.home-support-accordion{
+  margin-top:var(--space-lg);
+  border:1px solid rgba(216,206,188,0.88);
+  border-radius:var(--radius-lg);
+  background:linear-gradient(180deg,rgba(255,252,246,0.92),rgba(244,238,225,0.88));
+  box-shadow:0 10px 28px rgba(44,36,24,0.04);
+  overflow:hidden;
+}
+.home-support-summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--space-sm);
+  padding:var(--space-md) var(--space-md) var(--space-sm);
+  cursor:pointer;
+}
+.home-support-summary::-webkit-details-marker{display:none}
+.home-support-summary span{
+  font-family:var(--font-serif);
+  font-size:var(--text-base);
+  color:var(--ink-deep);
+  letter-spacing:0.06em;
+}
+.home-support-summary em{
+  font-style:normal;
+  font-size:var(--text-xs);
+  color:var(--ink-faint);
+  letter-spacing:0.05em;
+}
+.home-support-accordion[open] .home-support-summary{
+  border-bottom:1px solid rgba(216,206,188,0.68);
+}
+.home-support-body{
+  display:grid;
+  gap:var(--space-md);
+  padding:var(--space-md);
+}
+.home-support-body .home-review-card,
+.home-support-body .home-archive-card{
+  margin:0;
 }
 .home-grid{display:flex;flex-direction:column;gap:var(--space-md)}
 .home-followup-grid{
@@ -1562,8 +1612,8 @@ body::after{
 }
 .followup-card-desc{
   margin-top:6px;
-  font-size:12px;
-  line-height:1.66;
+  font-size:11px;
+  line-height:1.58;
   color:var(--ink);
 }
 .followup-card-arrow{
@@ -1692,6 +1742,1305 @@ body::after{
   }
 }
 
+/* ===== 山门式首页 V1 · 轻量水墨结构 ===== */
+.home-inner{
+  max-width:760px;
+  padding-bottom:112px;
+}
+.home-title-block{
+  margin-bottom:18px;
+}
+.home-title-block::before{
+  content:'';
+  position:absolute;
+  left:50%;
+  top:6px;
+  width:118px;
+  height:118px;
+  border-radius:50%;
+  transform:translateX(-50%);
+  background:
+    radial-gradient(circle at 50% 32%,rgba(44,36,24,.18) 0 12%,transparent 13%),
+    radial-gradient(circle at 50% 68%,rgba(255,250,240,.92) 0 12%,transparent 13%),
+    linear-gradient(180deg,rgba(44,36,24,.16) 0 50%,rgba(255,250,240,.64) 50% 100%);
+  filter:blur(.4px);
+  opacity:.55;
+  pointer-events:none;
+}
+.home-title,
+.home-subtitle,
+.home-intro-note{
+  position:relative;
+  z-index:1;
+}
+.home-intro-note{
+  border-color:rgba(49,95,104,.18);
+  background:rgba(255,252,246,.72);
+}
+.home-today-board{
+  border-radius:32px;
+  padding:20px;
+  border-color:rgba(49,95,104,.18);
+  background:
+    radial-gradient(circle at 84% 8%,rgba(168,60,50,.10),transparent 28%),
+    radial-gradient(circle at 12% 88%,rgba(49,95,104,.10),transparent 28%),
+    linear-gradient(180deg,rgba(255,250,240,.96),rgba(237,228,209,.9));
+}
+.home-today-board::before{
+  content:'';
+  position:absolute;
+  right:-44px;
+  bottom:-54px;
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  border:1px solid rgba(49,95,104,.2);
+  box-shadow:inset 0 0 0 18px rgba(49,95,104,.035);
+  pointer-events:none;
+}
+.home-today-kicker{
+  color:var(--jade);
+  letter-spacing:.16em;
+}
+.home-today-title{
+  font-size:clamp(1.28rem,4.8vw,1.8rem);
+  line-height:1.28;
+  max-width:12em;
+}
+.home-today-date{
+  border-color:rgba(49,95,104,.2);
+  color:var(--jade);
+}
+.home-today-grid{
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.home-today-card{
+  border-radius:20px;
+  background:rgba(255,252,246,.72);
+}
+.home-today-card.is-primary{
+  grid-column:1 / -1;
+  min-height:126px;
+  padding:18px;
+  border-color:rgba(168,60,50,.18);
+}
+.home-today-card.is-primary strong{
+  font-size:16px;
+}
+.home-today-card.is-primary span{
+  font-size:14px;
+}
+.home-today-card.is-secondary{
+  min-height:96px;
+}
+.home-today-actions{
+  grid-template-columns:1fr;
+}
+.home-today-actions > .btn-primary{
+  min-height:50px;
+  border-radius:999px;
+}
+.home-secondary-actions{
+  grid-template-columns:1fr 1fr;
+}
+.home-entry-group-secondary{
+  margin-top:18px;
+}
+.home-entry-group-secondary .home-entry-heading{
+  align-items:center;
+}
+.home-entry-group-secondary .home-entry-title{
+  font-size:1.25rem;
+}
+.home-followup-grid{
+  grid-template-columns:1fr;
+  gap:12px;
+}
+.followup-card{
+  position:relative;
+  min-height:124px;
+  border-radius:28px;
+  padding:18px;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg,rgba(255,252,246,.88),rgba(235,226,207,.76)),
+    radial-gradient(circle at 96% 14%,rgba(49,95,104,.10),transparent 26%);
+}
+.followup-card::before{
+  content:'';
+  position:absolute;
+  right:18px;
+  bottom:-18px;
+  width:72px;
+  height:94px;
+  border:1px solid rgba(44,36,24,.13);
+  border-radius:40px 40px 10px 10px;
+  background:linear-gradient(180deg,rgba(255,250,240,.34),rgba(44,36,24,.03));
+  pointer-events:none;
+}
+.followup-card:nth-child(1)::after,
+.followup-card:nth-child(2)::after,
+.followup-card:nth-child(3)::after{
+  position:absolute;
+  right:24px;
+  bottom:-6px;
+  color:rgba(44,36,24,.08);
+  font-family:var(--font-display);
+  font-size:70px;
+  line-height:1;
+  pointer-events:none;
+}
+.followup-card:nth-child(1)::after{content:'人'}
+.followup-card:nth-child(2)::after{content:'日'}
+.followup-card:nth-child(3)::after{content:'问'}
+.followup-card:hover,
+.followup-card:focus-visible{
+  transform:translateY(-3px);
+  border-color:rgba(49,95,104,.24);
+  box-shadow:0 18px 42px rgba(44,36,24,.08);
+}
+.followup-card-title{
+  font-size:17px;
+}
+.followup-card-desc{
+  max-width:29ch;
+  font-size:13px;
+  line-height:1.72;
+}
+.followup-card-arrow{
+  position:relative;
+  z-index:1;
+  width:38px;
+  height:38px;
+  display:grid;
+  place-items:center;
+  border-radius:999px;
+  background:rgba(255,252,246,.78);
+  box-shadow:inset 0 0 0 1px rgba(216,206,188,.72);
+}
+.home-support-accordion{
+  margin-top:18px;
+  border-radius:24px;
+}
+.home-quick-row{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.home-quick-item{
+  border-radius:20px;
+}
+.home-bottom-nav{
+  position:fixed;
+  left:50%;
+  bottom:calc(12px + env(safe-area-inset-bottom));
+  z-index:80;
+  width:min(520px,calc(100vw - 24px));
+  transform:translateX(-50%);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:6px;
+  padding:8px;
+  border:1px solid rgba(216,206,188,.86);
+  border-radius:24px;
+  background:rgba(255,250,240,.9);
+  box-shadow:0 18px 42px rgba(44,36,24,.12);
+  backdrop-filter:blur(12px);
+}
+.home-bottom-nav button{
+  min-height:44px;
+  border:0;
+  border-radius:18px;
+  background:transparent;
+  color:var(--ink-light);
+  font-family:var(--font-serif);
+  font-size:12px;
+  letter-spacing:.06em;
+  cursor:pointer;
+}
+.home-bottom-nav button.is-active{
+  color:var(--paper-light);
+  background:linear-gradient(135deg,var(--jade),#294f57);
+}
+.home-bottom-nav button:focus-visible{
+  outline:2px solid rgba(168,60,50,.32);
+  outline-offset:2px;
+}
+@media (min-width:820px){
+  .home-inner{
+    max-width:1080px;
+  }
+  .home-today-board{
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);
+    gap:16px;
+    align-items:start;
+  }
+  .home-today-head,
+  .home-today-summary,
+  .home-return-strip{
+    grid-column:1;
+  }
+  .home-today-grid,
+  .home-today-actions{
+    grid-column:2;
+  }
+  .home-followup-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .home-quick-row{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+}
+@media (max-width:560px){
+  .home-inner{
+    padding-left:14px;
+    padding-right:14px;
+  }
+  .home-title-block{
+    padding-top:50px;
+  }
+  .home-title-block::before{
+    width:96px;
+    height:96px;
+  }
+  .home-intro-note{
+    align-items:flex-start;
+    border-radius:18px;
+  }
+  .home-today-board{
+    padding:16px;
+  }
+  .home-today-head{
+    display:grid;
+  }
+  .home-today-date{
+    width:max-content;
+  }
+  .home-today-grid,
+  .home-secondary-actions,
+  .home-quick-row{
+    grid-template-columns:1fr;
+  }
+  .home-today-summary{
+    font-size:12px;
+    line-height:1.62;
+  }
+  .home-today-card.is-primary{
+    min-height:auto;
+    padding:14px;
+  }
+  .home-today-card.is-secondary,
+  .home-return-strip{
+    display:none;
+  }
+  .followup-card{
+    min-height:112px;
+  }
+  .home-entry-heading{
+    display:grid;
+    gap:6px;
+  }
+  .home-entry-copy{
+    max-width:none;
+    text-align:left;
+  }
+}
+
+/* ===== AI 解读全局弹窗 ===== */
+.ai-modal-overlay{
+  position:fixed;
+  inset:0;
+  z-index:10020;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding:18px;
+  background:rgba(27,22,16,.42);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .22s var(--ease-ink);
+}
+.ai-modal-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+.ai-modal{
+  width:min(560px,100%);
+  max-height:min(82vh,760px);
+  overflow:auto;
+  border-radius:30px;
+  border:1px solid rgba(216,206,188,.88);
+  background:
+    radial-gradient(circle at 88% 10%,rgba(168,60,50,.08),transparent 26%),
+    linear-gradient(180deg,rgba(255,250,240,.98),rgba(239,230,214,.96));
+  box-shadow:0 26px 80px rgba(27,22,16,.28);
+  transform:translateY(18px) scale(.98);
+  transition:transform .24s var(--ease-ink);
+}
+.ai-modal-overlay.active .ai-modal{
+  transform:translateY(0) scale(1);
+}
+.ai-modal-head{
+  position:sticky;
+  top:0;
+  z-index:1;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+  padding:18px 18px 12px;
+  background:linear-gradient(180deg,rgba(255,250,240,.98),rgba(255,250,240,.9));
+  border-bottom:1px solid rgba(216,206,188,.68);
+}
+.ai-modal-kicker{
+  display:block;
+  margin-bottom:4px;
+  color:var(--jade);
+  font-size:12px;
+  letter-spacing:.14em;
+}
+.ai-modal-title{
+  margin:0;
+  font-family:var(--font-serif);
+  font-size:20px;
+  color:var(--ink-deep);
+  line-height:1.35;
+}
+.ai-modal-close{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  border:1px solid rgba(216,206,188,.9);
+  border-radius:999px;
+  background:rgba(255,252,246,.8);
+  color:var(--ink-light);
+  font-size:22px;
+  line-height:1;
+  cursor:pointer;
+}
+.ai-modal-body{
+  padding:16px 18px 18px;
+}
+.ai-modal-status{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+  color:var(--ink-light);
+  font-size:13px;
+  line-height:1.7;
+}
+.ai-modal-spinner{
+  width:18px;
+  height:18px;
+  flex:0 0 18px;
+  border-radius:50%;
+  border:2px solid rgba(49,95,104,.18);
+  border-top-color:var(--jade);
+  animation:aiSpin .8s linear infinite;
+}
+@keyframes aiSpin{to{transform:rotate(360deg)}}
+.ai-modal-grid{
+  display:grid;
+  gap:10px;
+}
+.ai-modal-block{
+  padding:13px 14px;
+  border-radius:18px;
+  border:1px solid rgba(216,206,188,.82);
+  background:rgba(255,252,246,.72);
+}
+.ai-modal-block strong{
+  display:block;
+  margin-bottom:5px;
+  font-family:var(--font-serif);
+  font-size:14px;
+  color:var(--ink-deep);
+}
+.ai-modal-block span{
+  display:block;
+  color:var(--ink);
+  font-size:14px;
+  line-height:1.75;
+}
+.ai-modal-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:14px;
+}
+.ai-modal-actions .btn{
+  min-height:44px;
+}
+.ai-modal-error{
+  border-color:rgba(168,60,50,.2);
+  background:rgba(168,60,50,.07);
+}
+body.modal-open{
+  overflow:hidden;
+}
+
+/* ===== P1/P2 核心页面视觉收口 ===== */
+.daily-inner,
+.div-inner,
+.history-inner{
+  max-width:720px;
+  padding-bottom:96px;
+}
+.daily-nav,
+.page-topbar{
+  position:sticky;
+  top:0;
+  z-index:20;
+  margin:0 calc(var(--space-md) * -1) 16px;
+  padding:10px var(--space-md);
+  background:linear-gradient(180deg,rgba(244,236,216,.96),rgba(244,236,216,.78));
+  backdrop-filter:blur(10px);
+}
+.daily-nav-btn,
+.page-back-btn{
+  min-height:42px;
+  border-radius:999px;
+  background:rgba(255,252,246,.78);
+}
+.daily-hex-display,
+.div-result-card,
+.bz-hero{
+  border-radius:32px;
+  border:1px solid rgba(49,95,104,.16);
+  background:
+    radial-gradient(circle at 88% 10%,rgba(49,95,104,.09),transparent 28%),
+    linear-gradient(180deg,rgba(255,250,240,.96),rgba(238,228,209,.9));
+  box-shadow:0 20px 52px rgba(44,36,24,.08);
+}
+.daily-brief-board,
+.result-landing-board,
+.bz-next-panel{
+  border-radius:28px;
+  border:1px solid rgba(168,60,50,.14);
+  background:
+    radial-gradient(circle at 90% 10%,rgba(168,60,50,.07),transparent 26%),
+    linear-gradient(180deg,rgba(255,252,246,.95),rgba(242,234,218,.9));
+  box-shadow:0 14px 34px rgba(44,36,24,.06);
+}
+.daily-brief-title,
+.result-landing-headline,
+.bz-hero-title{
+  letter-spacing:.04em;
+}
+.daily-brief-grid,
+.result-landing-grid,
+.bz-next-steps{
+  gap:10px;
+}
+.daily-brief-item,
+.result-landing-item,
+.bz-next-step{
+  border-radius:20px;
+  background:rgba(255,252,246,.74);
+}
+.div-reveal-card,
+.div-fold,
+.ai-followup-panel,
+.next-steps-card{
+  border-radius:24px;
+  border-color:rgba(216,206,188,.78);
+  background:rgba(255,252,246,.72);
+}
+.ai-followup-panel{
+  box-shadow:0 14px 34px rgba(44,36,24,.05);
+}
+.ai-followup-entry{
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 92% 10%,rgba(49,95,104,.08),transparent 26%),
+    rgba(255,252,246,.76);
+}
+.ai-followup-chip{
+  min-height:42px;
+  border-radius:999px;
+}
+.bz-flow-nav{
+  border-radius:26px;
+  overflow:hidden;
+  background:rgba(255,252,246,.64);
+  box-shadow:0 14px 34px rgba(44,36,24,.05);
+}
+.bz-flow-tabs{
+  padding:10px;
+  gap:10px;
+}
+.bz-flow-tab{
+  border-radius:20px;
+}
+.bz-flow-status{
+  border-radius:22px;
+  background:rgba(255,252,246,.72);
+}
+@media (min-width:900px){
+  .daily-inner,
+  .div-inner,
+  .history-inner{
+    max-width:980px;
+  }
+  .daily-brief-grid,
+  .result-landing-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+@media (min-width:720px){
+  .ai-modal-overlay{
+    align-items:center;
+  }
+}
+  @media (max-width:520px){
+    .ai-modal-overlay{
+      padding:10px;
+    }
+  .ai-modal{
+    border-radius:26px 26px 22px 22px;
+    max-height:86vh;
+  }
+  .ai-modal-actions{
+      grid-template-columns:1fr;
+    }
+  }
+
+/* ===== 山门式交付版 V2 · 三门清晰结构 ===== */
+#home-screen{
+  background:
+    radial-gradient(circle at 50% 6%,rgba(49,95,104,.08),transparent 30%),
+    linear-gradient(180deg,var(--paper-light) 0%,var(--paper) 42%,var(--silk) 100%);
+}
+#home-screen::after{
+  content:'';
+  position:fixed;
+  left:50%;
+  top:74px;
+  width:min(86vw,540px);
+  height:160px;
+  transform:translateX(-50%);
+  pointer-events:none;
+  opacity:.42;
+  background:
+    radial-gradient(ellipse at 50% 100%,rgba(44,36,24,.16),transparent 58%),
+    linear-gradient(90deg,transparent 0 9%,rgba(44,36,24,.10) 9.5% 10%,transparent 10.5% 89%,rgba(44,36,24,.10) 90% 90.5%,transparent 91% 100%);
+  mask-image:linear-gradient(180deg,#000 0%,transparent 82%);
+  z-index:0;
+}
+#home-screen .home-inner{
+  max-width:860px;
+  padding-top:28px;
+}
+#home-screen .home-title-block{
+  padding-top:30px;
+  margin-bottom:14px;
+}
+#home-screen .home-title-block::before{
+  top:0;
+  width:108px;
+  height:108px;
+  opacity:.38;
+  background:
+    radial-gradient(circle at 50% 30%,rgba(44,36,24,.20) 0 10%,transparent 11%),
+    radial-gradient(circle at 50% 70%,rgba(255,252,246,.92) 0 10%,transparent 11%),
+    linear-gradient(180deg,rgba(44,36,24,.13) 0 50%,rgba(255,252,246,.7) 50% 100%);
+}
+#home-screen .home-title{
+  letter-spacing:.2em;
+  margin-bottom:4px;
+}
+#home-screen .home-subtitle{
+  max-width:24ch;
+  font-size:13px;
+  color:var(--ink-light);
+}
+#home-screen .home-intro-note{
+  display:none;
+}
+#home-screen .home-today-board{
+  border-radius:34px 34px 24px 24px;
+  padding:18px;
+  margin-bottom:16px;
+  border-color:rgba(49,95,104,.20);
+  box-shadow:0 22px 64px rgba(44,36,24,.08), inset 0 0 0 1px rgba(255,252,246,.72);
+}
+#home-screen .home-today-board::after{
+  inset:8px;
+  border-radius:28px 28px 18px 18px;
+  border-color:rgba(49,95,104,.10);
+}
+#home-screen .home-today-title{
+  max-width:15ch;
+  font-size:clamp(1.18rem,4.2vw,1.72rem);
+}
+#home-screen .home-today-summary{
+  max-width:38ch;
+  margin-top:8px;
+  font-size:13px;
+}
+#home-screen .home-today-card.is-secondary,
+#home-screen .home-return-strip,
+#home-screen .home-secondary-actions{
+  display:none;
+}
+#home-screen .home-today-grid{
+  margin-top:10px;
+}
+#home-screen .home-today-card.is-primary{
+  min-height:auto;
+  padding:13px 14px;
+  border-radius:20px;
+}
+#home-screen .home-today-card.is-primary strong{
+  font-size:14px;
+}
+#home-screen .home-today-card.is-primary span{
+  font-size:13px;
+  line-height:1.66;
+}
+#home-screen .home-today-actions{
+  margin-top:12px;
+}
+#home-screen .home-today-actions > .btn-primary{
+  min-height:48px;
+  border-radius:999px;
+}
+#home-screen .home-support-accordion{
+  margin:0 0 16px;
+  border-radius:20px;
+  border-color:rgba(216,206,188,.72);
+  background:rgba(255,252,246,.54);
+}
+#home-screen .home-support-summary{
+  min-height:46px;
+  padding:0 14px;
+}
+#home-screen .home-entry-group-secondary{
+  margin-top:12px;
+}
+#home-screen .home-entry-title{
+  font-size:1.1rem;
+}
+#home-screen .home-entry-copy{
+  font-size:12px;
+  color:var(--ink-light);
+}
+#home-screen .home-followup-grid{
+  gap:12px;
+}
+#home-screen .followup-card{
+  min-height:142px;
+  padding:16px 16px 15px;
+  border-radius:32px 32px 18px 18px;
+  border:1px solid rgba(216,206,188,.82);
+  border-top:3px solid rgba(49,95,104,.34);
+  background:
+    linear-gradient(180deg,rgba(255,252,246,.92),rgba(239,231,213,.82)),
+    radial-gradient(circle at 50% 0%,rgba(49,95,104,.10),transparent 44%);
+  box-shadow:0 16px 42px rgba(44,36,24,.06);
+}
+#home-screen .followup-card::before{
+  left:50%;
+  right:auto;
+  top:24px;
+  bottom:20px;
+  width:1px;
+  height:auto;
+  border:0;
+  border-radius:0;
+  background:linear-gradient(180deg,transparent,rgba(44,36,24,.16),transparent);
+  transform:translateX(-50%);
+}
+#home-screen .followup-card::after{
+  right:18px;
+  bottom:0;
+  font-size:64px;
+  color:rgba(44,36,24,.06);
+}
+#home-screen .followup-card-kicker{
+  color:var(--jade);
+}
+#home-screen .followup-card-title{
+  font-size:18px;
+}
+#home-screen .followup-card-desc{
+  max-width:24ch;
+  margin-top:10px;
+  font-size:13px;
+}
+#home-screen .followup-card-arrow{
+  border:1px solid rgba(49,95,104,.18);
+  color:var(--jade);
+}
+#home-screen .home-entry-group:not(.home-entry-group-secondary){
+  margin-top:18px;
+}
+#home-screen .home-quick-row{
+  margin-top:10px;
+  padding-top:0;
+  border-top:0;
+}
+#home-screen .home-quick-item{
+  min-height:64px;
+  border-radius:18px;
+  background:rgba(255,252,246,.64);
+  box-shadow:none;
+}
+#home-screen .quick-icon{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  color:var(--ink-light);
+}
+.daily-deep-card{
+  position:relative;
+  overflow:hidden;
+}
+.daily-deep-card::after{
+  content:'';
+  position:absolute;
+  right:16px;
+  top:16px;
+  width:78px;
+  height:78px;
+  border-radius:50%;
+  border:1px solid rgba(49,95,104,.14);
+  opacity:.5;
+  pointer-events:none;
+}
+.daily-deep-points{
+  grid-template-columns:1fr;
+}
+.ai-followup-panel{
+  padding:16px;
+}
+.ai-followup-head{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:12px;
+}
+.ai-followup-head::after{
+  content:'AI';
+  flex:0 0 auto;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(49,95,104,.18);
+  color:var(--jade);
+  font-family:var(--font-serif);
+  font-size:12px;
+  letter-spacing:.08em;
+  background:rgba(255,252,246,.72);
+}
+.ai-followup-entry{
+  border-style:solid;
+  border-color:rgba(49,95,104,.16);
+  background:rgba(255,252,246,.66);
+}
+.ai-followup-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.ai-followup-chip{
+  min-height:44px;
+  border-radius:999px;
+  text-align:center;
+  font-size:12px;
+}
+.ai-followup-result.is-visible{
+  animation:fadeIn .24s ease;
+}
+.ai-modal-overlay{
+  background:rgba(27,22,16,.52);
+  backdrop-filter:blur(5px);
+}
+.ai-modal{
+  border-radius:34px 34px 22px 22px;
+  border-color:rgba(216,206,188,.92);
+  background:
+    radial-gradient(circle at 50% -12%,rgba(49,95,104,.16),transparent 34%),
+    linear-gradient(180deg,rgba(255,252,246,.98),rgba(239,230,214,.97));
+}
+.ai-modal-grid{
+  gap:8px;
+}
+.ai-modal-block{
+  border-radius:18px;
+  background:rgba(255,252,246,.78);
+}
+.bz-flow-nav-head{
+  display:none;
+}
+.bz-flow-tabs{
+  border-top:1px solid rgba(216,206,188,.82);
+  border-radius:22px;
+}
+.bz-flow-tab{
+  min-height:58px;
+}
+.bz-flow-tab span{
+  display:none;
+}
+.bz-flow-status{
+  margin-top:10px;
+}
+@media (min-width:820px){
+  #home-screen .home-today-board{
+    grid-template-columns:minmax(0,1fr) minmax(310px,.76fr);
+  }
+  #home-screen .home-today-grid,
+  #home-screen .home-today-actions{
+    align-self:end;
+  }
+  #home-screen .home-followup-grid{
+    grid-template-columns:1.08fr .96fr .96fr;
+  }
+}
+@media (max-width:560px){
+  #home-screen.screen.scrollable{
+    padding-top:12px;
+  }
+  #home-screen .home-inner{
+    padding-left:12px;
+    padding-right:12px;
+  }
+  #home-screen .home-title-block{
+    padding-top:22px;
+  }
+  #home-screen .home-title{
+    font-size:2.35rem;
+  }
+  #home-screen .home-today-board{
+    padding:15px;
+    border-radius:28px 28px 20px 20px;
+  }
+  #home-screen .home-today-card.is-primary{
+    padding:12px;
+  }
+  #home-screen .home-followup-grid{
+    gap:10px;
+  }
+  #home-screen .followup-card{
+    min-height:112px;
+    border-radius:26px 26px 16px 16px;
+  }
+  #home-screen .followup-card-desc{
+    max-width:30ch;
+  }
+  .ai-followup-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .ai-followup-head{
+    display:block;
+  }
+  .ai-followup-head::after{
+    display:none;
+  }
+  .bz-flow-tabs{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:6px;
+  }
+  .bz-flow-tab{
+    align-items:center;
+    min-height:48px;
+    padding:8px 4px;
+    text-align:center;
+  }
+  .bz-flow-tab strong{
+    font-size:12px;
+  }
+  .bz-flow-tab em{
+    display:none;
+  }
+}
+
+/* ===== 观心 UI V3 · 山门/签帖/问案/镜盘 ===== */
+#home-screen .home-inner{
+  display:flex;
+  flex-direction:column;
+  max-width:980px;
+}
+#home-screen .home-title-block{order:0}
+#home-screen .home-today-board{order:1}
+#home-screen .home-entry-group-secondary{order:2}
+#home-screen .home-support-accordion{order:3}
+#home-screen .home-entry-group:not(.home-entry-group-secondary){order:4}
+#home-screen .home-title-block{
+  padding-top:20px;
+  margin-bottom:10px;
+}
+#home-screen .home-title{
+  font-size:clamp(2.15rem,5.8vw,2.8rem);
+}
+#home-screen .home-subtitle{
+  margin-top:2px;
+  line-height:1.55;
+}
+#home-screen .home-today-board{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center;
+  min-height:0;
+  padding:15px 16px;
+  margin-bottom:12px;
+  border-radius:26px;
+  background:
+    linear-gradient(90deg,rgba(49,95,104,.12),transparent 1px) 0 0/18px 100%,
+    radial-gradient(circle at 92% 18%,rgba(168,60,50,.08),transparent 28%),
+    linear-gradient(180deg,rgba(255,252,246,.95),rgba(239,231,214,.86));
+}
+#home-screen .home-today-board::before{
+  right:18px;
+  bottom:auto;
+  top:50%;
+  width:94px;
+  height:94px;
+  transform:translateY(-50%);
+  opacity:.55;
+}
+#home-screen .home-today-board::after{
+  border-style:dashed;
+}
+#home-screen .home-today-head{
+  display:grid;
+  gap:4px;
+}
+#home-screen .home-today-date{
+  grid-row:1;
+  width:max-content;
+  min-height:28px;
+  padding:0 10px;
+  font-size:11px;
+}
+#home-screen .home-today-title{
+  max-width:18ch;
+  font-size:clamp(1.05rem,3.4vw,1.42rem);
+  line-height:1.32;
+}
+#home-screen .home-today-summary{
+  grid-column:1;
+  margin:0;
+  max-width:42ch;
+  font-size:12px;
+  line-height:1.58;
+}
+#home-screen .home-today-grid{
+  grid-column:1;
+  margin:0;
+}
+#home-screen .home-today-card.is-primary{
+  display:block;
+  padding:0;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+#home-screen .home-today-card.is-primary strong{
+  display:inline-flex;
+  min-height:26px;
+  align-items:center;
+  padding:0 10px;
+  border-radius:999px;
+  background:rgba(49,95,104,.08);
+  color:var(--jade);
+  font-size:12px;
+}
+#home-screen .home-today-card.is-primary span{
+  max-width:42ch;
+  font-size:12px;
+  color:var(--ink-light);
+}
+#home-screen .home-today-actions{
+  grid-column:2;
+  grid-row:1 / span 3;
+  min-width:180px;
+  margin:0;
+}
+#home-screen .home-today-actions > .btn-primary{
+  min-height:78px;
+  border-radius:24px;
+  padding:12px 18px;
+  writing-mode:vertical-rl;
+  letter-spacing:.18em;
+  box-shadow:0 12px 30px rgba(168,60,50,.16);
+}
+#home-screen .home-entry-group-secondary{
+  margin-top:0;
+}
+#home-screen .home-entry-group-secondary .home-entry-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:12px;
+  margin-bottom:8px;
+}
+#home-screen .home-entry-title{
+  font-size:1rem;
+  letter-spacing:.12em;
+}
+#home-screen .home-entry-copy{
+  max-width:none;
+  margin:0;
+}
+#home-screen .home-followup-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+#home-screen .followup-card{
+  min-height:118px;
+  padding:14px 14px 12px;
+  border-radius:22px 22px 14px 14px;
+  border:1px solid rgba(49,95,104,.18);
+  border-top:4px solid rgba(49,95,104,.35);
+  background:
+    linear-gradient(180deg,rgba(255,252,246,.90),rgba(240,232,215,.78));
+  box-shadow:0 10px 28px rgba(44,36,24,.055);
+}
+#home-screen .followup-card::before,
+#home-screen .followup-card::after{
+  content:none;
+}
+.gate-sigil{
+  position:absolute;
+  right:14px;
+  top:14px;
+  width:34px;
+  height:26px;
+  display:grid;
+  gap:5px;
+  opacity:.72;
+}
+.gate-sigil i{
+  display:block;
+  height:3px;
+  border-radius:999px;
+  background:rgba(44,36,24,.45);
+}
+.gate-sigil-self i:nth-child(2){
+  background:linear-gradient(90deg,rgba(44,36,24,.45) 0 42%,transparent 42% 58%,rgba(44,36,24,.45) 58% 100%);
+}
+.gate-sigil-ask i:nth-child(1),
+.gate-sigil-ask i:nth-child(3){
+  background:linear-gradient(90deg,rgba(44,36,24,.45) 0 42%,transparent 42% 58%,rgba(44,36,24,.45) 58% 100%);
+}
+#home-screen .followup-card-head{
+  padding-right:42px;
+}
+#home-screen .followup-card-kicker{
+  font-size:11px;
+  color:var(--gold);
+}
+#home-screen .followup-card-title{
+  font-size:17px;
+}
+#home-screen .followup-card-desc{
+  max-width:26ch;
+  margin-top:8px;
+  font-size:12px;
+  line-height:1.58;
+}
+#home-screen .followup-card-arrow{
+  display:none;
+}
+#home-screen .home-support-accordion{
+  margin-top:12px;
+}
+#home-screen .home-entry-group:not(.home-entry-group-secondary){
+  margin-top:12px;
+}
+#home-screen .home-entry-group:not(.home-entry-group-secondary) .home-entry-heading{
+  display:none;
+}
+#home-screen .home-quick-row{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:8px;
+}
+#home-screen .home-quick-item{
+  min-height:56px;
+  grid-template-columns:auto 1fr;
+  padding:9px 10px;
+  border-radius:16px;
+  border-color:rgba(216,206,188,.72);
+  background:rgba(255,252,246,.48);
+}
+#home-screen .quick-icon{
+  position:relative;
+  width:32px;
+  height:32px;
+  border-radius:12px;
+  border-color:rgba(49,95,104,.16);
+  background:rgba(49,95,104,.06);
+}
+#home-screen .quick-icon i,
+#home-screen .quick-icon::before,
+#home-screen .quick-icon::after{
+  content:'';
+  position:absolute;
+  border-radius:999px;
+  background:rgba(44,36,24,.52);
+}
+.quick-icon-book::before{left:9px;top:7px;width:1px;height:18px}
+.quick-icon-book::after{right:9px;top:7px;width:1px;height:18px}
+.quick-icon-book i:first-child{left:8px;top:8px;width:16px;height:1px}
+.quick-icon-book i:last-child{left:8px;bottom:8px;width:16px;height:1px}
+.quick-icon-number::before{left:8px;top:8px;width:16px;height:2px}
+.quick-icon-number::after{left:8px;bottom:8px;width:16px;height:2px}
+.quick-icon-number i:first-child{left:10px;top:14px;width:12px;height:2px}
+.quick-icon-number i:last-child{left:15px;top:6px;width:2px;height:20px}
+.quick-icon-history::before{left:8px;top:8px;width:16px;height:16px;border:2px solid rgba(44,36,24,.52);background:transparent}
+.quick-icon-history::after{left:16px;top:11px;width:2px;height:8px;transform-origin:bottom;transform:rotate(-45deg)}
+.quick-icon-history i{display:none}
+.quick-icon-plate::before{left:7px;top:7px;width:18px;height:18px;border:1px solid rgba(44,36,24,.52);background:transparent}
+.quick-icon-plate::after{left:15px;top:6px;width:2px;height:20px}
+.quick-icon-plate i:first-child{left:6px;top:15px;width:20px;height:2px}
+.quick-icon-plate i:last-child{display:none}
+#home-screen .quick-label{
+  font-size:12px;
+}
+#home-screen .quick-desc{
+  display:none;
+}
+
+/* 页面器物化：每日=签帖，问事=问案，命宫=镜盘 */
+.daily-hex-display{
+  border-radius:28px 28px 12px 12px;
+}
+.daily-brief-board{
+  border-radius:10px 26px 26px 10px;
+  border-left:5px solid rgba(168,60,50,.62);
+  background:
+    linear-gradient(90deg,rgba(168,60,50,.06),transparent 18%),
+    linear-gradient(180deg,rgba(255,252,246,.96),rgba(239,231,214,.9));
+}
+.daily-brief-grid{
+  grid-template-columns:1fr;
+}
+.daily-brief-item{
+  display:grid;
+  grid-template-columns:86px 1fr;
+  gap:10px;
+  align-items:start;
+  border:0;
+  border-top:1px solid rgba(216,206,188,.72);
+  border-radius:0;
+  background:transparent;
+  padding:12px 0 0;
+}
+.daily-brief-item strong{
+  min-height:32px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:999px;
+  background:rgba(49,95,104,.08);
+  color:var(--jade);
+  font-size:12px;
+}
+.daily-brief-item.is-avoid strong{
+  background:rgba(139,115,85,.10);
+  color:var(--gold);
+}
+.daily-deep-card{
+  border-radius:24px 8px 24px 8px;
+  background:
+    linear-gradient(135deg,transparent 0 72%,rgba(49,95,104,.055) 72%),
+    rgba(255,252,246,.70);
+}
+.result-landing-board{
+  border-radius:26px 10px 26px 10px;
+  border-left:5px solid rgba(49,95,104,.46);
+  background:
+    linear-gradient(90deg,rgba(49,95,104,.075),transparent 26%),
+    linear-gradient(180deg,rgba(255,252,246,.96),rgba(240,232,217,.92));
+}
+.result-landing-brief,
+.result-landing-item{
+  border:0;
+  border-top:1px solid rgba(216,206,188,.74);
+  border-radius:0;
+  background:transparent;
+}
+.div-reveal-card,
+.div-fold,
+.ai-followup-panel,
+.next-steps-card{
+  border-radius:18px;
+}
+.next-steps-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.next-step-btn{
+  border-radius:16px;
+  background:rgba(255,252,246,.62);
+}
+.bz-hero{
+  border-radius:50% 50% 32px 32px / 18% 18% 32px 32px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 50% 18%,rgba(49,95,104,.14),transparent 34%),
+    radial-gradient(circle at 50% 45%,rgba(255,252,246,.96),rgba(239,231,214,.88) 64%,transparent 65%),
+    linear-gradient(180deg,rgba(255,252,246,.92),rgba(238,228,209,.88));
+}
+.bz-hero::before{
+  border-radius:50% 50% 26px 26px / 18% 18% 26px 26px;
+}
+.bz-hero-badge{
+  background:rgba(49,95,104,.08);
+  border-color:rgba(49,95,104,.18);
+  color:var(--jade);
+}
+.bz-hero-quote{
+  text-align:left;
+  border-radius:18px;
+  background:rgba(255,252,246,.66);
+}
+.bz-flow-tabs{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  background:rgba(255,252,246,.58);
+}
+.bz-flow-tab{
+  align-items:center;
+  min-height:52px;
+  border-radius:999px;
+  text-align:center;
+}
+.bz-flow-tab em{
+  display:none;
+}
+@media (max-width:720px){
+  #home-screen .home-today-board{
+    grid-template-columns:1fr;
+  }
+  #home-screen .home-today-actions{
+    grid-column:1;
+    grid-row:auto;
+    min-width:0;
+  }
+  #home-screen .home-today-actions > .btn-primary{
+    writing-mode:horizontal-tb;
+    min-height:46px;
+    border-radius:999px;
+  }
+  #home-screen .home-followup-grid,
+  #home-screen .home-quick-row{
+    grid-template-columns:1fr;
+  }
+  #home-screen .followup-card{
+    min-height:96px;
+  }
+  .next-steps-list{
+    grid-template-columns:1fr;
+  }
+}
+
 /* ===== 问卦输入弹窗 · 古朴风 ===== */
 .question-modal-overlay{
   position:fixed;inset:0;z-index:9999;
@@ -1796,24 +3145,24 @@ body::after{
 .div-interpret p{font-size:var(--text-sm);color:var(--ink);line-height:1.9}
 .div-reveal-card{
   margin:0 0 var(--space-lg);
-  padding:var(--space-md);
-  border-radius:var(--radius-lg);
-  border:1px dashed rgba(139,115,85,0.38);
-  background:rgba(248,243,230,0.72);
+  padding:12px 14px;
+  border-radius:18px;
+  border:1px solid rgba(216,206,188,0.82);
+  background:rgba(255,252,246,0.78);
   text-align:left;
 }
 .div-reveal-card h4{
   margin:0 0 6px;
   font-family:var(--font-serif);
-  font-size:var(--text-sm);
-  color:var(--gold);
+  font-size:13px;
+  color:var(--ink-deep);
   letter-spacing:0.08em;
 }
 .div-reveal-card p{
   margin:0;
-  font-size:var(--text-sm);
+  font-size:12px;
   color:var(--ink-light);
-  line-height:1.8;
+  line-height:1.62;
 }
 .div-fold{
   margin-bottom:var(--space-md);
@@ -3585,7 +4934,7 @@ body::after{
   margin-bottom:var(--space-lg);
 }
 .bz-flow-nav-head{
-  padding:12px 14px 10px;
+  padding:10px 12px 8px;
   border:1px solid rgba(216,206,188,0.82);
   border-bottom:none;
   border-radius:20px 20px 0 0;
@@ -3601,9 +4950,9 @@ body::after{
 }
 .bz-flow-nav-head span{
   display:block;
-  font-size:var(--text-xs);
+  font-size:11px;
   color:var(--ink-light);
-  line-height:1.68;
+  line-height:1.5;
 }
 .bz-flow-tabs{
   display:grid;
@@ -3622,7 +4971,7 @@ body::after{
   align-items:flex-start;
   justify-content:flex-start;
   gap:4px;
-  min-height:72px;
+  min-height:64px;
   border:1px solid rgba(216,206,188,0.92);
   border-radius:18px;
   background:rgba(255,252,246,0.92);
@@ -3630,7 +4979,7 @@ body::after{
   font-family:var(--font-sans);
   font-size:var(--text-xs);
   text-align:left;
-  padding:12px 12px 11px;
+  padding:10px 11px 9px;
   cursor:pointer;
   transition:background 0.2s var(--ease-ink),color 0.2s var(--ease-ink),transform 0.2s var(--ease-ink),border-color 0.2s var(--ease-ink),box-shadow 0.2s var(--ease-ink);
 }
@@ -3643,9 +4992,17 @@ body::after{
 }
 .bz-flow-tab span{
   display:block;
-  font-size:11px;
-  line-height:1.6;
+  font-size:10px;
+  line-height:1.45;
   color:var(--ink-light);
+}
+.bz-flow-tab em{
+  display:block;
+  margin-top:2px;
+  font-style:normal;
+  font-size:10px;
+  letter-spacing:0.06em;
+  color:var(--ink-faint);
 }
 .bz-flow-tab.is-active{
   background:linear-gradient(180deg,rgba(168,60,50,0.9),rgba(145,51,43,0.92));
@@ -3657,6 +5014,9 @@ body::after{
 .bz-flow-tab.is-active strong,
 .bz-flow-tab.is-active span{
   color:var(--paper-light);
+}
+.bz-flow-tab.is-active em{
+  color:rgba(255,247,238,0.76);
 }
 .bz-flow-status{
   display:flex;
@@ -5051,14 +6411,14 @@ body::after{
     <button class="home-settings-btn" onclick="openSettings()" title="设置" aria-label="打开设置">设置</button>
     <div class="home-title-block">
       <h1 class="home-title">观 心</h1>
-      <p class="home-subtitle">先看外面这卦，再看自己今天会怎么起反应。</p>
-      <div class="home-intro-note"><strong>今天先做</strong><span>先看今日落点，再决定要学、要问，还是先回看自己。</span></div>
+      <p class="home-subtitle">从一卦入门，照见当下，也照见自己。</p>
+      <div class="home-intro-note"><strong>今天先做</strong><span>先看今日一卦，再按需要去看自己或问一事。</span></div>
     </div>
     <div class="home-today-board" id="home-today-board">
       <div class="home-today-head">
         <div>
-          <span class="home-today-kicker">今日主线</span>
-          <div class="home-today-title" id="home-today-title">先看今天这一层，再决定往哪走</div>
+          <span class="home-today-kicker">今日主门</span>
+          <div class="home-today-title" id="home-today-title">今天先从这一卦入门</div>
         </div>
         <div class="home-today-date" id="home-today-date"></div>
       </div>
@@ -5074,7 +6434,7 @@ body::after{
         </div>
       </div>
       <div class="home-today-actions">
-        <button class="btn btn-primary" onclick="showDailyHex()">先看今日一卦</button>
+        <button class="btn btn-primary" onclick="showDailyHex()">进入今日一卦</button>
         <div class="home-secondary-actions">
           <button class="btn btn-outline" onclick="showBaZhai()">看命宫照面</button>
           <button class="btn btn-outline" onclick="doQuestionHex()">直接去问事</button>
@@ -5082,8 +6442,8 @@ body::after{
       </div>
       <div class="home-return-strip" id="home-return-strip">
         <span class="home-return-chip">
-          <strong>如果你现在更想走别的入口</strong>
-          <span id="home-return-reason">先看今天的提醒，再决定是继续练习、回看旧问题，还是直接去问。</span>
+          <strong>如果你不是来读今天这一卦</strong>
+          <span id="home-return-reason">也可以直接去看自己、回看旧问题，或立刻围绕一件事起卦。</span>
           <span class="home-return-links">
             <button type="button" class="home-return-link" onclick="showBaZhai()">先看自己</button>
             <button type="button" class="home-return-link" onclick="openSevenDayReview()">回看旧问题</button>
@@ -5092,6 +6452,12 @@ body::after{
         </span>
       </div>
     </div>
+    <details class="home-support-accordion">
+      <summary class="home-support-summary">
+        <span>练习、回看与节律</span>
+        <em>想继续时再看</em>
+      </summary>
+      <div class="home-support-body">
     <div class="home-review-card" id="home-review-card">
       <div class="home-review-eyebrow">七日回看</div>
       <h3 id="home-review-title">回看一周前的这次提问</h3>
@@ -5161,23 +6527,16 @@ body::after{
         <button class="btn btn-outline" type="button" onclick="showDailyHex()">回到今日一卦</button>
       </div>
     </div>
+      </div>
+    </details>
     <div class="home-entry-group home-entry-group-secondary">
       <div class="home-entry-heading">
-        <div class="home-entry-title">继续往下看</div>
-        <p class="home-entry-copy">首屏先给方向，下面这些入口再负责继续学、继续问、继续回看。</p>
+        <div class="home-entry-title">三扇门</div>
+        <p class="home-entry-copy">按此刻最需要的方向进入即可。</p>
       </div>
       <div class="home-followup-grid">
-        <button type="button" class="followup-card" onclick="showBaZhai()" aria-label="打开命宫档案">
-          <div class="followup-card-head">
-            <div>
-              <span class="followup-card-kicker">先看自己</span>
-              <span class="followup-card-title">命宫档案</span>
-            </div>
-            <span class="followup-card-arrow" aria-hidden="true">&rarr;</span>
-          </div>
-          <p class="followup-card-desc">你的性格底色、情绪惯性和今年节奏，都从这里继续往下看。</p>
-        </button>
         <button type="button" class="followup-card" onclick="showDailyHex()" aria-label="打开每日一卦">
+          <span class="gate-sigil gate-sigil-daily" aria-hidden="true"><i></i><i></i><i></i></span>
           <div class="followup-card-head">
             <div>
               <span class="followup-card-kicker">每天看一卦</span>
@@ -5185,9 +6544,21 @@ body::after{
             </div>
             <span class="followup-card-arrow" aria-hidden="true">&rarr;</span>
           </div>
-          <p class="followup-card-desc">先用白话抓重点，再慢慢读卦辞、象辞和这一天真正该守的节奏。</p>
+          <p class="followup-card-desc">想知道今天怎么安顿自己，就先从这一卦进入。</p>
+        </button>
+        <button type="button" class="followup-card" onclick="showBaZhai()" aria-label="打开命宫档案">
+          <span class="gate-sigil gate-sigil-self" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div class="followup-card-head">
+            <div>
+              <span class="followup-card-kicker">先看自己</span>
+              <span class="followup-card-title">命宫档案</span>
+            </div>
+            <span class="followup-card-arrow" aria-hidden="true">&rarr;</span>
+          </div>
+          <p class="followup-card-desc">看你的情绪底色和默认反应，适合慢慢认识自己。</p>
         </button>
         <button type="button" class="followup-card" onclick="doQuestionHex()" aria-label="打开以事问卦">
+          <span class="gate-sigil gate-sigil-ask" aria-hidden="true"><i></i><i></i><i></i></span>
           <div class="followup-card-head">
             <div>
               <span class="followup-card-kicker">当下有惑</span>
@@ -5195,39 +6566,39 @@ body::after{
             </div>
             <span class="followup-card-arrow" aria-hidden="true">&rarr;</span>
           </div>
-          <p class="followup-card-desc">心里已经有一件卡住的事时，直接来问，先拿一个能落地的行动方向。</p>
+          <p class="followup-card-desc">心里有具体问题时再来，先得到一句可落地的提醒。</p>
         </button>
       </div>
     </div>
     <div class="home-entry-group">
       <div class="home-entry-heading">
-        <div class="home-entry-title">更多功能</div>
-        <p class="home-entry-copy">图鉴、历史和工具都在这里。</p>
+        <div class="home-entry-title">更多</div>
+        <p class="home-entry-copy">想查资料、回看记录或重新排盘，可以从这里打开。</p>
       </div>
       <div class="home-quick-row">
         <button type="button" class="home-quick-item" onclick="showEncyclopedia()" aria-label="打开卦象图鉴">
-          <div class="quick-icon">图</div>
+          <div class="quick-icon quick-icon-book" aria-hidden="true"><i></i><i></i></div>
           <div class="quick-body">
             <span class="quick-label">卦象图鉴</span>
             <span class="quick-desc">查卦名、看结构、继续学习</span>
           </div>
         </button>
         <button type="button" class="home-quick-item" onclick="doNumberDiv()" aria-label="打开数字起卦">
-          <div class="quick-icon">数</div>
+          <div class="quick-icon quick-icon-number" aria-hidden="true"><i></i><i></i></div>
           <div class="quick-body">
             <span class="quick-label">数字起卦</span>
             <span class="quick-desc">直接输入数字，快速起卦</span>
           </div>
         </button>
         <button type="button" class="home-quick-item" onclick="showHistory()" aria-label="打开占卦历史">
-          <div class="quick-icon">史</div>
+          <div class="quick-icon quick-icon-history" aria-hidden="true"><i></i><i></i></div>
           <div class="quick-body">
             <span class="quick-label">占卦历史</span>
             <span class="quick-desc">回看提问、收藏和主题变化</span>
           </div>
         </button>
         <button type="button" class="home-quick-item" onclick="goTo('birthday')" aria-label="重新填写生辰信息">
-          <div class="quick-icon">盘</div>
+          <div class="quick-icon quick-icon-plate" aria-hidden="true"><i></i><i></i></div>
           <div class="quick-body">
             <span class="quick-label">重新排盘</span>
             <span class="quick-desc">更新生辰信息，重建档案</span>
@@ -5236,6 +6607,12 @@ body::after{
       </div>
     </div>
   </div>
+  <nav class="home-bottom-nav" aria-label="首页主导航">
+    <button type="button" class="is-active" onclick="showDailyHex()">今日</button>
+    <button type="button" onclick="showBaZhai()">自己</button>
+    <button type="button" onclick="doQuestionHex()">问事</button>
+    <button type="button" onclick="showHistory()">更多</button>
+  </nav>
 </div>
 
 <!-- ===== 每日一卦·科普浏览 ===== -->
@@ -5253,7 +6630,7 @@ body::after{
       <div class="tags-row" id="daily-tags" style="margin-top:var(--space-sm)"></div>
     </div>
     <div class="daily-brief-board">
-      <span class="daily-brief-kicker">今日这卦落点</span>
+      <span class="daily-brief-kicker">今日落点</span>
       <div class="daily-brief-title" id="daily-brief-title"></div>
       <p class="daily-brief-focus" id="daily-brief-focus"></p>
       <div class="daily-brief-grid">
@@ -5273,17 +6650,17 @@ body::after{
       </div>
     </div>
     <div class="daily-deep-card">
-      <span class="daily-deep-kicker">再看卦义深读</span>
-      <div class="daily-deep-title">今天先抓住重点，想学深一点再点进去</div>
-      <p class="daily-deep-copy">卦辞、象曰、上下卦结构和白话解释都保留，但不再默认整页铺开。先抓今天这一层，再决定要不要继续读深。</p>
+      <span class="daily-deep-kicker">想学深一点</span>
+      <div class="daily-deep-title">先懂今天怎么用，再看卦从哪里来</div>
+      <p class="daily-deep-copy">这里保留卦辞、象曰、上下卦结构和白话抓手。想学周易象法时再进入，不想深读也不影响今天使用。</p>
       <div class="daily-deep-points">
         <div class="daily-deep-point">
-          <strong>适合什么时候点开</strong>
-          <span>想知道这卦为什么这样看，或想顺手学一点卦义和象法的时候。</span>
+          <strong>适合什么时候看</strong>
+          <span>当你想知道这卦为什么这样提醒，或想顺手学一点卦义和象法。</span>
         </div>
         <div class="daily-deep-point">
-          <strong>进去后会看到什么</strong>
-          <span>卦象图解、卦辞、象曰、白话抓手，以及它在现实里最容易提醒你的那一层。</span>
+          <strong>里面有什么</strong>
+          <span>卦象图解、卦辞、象曰、白话抓手，以及它落到现实里的提醒。</span>
         </div>
       </div>
       <div class="daily-deep-actions">
@@ -5338,7 +6715,7 @@ body::after{
         <div class="shake-progress-bar" id="shake-progress-bar"></div>
       </div>
     </div>
-    <p class="shake-hint" id="shake-hint">长按按钮凝聚心神，松手得签</p>
+    <p class="shake-hint" id="shake-hint">轻点或长按按钮，凝神得签</p>
   </div>
 </div>
 
@@ -5377,9 +6754,9 @@ body::after{
       <div class="term-grid" id="div-term-grid"></div>
     </div>
     <div class="result-landing-board">
-      <span class="result-landing-kicker">今日落点</span>
-      <div class="result-landing-headline">先抓住这卦落到今天最该处理的那一层</div>
-      <p class="result-landing-copy" id="result-landing-copy">先把这一步看实，再决定要不要继续深读或追问。</p>
+      <span class="result-landing-kicker">本卦先看</span>
+      <div class="result-landing-headline">先抓住这件事当下最该看清的一层</div>
+      <p class="result-landing-copy" id="result-landing-copy">先把一句判断和一个动作看清，再决定要不要深读或追问。</p>
       <div class="result-landing-brief">
         <strong>一句落点</strong>
         <span id="result-landing-overall"></span>
@@ -5396,8 +6773,8 @@ body::after{
       </div>
     </div>
     <div class="div-reveal-card">
-      <h4>继续往下看什么</h4>
-      <p>如果你已经抓到今天该做什么，就可以先停在这里；想知道这卦为什么这样看，再展开下面这层。</p>
+      <h4>想学深一点，再展开下面这层</h4>
+      <p>如果你已经知道今天先做什么，这里就够了。只有想继续追根到底时，再看卦辞、互卦和变卦。</p>
     </div>
     <details class="div-fold" id="div-more-fold">
       <summary>展开卦义、互卦和变卦</summary>
@@ -5423,11 +6800,11 @@ body::after{
     <!-- AI主题追问 -->
     <div class="ai-followup-panel" id="ai-followup-panel">
       <div class="ai-followup-head">
-        <h4>想把这卦落到更具体的问题里</h4>
-        <p>先点一次 AI 解读，再继续追问感情、事业、钱财或身心这些细分主题。</p>
+        <h4>AI 追问</h4>
+        <p>先让 AI 围绕本卦整理一次，再按感情、事业、钱财、身心继续细问。</p>
       </div>
       <div class="ai-followup-entry" id="ai-followup-entry">
-        <p>AI 不会替你做现实决定，只会围绕本卦、动爻、互卦和变卦，把这层意思翻成更具体的话。</p>
+        <p>它只做卦象翻译和现实提醒，不替你做现实决定。</p>
         <div class="ai-followup-actions">
           <button class="btn btn-primary" id="ai-btn" type="button" onclick="requestAIInterpret()">先看 AI 解读</button>
         </div>
@@ -5442,7 +6819,7 @@ body::after{
           <button type="button" class="ai-followup-chip" data-followup-topic="timing" onclick="setAIFollowupTopic('timing', this)">现在是推进还是缓一缓</button>
         </div>
         <div class="ai-followup-form">
-          <div class="ai-followup-mode-note">追问只围绕当前这卦、本卦动爻、互卦和变卦来解释，不替你直接下现实决定。</div>
+          <div class="ai-followup-mode-note">追问会锁定本卦、动爻、互卦和变卦，不给绝对结论。</div>
           <label class="ai-followup-label" for="ai-followup-input">也可以自己补一句，适合问更细的现实场景</label>
           <textarea id="ai-followup-input" class="ai-followup-input" placeholder="例如：结合这卦，我想专门问问这段关系里我该先看什么？"></textarea>
           <div class="ai-followup-actions">
@@ -5466,7 +6843,7 @@ body::after{
       </div>
     </div>
     <div class="next-steps-card">
-      <h4>下一步可以这样继续</h4>
+      <h4>接下来</h4>
       <div class="next-steps-list">
         <button class="next-step-btn" id="favorite-result-btn" onclick="favoriteCurrentResult()" aria-pressed="false">
           <strong>收藏这次卦象</strong>
@@ -6998,7 +8375,7 @@ function resetBamboo(){
   const btn = document.getElementById('shake-btn');
   if(btn){ btn.disabled = false; btn.style.opacity='1'; btn.classList.remove('pressing'); }
   const hint = document.getElementById('shake-hint');
-  if(hint){ hint.style.display=''; hint.textContent='长按按钮凝聚心神，松手得签'; }
+  if(hint){ hint.style.display=''; hint.textContent='轻点或长按按钮，凝神得签'; }
   const sub = document.getElementById('bamboo-sub');
   if(sub){ sub.textContent='心诚则灵 · 一事一占'; }
   const pw = document.getElementById('shake-progress-wrap');
@@ -7092,17 +8469,25 @@ function initShakeButton(){
     } else if(pendingCallback){
       /* 太短 → 提示继续 */
       if(qian) qian.classList.remove('shaking');
-      document.getElementById('bamboo-text').textContent = '心念未凝，请再试一次';
+      document.getElementById('bamboo-text').textContent = '心念已起，正在出签...';
       const hint = document.getElementById('shake-hint');
-      if(hint) hint.textContent = '长按至少1.5秒，静心凝神';
+      if(hint) hint.textContent = '轻点也可出签，长按会保留仪式感';
       const pb = document.getElementById('shake-progress-bar');
       if(pb) pb.style.width = '0%';
     }
   }
 
+  function onQuickClick(e){
+    if(!pendingCallback || btn.disabled || isPressing) return;
+    e.preventDefault();
+    mindMoment = Date.now() + Math.floor(Math.random()*100);
+    triggerBambooShake();
+  }
+
   /* 鼠标事件 */
   btn.addEventListener('mousedown', onPressStart);
   btn.addEventListener('mouseup', onPressEnd);
+  btn.addEventListener('click', onQuickClick);
   btn.addEventListener('mouseleave', function(e){
     if(isPressing) onPressEnd(e);
   });
@@ -7347,7 +8732,7 @@ function updateResultLanding(hex, actionData){
   var summary = generateSummary(hex);
   overallEl.textContent = (actionData && actionData.overall) || summary.s1;
   avoidEl.textContent = (actionData && actionData.avoid) || summary.s3;
-  copyEl.textContent = actionData ? '先把这层落到你正在问的事里，再决定要不要继续追问。' : '先把这一卦落到今天，再决定要不要继续深读、追问或回看旧问题。';
+  copyEl.textContent = actionData ? 'AI 已经把这卦落到你的主题里，先看动作，再看边界。' : '先看一句判断、一个动作和一个边界，再决定要不要继续深读或追问。';
   updateResultActionTip((actionData && actionData.action) || summary.s2);
 }
 
@@ -8424,7 +9809,7 @@ function updateHomeTodayBoard(){
   var mirror = getHomeMingGongMirror();
 
   date.textContent = daily.dateText;
-  dailyTitle.textContent = '今日落点 · 第' + daily.id + '卦 ' + daily.name;
+  dailyTitle.textContent = '第' + daily.id + '卦 · ' + daily.name;
   dailyText.textContent = daily.cardText || daily.summary;
 
   if(mirror){
@@ -8435,22 +9820,22 @@ function updateHomeTodayBoard(){
     practiceText.textContent = '先建命宫档案，这里才会开始显示你今天最容易冒出的旧反应。';
   }
 
-  title.textContent = daily.summary;
+  title.textContent = daily.name + '：' + daily.summary;
 
   if(hasReview){
-    summary.textContent = '先看今天这一层，再回看那次还没彻底放下的旧问题。';
+    summary.textContent = '今天先读这一卦，也可以回看那件还没放下的旧问题。';
     updateHomeReturnReason('更想回看旧问题，就从下面的七日回看继续，不用重新起一卦。');
     return;
   }
 
   if(practice && practice.action){
     var meta = getPracticeStateMeta(practice);
-    summary.textContent = '先看今天落在哪，再把已经记下的那一步走完。';
+    summary.textContent = '今天先看卦，再把已经记下的那一步走完。';
     updateHomeReturnReason(meta.badge + '：先把下面这一步做完，再决定要不要继续开新问题。');
     return;
   }
 
-  summary.textContent = '先看今天这一卦在提醒什么，再对照自己会先起什么反应。';
+  summary.textContent = '不需要先懂术语，先看这卦提醒你今天怎么用力。';
   updateHomeReturnReason('想先看自己，就去命宫档案；想直接处理一件事，就从问卦入口进去。');
 }
 
@@ -9333,6 +10718,13 @@ function summarizeInsightText(text, fallback){
   var summary = parts.slice(0,2).join('。');
   if(summary && summary.slice(-1)!=='。') summary += '。';
   return summary || fallback || raw;
+}
+
+function compactText(text, limit, fallback){
+  var raw = String(text || fallback || '').replace(/\s+/g,' ').trim();
+  if(!raw) return fallback || '';
+  if(!limit || raw.length <= limit) return raw;
+  return raw.slice(0, limit).replace(/[，。、“”‘’；：,.;!?？！、\s]+$/,'') + '…';
 }
 
 function renderInsightSections(sections){
@@ -10330,6 +11722,80 @@ function getFriendlyAIError(rawMessage){
   return 'AI 解读暂时没有成功返回内容，你可以稍后再试，或者先查看卦辞、启示和七日回看。';
 }
 
+function openAIModal(state, data){
+  var overlay = document.getElementById('ai-modal-overlay');
+  if(!overlay) return;
+  var kicker = document.getElementById('ai-modal-kicker');
+  var title = document.getElementById('ai-modal-title');
+  var status = document.getElementById('ai-modal-status');
+  var statusText = document.getElementById('ai-modal-status-text');
+  var spinner = document.getElementById('ai-modal-spinner');
+  var grid = document.getElementById('ai-modal-grid');
+  var blocks = ['ai-modal-core','ai-modal-theme','ai-modal-action','ai-modal-boundary'];
+  overlay.classList.add('active');
+  document.body.classList.add('modal-open');
+  if(status) status.classList.remove('ai-modal-error');
+
+  if(state === 'loading'){
+    if(kicker) kicker.textContent = 'AI 正在生成';
+    if(title) title.textContent = '正在把这卦说短、说清';
+    if(statusText) statusText.textContent = '可以先停在这里，也可以去看别的页面；生成完成后会重新弹在这里。';
+    if(spinner) spinner.style.display = 'inline-block';
+    if(grid) grid.style.display = 'none';
+    blocks.forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) el.textContent = '';
+    });
+    return;
+  }
+
+  if(state === 'error'){
+    if(kicker) kicker.textContent = 'AI 暂时不可用';
+    if(title) title.textContent = '这次没有成功生成';
+    if(statusText) statusText.textContent = data && data.message ? data.message : '可以稍后再试，或先看本页的卦意与行动建议。';
+    if(spinner) spinner.style.display = 'none';
+    if(status) status.classList.add('ai-modal-error');
+    if(grid) grid.style.display = 'none';
+    return;
+  }
+
+  if(kicker) kicker.textContent = 'AI 解读已完成';
+  if(title) title.textContent = '这次卦象先这样看';
+  if(statusText) statusText.textContent = '已同步到结果页，也保留在弹窗里，方便你马上阅读或继续追问。';
+  if(spinner) spinner.style.display = 'none';
+  if(grid) grid.style.display = 'grid';
+  data = data || {};
+  var values = {
+    'ai-modal-core': data.core || data.overall || '',
+    'ai-modal-theme': data.themed || data.current || '',
+    'ai-modal-action': data.action || '',
+    'ai-modal-boundary': data.boundary || data.avoid || ''
+  };
+  Object.keys(values).forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) el.textContent = values[id];
+  });
+}
+
+function closeAIModal(){
+  var overlay = document.getElementById('ai-modal-overlay');
+  if(overlay) overlay.classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+
+function focusAIFollowupInput(){
+  closeAIModal();
+  setAIFollowupReady(true);
+  if(currentPage !== 'result'){
+    goTo('result');
+  }
+  var input = document.getElementById('ai-followup-input');
+  if(input){
+    input.scrollIntoView({behavior:'smooth', block:'center'});
+    setTimeout(function(){ input.focus(); }, 260);
+  }
+}
+
 async function requestAIByBrowserKey(localKey, payload){
   var resp = await fetch('https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions', {
     method:'POST',
@@ -10377,10 +11843,11 @@ async function requestAIInterpret(){
   var loading = document.getElementById('ai-loading');
   var followupInput = document.getElementById('ai-followup-input');
   clearAIContent();
+  openAIModal('loading');
 
   if(btn) btn.disabled = true;
   if(submitBtn) submitBtn.disabled = true;
-  loading.style.display = 'block';
+  if(loading) loading.style.display = 'block';
 
   var question = lastDivQuestion || '用户未说明具体问题';
   var yaoData = YAO_CI[hex.id];
@@ -10443,6 +11910,7 @@ async function requestAIInterpret(){
     setAIFollowupReady(true);
     renderAIActionCard(aiAction);
     renderAIFollowupResult(parsed);
+    openAIModal('success', parsed);
 
     /* Persist AI result to current record */
     window._lastAIResult = rawText;
@@ -10459,11 +11927,13 @@ async function requestAIInterpret(){
 
   } catch(e){
     showToast('AI解读暂时不可用');
-    renderAIError(getFriendlyAIError(e && e.message ? e.message : ''));
+    var friendlyMessage = getFriendlyAIError(e && e.message ? e.message : '');
+    renderAIError(friendlyMessage);
+    openAIModal('error', {message:friendlyMessage});
   } finally {
     if(btn) btn.disabled = false;
     if(submitBtn) submitBtn.disabled = false;
-    loading.style.display = 'none';
+    if(loading) loading.style.display = 'none';
   }
 }
 
@@ -10924,23 +12394,30 @@ function showBaZhai(options){
   html+='<button onclick="goBack(\'home\')" style="background:none;border:1px solid var(--ink-ghost);border-radius:var(--radius-sm);padding:var(--space-xs) var(--space-sm);font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light);cursor:pointer">&larr; 返回</button>';
   html+='</div>';
   html+='<h2 style="font-family:var(--font-display);font-size:var(--text-xl);color:var(--ink-deep);letter-spacing:0.12em;margin-bottom:var(--space-xs)">命宫档案</h2>';
-  html+='<p style="font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light)">先看个人底色，再按需进入八星磁场与深读 · '+curYear+'流年参考</p>';
+  html+='<p style="font-family:var(--font-serif);font-size:var(--text-sm);color:var(--ink-light)">认识你的情绪底色、默认反应与现实侧重点 · '+curYear+'流年参考</p>';
   html+='</div>';
+
+  var heroIntro = compactText((experienceModel.firstSentence || '') + ' ' + (experienceModel.secondSentence || ''), 66, experienceModel.intro);
+  var heroAction = compactText(experienceModel.actionNow, 58, experienceModel.actionNow);
+  var nextAction = compactText(experienceModel.actionNow, 54, experienceModel.actionNow);
+  var nextAvoid = compactText(experienceModel.avoidNow, 48, experienceModel.avoidNow);
+  var nextReview = compactText(experienceModel.reviewQuestion, 50, experienceModel.reviewQuestion);
+  var focusCards = (experienceModel.cards || []).slice(0, 2);
 
   html+='<div class="bz-hero">';
   html+='<span class="bz-hero-badge">'+mg.sym+' '+mg.name+'宫 · '+grp+'</span>';
   html+='<div class="bz-hero-title">'+experienceModel.headline+'</div>';
-  html+='<p class="bz-hero-sub">'+experienceModel.intro+'</p>';
-  html+='<div class="bz-hero-quote"><strong>'+experienceModel.quoteLabel+'</strong><span>'+experienceModel.actionNow+'</span></div>';
+  html+='<p class="bz-hero-sub">'+heroIntro+'</p>';
+  html+='<div class="bz-hero-quote"><strong>'+experienceModel.quoteLabel+'</strong><span>'+heroAction+'</span></div>';
   html+='</div>';
 
   html+='<div class="bz-next-panel">';
-  html+='<h3>今天先这样用</h3>';
-  html+='<p>先做一个动作，少走一个惯性反应，晚上再回来核对一次就够了。</p>';
+  html+='<h3>先拿一个观察点</h3>';
+  html+='<p>命宫是长期底色，不必每天变。今天只取一个观察点，晚上回看是否真的出现。</p>';
   html+='<div class="bz-next-steps">';
-  html+='<div class="bz-next-step"><mark>做</mark><div><strong>今天先做</strong><span>'+escapeHtml(experienceModel.actionNow)+'</span></div></div>';
-  html+='<div class="bz-next-step"><mark>止</mark><div><strong>今天先不要</strong><span>'+escapeHtml(experienceModel.avoidNow)+'</span></div></div>';
-  html+='<div class="bz-next-step"><mark>看</mark><div><strong>晚上回看</strong><span>'+escapeHtml(experienceModel.reviewQuestion)+'</span></div></div>';
+  html+='<div class="bz-next-step"><mark>做</mark><div><strong>今天先做</strong><span>'+escapeHtml(nextAction)+'</span></div></div>';
+  html+='<div class="bz-next-step"><mark>止</mark><div><strong>今天先不要</strong><span>'+escapeHtml(nextAvoid)+'</span></div></div>';
+  html+='<div class="bz-next-step"><mark>看</mark><div><strong>晚上回看</strong><span>'+escapeHtml(nextReview)+'</span></div></div>';
   html+='</div>';
   html+='<div class="bz-next-actions">';
   html+='<button type="button" class="bz-next-btn" onclick="saveMingGongPractice(window._minggongPractice.action,window._minggongPractice.avoid,window._minggongPractice.review)">记下今日练习</button>';
@@ -10949,12 +12426,12 @@ function showBaZhai(options){
   html+='</div>';
 
   html+='<div class="bz-flow-nav">';
-  html+='<div class="bz-flow-nav-head"><strong>从这里切换四层内容</strong><span>先看底色，再按需要去现实、八星磁场或原文深读。</span></div>';
+  html+='<div class="bz-flow-nav-head"><strong>选一层看</strong><span>先看此刻最有用的一层，不必一次读完。</span></div>';
   html+='<div class="bz-flow-tabs">';
-  html+='<button type="button" class="bz-flow-tab is-active" data-flow="focus" onclick="switchBzFlow(\'focus\')"><strong>先看底色</strong><span>先认识你的性格底色</span></button>';
-  html+='<button type="button" class="bz-flow-tab" data-flow="scene" onclick="switchBzFlow(\'scene\')"><strong>看现实</strong><span>直接看事业感情身心钱财</span></button>';
-  html+='<button type="button" class="bz-flow-tab" data-flow="magnet" onclick="switchBzFlow(\'magnet\')"><strong>八星磁场</strong><span>点方位看哪颗星在放大你</span></button>';
-  html+='<button type="button" class="bz-flow-tab" data-flow="deep" onclick="switchBzFlow(\'deep\')"><strong>看原文</strong><span>再去读术语和传统原文</span></button>';
+  html+='<button type="button" class="bz-flow-tab is-active" data-flow="focus" onclick="switchBzFlow(\'focus\')"><strong>底色</strong><span>默认反应</span><em>第 1 层</em></button>';
+  html+='<button type="button" class="bz-flow-tab" data-flow="scene" onclick="switchBzFlow(\'scene\')"><strong>现实</strong><span>四个生活方向</span><em>第 2 层</em></button>';
+  html+='<button type="button" class="bz-flow-tab" data-flow="magnet" onclick="switchBzFlow(\'magnet\')"><strong>八星</strong><span>磁场观察</span><em>第 3 层</em></button>';
+  html+='<button type="button" class="bz-flow-tab" data-flow="deep" onclick="switchBzFlow(\'deep\')"><strong>原文</strong><span>术语学习</span><em>第 4 层</em></button>';
   html+='</div>';
   html+='</div>';
   html+='<div class="bz-flow-status">';
@@ -10976,7 +12453,7 @@ function showBaZhai(options){
   html+='<span class="bz-action-note">'+experienceModel.yearFocus+' '+(lnAdvice[wxr.rel]||'')+'</span>';
   html+='</div>';
   html+='<div class="bz-glance-grid">';
-  experienceModel.cards.forEach(function(card){
+  focusCards.forEach(function(card){
     html+='<div class="bz-glance-card"><strong>'+card.title+'</strong><span>'+card.text+'</span></div>';
   });
   html+='</div>';
@@ -11277,6 +12754,35 @@ function closeEncDetail(){
       <button class="qm-btn qm-btn-submit" onclick="saveApiKey()">保存</button>
     </div>
   </div>
+</div>
+
+<!-- AI 解读弹窗 -->
+<div id="ai-modal-overlay" class="ai-modal-overlay" onclick="if(event.target===this)closeAIModal()">
+  <section class="ai-modal" role="dialog" aria-modal="true" aria-labelledby="ai-modal-title">
+    <div class="ai-modal-head">
+      <div>
+        <span class="ai-modal-kicker" id="ai-modal-kicker">AI 解读</span>
+        <h3 class="ai-modal-title" id="ai-modal-title">正在整理这次卦象</h3>
+      </div>
+      <button class="ai-modal-close" type="button" onclick="closeAIModal()" aria-label="关闭 AI 解读弹窗">&times;</button>
+    </div>
+    <div class="ai-modal-body">
+      <div class="ai-modal-status" id="ai-modal-status">
+        <span class="ai-modal-spinner" id="ai-modal-spinner" aria-hidden="true"></span>
+        <span id="ai-modal-status-text">请稍等，生成完成后会停留在这里，不会让你错过内容。</span>
+      </div>
+      <div class="ai-modal-grid" id="ai-modal-grid" style="display:none">
+        <div class="ai-modal-block"><strong>卦里怎么看</strong><span id="ai-modal-core"></span></div>
+        <div class="ai-modal-block"><strong>放到这个主题里</strong><span id="ai-modal-theme"></span></div>
+        <div class="ai-modal-block"><strong>今天先怎么做</strong><span id="ai-modal-action"></span></div>
+        <div class="ai-modal-block"><strong>边界提醒</strong><span id="ai-modal-boundary"></span></div>
+      </div>
+      <div class="ai-modal-actions">
+        <button class="btn btn-primary" type="button" onclick="closeAIModal()">留在当前页继续看</button>
+        <button class="btn btn-outline" type="button" onclick="focusAIFollowupInput()">继续追问此卦</button>
+      </div>
+    </div>
+  </section>
 </div>
 
 <!-- 新手引导浮层 -->
